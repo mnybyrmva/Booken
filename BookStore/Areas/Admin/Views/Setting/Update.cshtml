@@ -1,0 +1,18 @@
+﻿@model Setting
+<div class="container">
+    <h1>Create</h1>
+    <div>
+        <form method="post" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label asp-for="Key" class="form-label">Key</label>
+                <input asp-for="Key" class="form-control" placeholder="Key">
+            </div>
+            <div class="mb-3">
+                <label asp-for="Value" class="form-label">Value</label>
+                <input asp-for="Value" class="form-control" placeholder="Value">
+            </div>
+            <button type="submit" class="btn btn-primary">Create</button>
+            <a asp-controller="Setting" asp-action="Index" class="btn btn-outline-success">Back</a>
+        </form>
+    </div>
+</div>

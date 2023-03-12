@@ -1,0 +1,41 @@
+﻿@model Team
+<div class="container">
+    <h1>Image Created:</h1>
+    <form method="post" asp-action="Edit" enctype="multipart/form-data">
+        <div class="mb-3">
+            <label asp-for="FullName" class="form-label">FullName</label>
+            <input asp-for="FullName" class="form-control" placeholder="FullName">
+        </div>
+        <div class="mb-3">
+            <label asp-for="Instagram" class="form-label">Instagram</label>
+            <input asp-for="Instagram" class="form-control" placeholder="Instagram">
+        </div>
+        <div class="mb-3">
+            <label asp-for="Facebook" class="form-label">Facebook</label>
+            <input asp-for="Facebook" class="form-control" placeholder="Facebook">
+        </div>
+        <div class="mb-3">
+            <label asp-for="Twitter" class="form-label">Twitter</label>
+            <input asp-for="Twitter" class="form-control" placeholder="Twitter">
+        </div>
+        <div class="mb-3 col-md-4">
+            <label asp-for="ImageFile" class="form-label">ImageFile</label>
+            <input asp-for="ImageFile" class="form-control" placeholder="ImageFile">
+            <span asp-validation-for="ImageFile" class="text-danger"></span>
+
+        </div>
+        <div class=" col-md-4">
+            <label asp-for="Position">Positions</label>
+            <select asp-for="Position" class="form-select" aria-label="Default select example">
+                <option selected>Open this select menu</option>
+                @foreach (Position position in ViewBag.Position)
+                {
+                    <option value="@position.Id">@position.Name</option>
+                }
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Edit Team</button>
+        <a asp-controller="Team" asp-action="Index" class="btn btn-outline-success">Back</a>
+
+    </form>
+</div>

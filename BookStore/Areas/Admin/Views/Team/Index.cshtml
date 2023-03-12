@@ -1,0 +1,49 @@
+﻿@model List<Team>
+@{
+    int count = 0;
+}
+@section Css{
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.7.2/sweetalert2.min.css" integrity="sha512-NvuRGlPf6cHpxQqBGnPe7fPoACpyrjhlSNeXVUY7BZAj1nNhuNpRBq3osC4yr2vswUEuHq2HtCsY2vfLNCndYA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+}
+<div class="container">
+    <div>
+        <h1>Teams:</h1>
+        <a asp-action="create" asp-controller="Team" class="btn btn-primary">Create</a>
+    </div>
+    <div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Id</th>
+                    <th scope="col">FullName</th>
+                    <th scope="col">Profession</th>
+                    <th scope="col">Image</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (Team team in Model)
+                {
+                    count++;
+                    <tr>
+                        <th scope="row">@count</th>
+                        <td>@team.Id</td>
+                        <td>@team.FullName</td>
+                        <td>@team.Position.Name</td>
+                        <td style="width:200px"><img width="!00%" src="~/uploads/teams/@team.ImageUrl" /></td>
+
+                        <td>
+                            <a asp-action="Update" asp-controller="Team" asp-route-id="@team.Id" class="btn btn-primary">Update</a>
+                            <a asp-action="HardDelete" asp-controller="Team" asp-route-id="@team.Id" class="btn btn-danger delete-button">HardDelete</a>
+                            <a asp-action="SoftDelete" asp-controller="Team" asp-route-id="@team.Id" class="btn btn-danger ">SoftDelete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+@section Scripts{
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.7.2/sweetalert2.min.js" integrity="sha512-jSNGQoIZ0qago6DK45skZbDI1JC8bmANSwItgDnMXiAnJm0Lq6QB4yXY8QPKqS68iR3ngZi0pM5+wZvg1kCCKQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    }

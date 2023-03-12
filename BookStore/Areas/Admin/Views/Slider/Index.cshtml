@@ -1,0 +1,47 @@
+﻿@model List<Slider>
+@{
+    int count = 0;
+}
+@section Css{
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.7.2/sweetalert2.min.css" integrity="sha512-NvuRGlPf6cHpxQqBGnPe7fPoACpyrjhlSNeXVUY7BZAj1nNhuNpRBq3osC4yr2vswUEuHq2HtCsY2vfLNCndYA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+}
+<div class="container">
+    <div class="d-flex" style="justify-content: space-around; align-items:center">
+        <h1>Sliders:</h1>
+        <th><a class="btn btn-primary" asp-controller="Slider" asp-action="Create">Create</a></th>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Id</th>
+                <th scope="col">Title1</th>
+                <th scope="col">Title2</th>
+                <th scope="col">Image</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Slider slider in Model)
+            {
+                count++;
+                <tr>
+                    <th scope="row">@count</th>
+                    <td>@slider.Id</td>
+                    <td>@slider.Title1</td>
+                    <td>@slider.Title2</td>
+                    <td><div style="Width:200px"><img style="max-width:100%" src="~/uploads/sliders/@slider.ImageUrl" /></div></td>
+                    <th>
+                        <a class="btn btn-primary " asp-controller="Slider" asp-action="Edit" asp-route-id="@slider.Id">Edit</a>
+                        <a class="btn btn-danger delete-button" asp-controller="Slider" asp-action="HardDelete" asp-route-id="@slider.Id">HardDelete</a>
+                        <a class="btn btn-danger " asp-controller="Slider" asp-action="SoftDelete" asp-route-id="@slider.Id">SoftDelete</a>
+                    </th>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+</div>
+@section Scripts{
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.7.2/sweetalert2.min.js" integrity="sha512-jSNGQoIZ0qago6DK45skZbDI1JC8bmANSwItgDnMXiAnJm0Lq6QB4yXY8QPKqS68iR3ngZi0pM5+wZvg1kCCKQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    }

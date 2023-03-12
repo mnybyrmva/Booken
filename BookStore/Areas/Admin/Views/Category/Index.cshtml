@@ -1,0 +1,43 @@
+﻿@model List<Category>
+@{
+    int count = 0;
+}
+@section Css{
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.7.2/sweetalert2.min.css" integrity="sha512-NvuRGlPf6cHpxQqBGnPe7fPoACpyrjhlSNeXVUY7BZAj1nNhuNpRBq3osC4yr2vswUEuHq2HtCsY2vfLNCndYA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+}
+<div class="container">
+    <div class="d-flex" style="justify-content: space-around; align-items:center">
+        <h1>Categories:</h1>
+        <th><a class="btn btn-primary" asp-controller="Category" asp-action="Create">Create</a></th>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Id</th>
+                <th scope="col">Name</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Category category in Model)
+            {
+                count++;
+                <tr>
+                    <th scope="row">@count</th>
+                    <td>@category.Id</td>
+                    <td>@category.Name</td>
+                    <th>
+                        <a class="btn btn-primary" asp-controller="Category" asp-action="Edit" asp-route-id="@category.Id">Edit</a>
+                        <a asp-controller="Category" asp-action="HardDelete" asp-route-id="@category.Id" class="btn btn-danger delete-button">HardDelete</a>
+                        <a asp-controller="Category" asp-action="SoftDelete" asp-route-id="@category.Id" class="btn btn-danger ">SoftDelete</a>
+                    </th>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+</div>
+@section Scripts{
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.7.2/sweetalert2.min.js" integrity="sha512-jSNGQoIZ0qago6DK45skZbDI1JC8bmANSwItgDnMXiAnJm0Lq6QB4yXY8QPKqS68iR3ngZi0pM5+wZvg1kCCKQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    }

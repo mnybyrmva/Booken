@@ -1,0 +1,88 @@
+﻿@model List<BasketItem>
+<main>
+
+    <div id="shopify-section-template--14792674279539__main" class="shopify-section">
+        <link href="~/assets/code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" media="all" />
+        <script src="~/assets/ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js" type="text/javascript"></script>
+        <!-- PAGE SECTION START -->
+        <div class="cart-main-area pt-95 pb-100" id="section-template--14792674279539__main">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 col-12">
+                        <div class="empty-cart-page">
+                            <h2>Shopping Cart</h2>
+                            <h3>Your cart is currently empty.</h3>
+                            <p>Continue browsing <a href="collections/all.html">here</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- PAGE SECTION END --><!--[if (gt IE 9)|!(IE)]><!--><script src="~/assets/cdn.shopify.com/shopifycloud/shopify/assets/themes_support/shopify_common-8ea6ac3faf357236a97f5de749df4da6e8436ca107bc3a4ee805cbf08bc47392.js" defer="defer"></script><!--<![endif]-->
+        <!--[if lte IE 9]><script src="//cdn.shopify.com/shopifycloud/shopify/assets/themes_support/shopify_common-8ea6ac3faf357236a97f5de749df4da6e8436ca107bc3a4ee805cbf08bc47392.js"></script><![endif]-->
+
+        <script>
+            jQuery('<span class="quantity-button quantity-down dec qtybtn">-</span><span class="quantity-button quantity-up inc qtybtn">+</span>').insertAfter('.quantity input');
+            jQuery('.quantity').each(function () {
+                var spinner = jQuery(this),
+                    input = spinner.find('input[type="number"]'),
+                    btnUp = spinner.find('.quantity-up'),
+                    btnDown = spinner.find('.quantity-down'),
+                    min = input.attr('min'),
+                    max = input.attr('max');
+
+                btnUp.click(function () {
+                    var oldValue = parseFloat(input.val());
+                    if (oldValue >= max) {
+                        var newVal = oldValue;
+                    } else {
+                        var newVal = oldValue + 1;
+                    }
+                    spinner.find("input").val(newVal);
+                    spinner.find("input").trigger("change");
+                });
+
+                btnDown.click(function () {
+                    var oldValue = parseFloat(input.val());
+                    if (oldValue <= min) {
+                        var newVal = oldValue;
+                    } else {
+                        var newVal = oldValue - 1;
+                    }
+                    spinner.find("input").val(newVal);
+                    spinner.find("input").trigger("change");
+                });
+
+            });
+        </script>
+
+
+
+
+
+
+
+
+        <!--[if (gt IE 9)|!(IE)]><!--><script src="~/assets/cdn.shopify.com/shopifycloud/shopify/assets/themes_support/shopify_common-8ea6ac3faf357236a97f5de749df4da6e8436ca107bc3a4ee805cbf08bc47392.js" defer="defer"></script><!--<![endif]-->
+        <!--[if lte IE 9]><script src="//cdn.shopify.com/shopifycloud/shopify/assets/themes_support/shopify_common-8ea6ac3faf357236a97f5de749df4da6e8436ca107bc3a4ee805cbf08bc47392.js"></script><![endif]-->
+
+        <script>
+            $('.product-quantity').append('<span class="dec qtybtn"> (-) </span><span class="inc qtybtn"> (+) </span>');
+            $('.qtybtn').on('click', function () {
+                var $button = $(this);
+                var oldValue = $button.parent().find('input').val();
+                if ($button.hasClass('inc')) {
+                    var newVal = parseFloat(oldValue) + 1;
+                } else {
+                    // Don't allow decrementing below zero
+                    if (oldValue > 0) {
+                        var newVal = parseFloat(oldValue) - 1;
+                    } else {
+                        newVal = 0;
+                    }
+                }
+                $button.parent().find('input').val(newVal);
+            });
+        </script>
+    </div>
+</main>

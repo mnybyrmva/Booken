@@ -1,0 +1,156 @@
+﻿@model HomeViewModel
+<main>
+    <div id="shopify-section-template--15056306831475__main" class="shopify-section">
+        <div class="shop-area pt-95 pb-100 section-padding-3" id="section-template--15056306831475__main">
+            <div class="container">
+                <div class="row flex-row-reverse">
+                    <div class="col-lg-12">
+                        <div class="shop-bottom-area mt-35">
+                            <div class="tab-content jump">
+                                <div>
+                                    <div class="row ht-products custom_mobile_class ">
+                                        @foreach (Book book in Model.books)
+                                        {
+                                            <div class="col-md-3 ">
+                                                <div class="39251764772979 ht-product ht-product-action-style-2 ht-product-action-on-hover mb-30 ht-product-action-middle ht-product-countdown-bottom product-wrapper-class">
+                                                    <div class="ht-product-inner">
+                                                        <div class="ht-product-image-wrap product-color">
+                                                            @if (book.IsAvailable == false)
+                                                            {
+                                                                <span class="sale-title ht-product-label ht-product-label-right">Saldout</span>
+                                                            }
+                                                            else
+                                                            {
+                                                                if (book.DiscountPrice > 0)
+                                                                {
+                                                                    <span class="sale-title ht-product-label ht-product-label-right">Sale</span>
+                                                                    <span class="percent-count ht-product-label ht-product-label-right p_badge_p2">- @book.DiscountPrice %</span>
+                                                                }
+
+                                                                else
+                                                                {
+                                                                    <span class="sale-title ht-product-label ht-product-label-right">Soldout</span>
+                                                                }
+                                                            }
+                                                            <a asp-controller="Book" asp-action="Detail" asp-route-id="@book.Id" class="ht-product-image">
+                                                                <img class="popup_cart_image" src="~/uploads/books/@book.bookImages.FirstOrDefault(x=>x.IsPoster==true).ImageUrl" alt="The Green Spell Book">
+                                                            </a>
+                                                            <div class="ht-product-action">
+                                                                <ul>
+                                                                    <li>
+                                                                        <a asp-controller="Book" asp-action="Detail" asp-route-id="@book.Id">
+                                                                            <i class="sli sli-magnifier"></i>
+                                                                            <span class="ht-product-action-tooltip">Quick View</span>
+                                                                        </a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a class="action-wishlist tile-actions--btn flex wishlist-btn wishlist" href="javascript: void(0)" button-wishlist data-product-handle="product-dummy-title-2" data-toggle="tooltip" data-placement="left" title="">
+                                                                            <span class="add-wishlist"><i class="sli sli-heart"></i><span class="ht-product-action-tooltip">Add to wishlist</span></span>
+                                                                            <span class="loading-wishlist"><i class="sli sli-heart"></i><span class="ht-product-action-tooltip">Add to wishlist</span></span>
+                                                                            <span class="remove-wishlist"><i class="sli sli-heart"></i><span class="ht-product-action-tooltip">Add to wishlist</span></span>
+                                                                        </a>
+                                                                    </li>@if (book.IsAvailable == true)
+                                                                    {
+                                                                        <li>
+                                                                            <a asp-controller="Book" asp-action="AddtoBasket" asp-route-bookId="@book.Id" class="cart-able add-to-basket">
+                                                                                <i class="sli sli-bag"></i><span class="ht-product-action-tooltip">Add to Cart</span>
+                                                                            </a>
+                                                                        </li>
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        <li>
+                                                                            <a class="cart-disable remove_href">
+                                                                                <i class="sli sli-bag"></i><span class="ht-product-action-tooltip">Soldout</span>
+                                                                            </a>
+                                                                        </li>
+                                                                    }
+
+                                                                </ul>
+                                                            </div><div class="color_size_img_wrap">
+                                                                <div class="size-container">
+                                                                </div>
+
+
+                                                                <script>
+                                                                    $('.size_varient').parent('div').addClass('size_var_parent');
+                                                                    $('.size_var_parent').parent('div').addClass('size_var_conatiner');
+                                                                </script><ul class="color-categories grid-color-swatch"></ul>
+                                                            </div><script>
+                                                                      $('.color_img_variant').parent('ul').addClass('color_img_parent');
+                                                                      $('.color_img_parent').parent('div').addClass('color_img_conatiner');
+                                                            </script>
+                                                        </div>
+                                                        <div class="ht-product-content">
+                                                            <div class="ht-product-content-inner ">
+                                                                <div class="ht-product-categories ">
+                                                                    <a href="#" class="remove_href">@book.Category.Name</a>
+                                                                </div><h4 class="ht-product-title popup_cart_title"><a asp-controller="Book" asp-action="Detail" asp-route-id="@book.Id">@book.Name</a></h4>
+                                                                <div class="ht-product-price ">
+                                                                    @if (book.DiscountPrice > 0)
+                                                                    {
+                                                                        <span class="old">
+                                                                            <span class=money>$@book.SalePrice</span>
+                                                                        </span>
+                                                                        <span class="new">
+                                                                            <span class=money>$@(book.SalePrice * (1 - book.DiscountPrice / 100))</span>
+                                                                        </span>
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        <span class="new">
+                                                                            <span class=money>$@(book.SalePrice)</span>
+                                                                        </span>
+
+                                                                    }
+                                                                </div><div class="ht-product-ratting-wrap ">
+                                                                    <span class="ht-product-ratting spr-badge-caption-none">
+                                                                        <span class="shopify-product-reviews-badge" data-id="6536515125363"></span>
+                                                                    </span>
+                                                                </div>
+                                                            </div><div class="ht-product-action">
+                                                                <ul>
+                                                                    <li>
+                                                                        <a asp-controller="Book" asp-action="Detail" asp-route-id="@book.Id">
+                                                                            <i class="sli sli-magnifier"></i>
+                                                                            <span class="ht-product-action-tooltip">Quick View</span>
+                                                                        </a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a class="action-wishlist tile-actions--btn flex wishlist-btn wishlist" href="javascript: void(0)" button-wishlist data-product-handle="product-dummy-title-2" data-toggle="tooltip" data-placement="left" title="">
+                                                                            <span class="add-wishlist"><i class="sli sli-heart"></i><span class="ht-product-action-tooltip">Add to wishlist</span></span>
+                                                                            <span class="loading-wishlist"><i class="sli sli-heart"></i><span class="ht-product-action-tooltip">Add to wishlist</span></span>
+                                                                            <span class="remove-wishlist"><i class="sli sli-heart"></i><span class="ht-product-action-tooltip">Add to wishlist</span></span>
+                                                                        </a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="javascript:void(0);" onclick="Shopify.addItem(39251753795699, 1); return false;" class="ht-product-action-btn">
+                                                                            <i class="sli sli-bag"></i><span class="ht-product-action-tooltip">Add to cart</span>
+                                                                        </a>
+                                                                    </li>
+
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        }
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+    </div>
+</main>

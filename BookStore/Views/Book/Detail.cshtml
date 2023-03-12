@@ -1,0 +1,154 @@
+﻿@model BookViewModel
+<main>
+    <div id="shopify-section-template--14792674967667__main" class="shopify-section">
+        <section class="single-product" id="section-template--14792674967667__main">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="product-details-area common_slick_slider">
+
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6">
+                                    <div class="product-details-img">
+                                        <div class="zoompro-border zoompro-span" id="ProductPhoto">
+                                            <img id="ProductPhotoImg" class="product-zoom product_variant_image"
+                                                 data-image-id="" alt=@Model.Book.Name
+                                                 data-zoom-image="//uploads/books/@Model.Book.bookImages.FirstOrDefault(x=>x.IsPoster==true).ImageUrl"
+                                                 src="~/uploads/books/@Model.Book.bookImages.FirstOrDefault(x=>x.IsPoster==true).ImageUrl">
+                                            @if (Model.Book.IsAvailable == false)
+                                            {
+                                            <span class="sale-title ht-product-label ht-product-label-right">Saldout</span>
+                                                
+                                            }
+                                            else{
+                                                if (Model.Book.DiscountPrice>0){
+                                            <span class="sale-title ht-product-label ht-product-label-right">Sale</span>
+                                                    <span class="percent-count ht-product-label ht-product-label-right p_badge_p2">-@Model.Book.DiscountPrice %</span>
+                                                }
+                                                else
+                                                {
+                                                    <span class="sale-title ht-product-label ht-product-label-right">Sale</span>
+
+                                                }
+                                                }
+                                                </div>
+
+
+                                        <div id="ProductThumbs" class="mt-20 product-dec-slider">
+                                            @for(int i=0; i<Model.Book.bookImages.Count;i++){
+                                            <a class="product-single__thumbnail @(i==0?"active":" ")"
+                                               href="~/uploads/books/@Model.Book.bookImages[i].ImageUrl"
+                                               data-image="//uploads/books/@Model.Book.bookImages[i].ImageUrl"
+                                               data-zoom-image="//uploads/books/@Model.Book.bookImages[i].ImageUrl"
+                                               data-image-id="27973928222835">
+                                                    <img src="~/uploads/books/@Model.Book.bookImages[i].ImageUrl" alt="">
+                                            </a>
+                                            }
+
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-6 col-md-6">
+                                    <div class="product-details-content">
+                                        <form method="post" action="https://nokshi-2.myshopify.com/cart/add" id="AddToCartForm" accept-charset="UTF-8" class="product-content-inner" enctype="multipart/form-data">
+                                            <input type="hidden" name="form_type" value="product" /><input type="hidden" name="utf8" value="âœ“" /><h2 id="popup_cart_title">@Model.Book.Name</h2>
+                                            <div class="product-details-price">
+                                                <span id="ProductPrice"><span class=money>$@(Model.Book.SalePrice*(1-Model.Book.DiscountPrice/100))</span>
+                                                </span>
+                                                @if (Model.Book.DiscountPrice > 0)
+                                                {
+                                                    <span id="ComparePrice" class="old"><span class=money>$@Model.Book.SalePrice</span></span>
+                                                }
+                                            </div>
+                                            <div class="sku_size_vendor_type">
+                                                <div class="product-sku pro-details-rating-wrap">Author: <span class="variant-sku"> @Model.Book.Author.FullName </span></div>
+                                            </div>
+
+
+
+                                            <div class="product-sku pro-details-rating-wrap"> Category: <span class=""> @Model.Book.Category.Name </span></div>
+
+
+                                            <script>
+                                                var inv_qty = {};
+
+                                                inv_qty[39251765592179] = 15;
+
+                                                inv_qty[39251765624947] = 0;
+
+                                                inv_qty[39251765657715] = 5;
+
+                                                inv_qty[39251765690483] = 10;
+
+                                                inv_qty[39251765723251] = 9;
+
+                                                inv_qty[39251765756019] = 0;
+
+                                                inv_qty[39251765788787] = 0;
+
+                                            </script>
+
+                                            <div class="product-variant-inventory">
+                                                <span class="inventory-title">Availability:</span> <span class="variant-inventory">@(Model.Book.IsAvailable==true ? "In Stock":"Out of stock")</span>
+                                            </div>
+                                            <div class="product-description">
+                                                <p>@Model.Book.Desc</p>
+
+                                            </div>
+                                            <div class="single_product_special_feature">
+                                                <ul>
+
+                                                    <li><span class="label">Book Name: </span> <span class="desc">@Model.Book.Name</span></li>
+                                                    <li><span class="label">Author Name: </span> <span class="desc"><a href="~/assets/collections/vendors5f3f.html?q=Vendor%208" title="Vendor 8">@Model.Book.Author.FullName</a></span></li>
+                                                    <li><span class="label">Category Name: </span> <span class="desc"><a href="~/assets/collections/types34d4.html?q=Type%208" title="Type 8">@Model.Book.Category.Name</a></span></li>
+                                                </ul>
+                                            </div>
+
+
+                                            <div class="pro-details-quality sticky__pro_button">
+                                                <div class="product-quantity-action quantity-selector cart-plus-minus">
+                                                    <input class="cart-plus-minus-box" type="text" name="quantity" value="1">
+                                                </div>
+                                                <div class="pro-details-cart btn-hover product-cart-action">
+                                                    <button type="submit" id="AddToCart" class="sp_cart_btn">
+                                                        <span class="cart-title" id="AddToCartText">Add to cart</span>
+                                                    </button>
+                                                    <script>
+                                                        jQuery('#AddToCart').click(function (e) {
+                                                            e.preventDefault();
+                                                            Shopify.addItemFromFormStart('AddToCartForm', 6536515420275);
+                                                        });
+                                                    </script>
+                                                </div>
+                                                <div class="pro-details-wishlist">
+                                                    <a class="action-wishlist tile-actions--btn flex wishlist-btn wishlist" href="javascript: void(0)" button-wishlist data-product-handle="product-title-here-3" data-toggle="tooltip" data-placement="left" title="">
+                                                        <span class="add-wishlist"><i class="sli sli-heart"></i></span>
+                                                        <span class="loading-wishlist"><i class="sli sli-heart"></i></span>
+                                                        <span class="remove-wishlist"><i class="sli sli-heart"></i></span>
+                                                    </a>
+                                                </div>
+                                                
+                                            </div>
+                                            <div class="dynamic_btn">
+                                                <div data-shopify="payment-button" data-has-selling-plan="false" data-has-fixed-selling-plan="false" class="shopify-payment-button">
+                                                    <button class="shopify-payment-button__button shopify-payment-button__button--unbranded shopify-payment-button__button--hidden" disabled="disabled" aria-hidden="true">Â </button>
+                                                    <button class="shopify-payment-button__more-options shopify-payment-button__button--hidden" disabled="disabled" aria-hidden="true">Â </button></div>
+                                            </div>
+
+
+
+
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</main>
+

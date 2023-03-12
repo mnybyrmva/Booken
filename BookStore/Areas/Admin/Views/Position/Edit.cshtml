@@ -1,0 +1,13 @@
+﻿@model Position
+<div class="container">
+    <h1>Position Edit:</h1>
+    <form method="post">
+        <div class="mb-3">
+            <label asp-for="Name" class="form-label">Name</label>
+            <input asp-for="Name" class="form-control" placeholder="Name">
+        </div>
+        <button type="submit" class="btn btn-primary">Edit</button>
+        <a asp-controller="Position" asp-action="Index" class="btn btn-outline-success">Back</a>
+
+    </form>
+</div>

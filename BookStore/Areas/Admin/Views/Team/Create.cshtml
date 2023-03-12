@@ -1,0 +1,52 @@
+﻿@model Team
+<div class="container">
+    <h1>Create:</h1>
+    <div>
+        <form method="post" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label asp-for="FullName" class="form-label">FullName</label>
+                <input asp-for="FullName" class="form-control" placeholder="FullName">
+                <span asp-validation-for="FullName" style="color:red"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="ImageFile" class="form-label">Image</label>
+                <input asp-for="ImageFile" class="form-control" placeholder="Image">
+                <span asp-validation-for="ImageFile" style="color:red"></span>
+
+            </div>
+            <div class="mb-3">
+                <select asp-for="PositionId" class="form-select">
+                    <option asp-for="PositionId" selected>Open this select menu</option>
+                    @foreach (Position position in ViewBag.Position)
+                    {
+                        <option value="@position.Id">@position.Name</option>
+                    }
+                </select>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Facebook" class="form-label">Facebook</label>
+                <input asp-for="Facebook" class="form-control" placeholder="Facebook">
+                <span asp-validation-for="Facebook" style="color:red"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Twitter" class="form-label">Twitter</label>
+                <input asp-for="Twitter" class="form-control" placeholder="Twitter">
+                <span asp-validation-for="Twitter" style="color:red"></span>
+
+            </div>
+            <div class="mb-3">
+                <label asp-for="Instagram" class="form-label">Instagram</label>
+                <input asp-for="Instagram" class="form-control" placeholder="Instagram">
+                <span asp-validation-for="Instagram" style="color:red"></span>
+
+            </div>
+
+
+            <button type="submit" class="btn btn-primary">Create</button>
+            <a asp-controller="Team" asp-action="Index" class="btn btn-outline-success">Back</a>
+
+        </form>
+    </div>
+</div>

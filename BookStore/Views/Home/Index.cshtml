@@ -1,0 +1,1753 @@
+﻿@model HomeViewModel
+@section Css{
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.7.2/sweetalert2.min.css" integrity="sha512-NvuRGlPf6cHpxQqBGnPe7fPoACpyrjhlSNeXVUY7BZAj1nNhuNpRBq3osC4yr2vswUEuHq2HtCsY2vfLNCndYA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+}
+
+<main>
+    <div id="shopify-section-template--15056306929779__1633582665d480efa2" class="shopify-section">
+        <div class="slider-area default  slider_style_1" id="section-template--15056306929779__1633582665d480efa2" data-section="heroOwlSlider">
+            <div class="slider-active-boxed owl-carousel dot-style-1 dot_bottom nav-style-2" data-owl-carousel='{
+"loop": true,
+"dots": true,
+"nav": true,
+"autoplay": false,"navText": ["<i class=&#x27;sli sli-arrow-up&#x27;></i>","<i class=&#x27;sli sli-arrow-down&#x27;></i>"],"autoplayTimeout": 5000,
+"animateOut": "fadeOut",
+"animateIn": "fadeIn",
+"item": 1,
+"responsive": {
+"0": {
+"items": 1
+},
+"768": {
+"items": 1
+},
+"1000": {
+"items": 1
+}
+}}'>
+                @foreach (Slider slider in Model.Sliders)
+                { 
+                  <div  class="class-1633582665d480efa2-0 single-slider d-flex align-items-center " style="background-color:#effafa;height: 750px ;background-image: url('../uploads/sliders/@slider.ImageUrl')">
+                      <div class="default container ">
+                          <div class="row align-items-left  justify-content-left">
+                              <div class="col-xl-7 col-md-7 col-sm-12 col-12">
+                                  <div class="slider-content slider-animated-1 text-left"><h3 class="animated">@slider.Title1</h3><h1 class="animated">@slider.Title2</h1><p class="animated">@slider.Desc</p><div class="slider__animated__btn__wrap"><div class="slider-btn btn-hover">
+                            <a class="animated" href="@slider.RedirectUrlShop">
+                              Explore More  <i style="font-size:16px;" class="icofont-cart-alt"></i>
+                            </a>
+                          </div><div class="slider__animated__btn animated">
+                            <a class="video-popup magni_video_pop" href="@slider.RedirectUrlVideo">
+                              <i class="icofont-play"></i>
+                            </a></div></div></div>
+                    </div></div>
+                </div>
+                <style>
+                    font-face {
+          font-family: "Open Sans";
+          font-weight: 600;
+          font-style: normal;
+          src: url("https://fonts.shopifycdn.com/open_sans/opensans_n6.63a74f6cbbfef729fb07955b2d5b4cc83273862e.woff2?h1=bm9rc2hpLTIuYWNjb3VudC5teXNob3BpZnkuY29t&amp;hmac=b59e48f4ae60b7b41ef5b42d670e7e05a7a007738561bc24c1c6c8d8fb298792") format("woff2"),
+               url("https://fonts.shopifycdn.com/open_sans/opensans_n6.1c4dde7af5554df3b20e440ca17dc8a316a9e1d0.woff?h1=bm9rc2hpLTIuYWNjb3VudC5teXNob3BpZnkuY29t&amp;hmac=e20fb80148ea0e70f03e4b27d523ac7a0fc0cfdc9079ea4ba396b7b8f68136e0") format("woff");
+        }
+
+                    font-face {
+          font-family: "Open Sans";
+          font-weight: 600;
+          font-style: normal;
+          src: url("https://fonts.shopifycdn.com/open_sans/opensans_n6.63a74f6cbbfef729fb07955b2d5b4cc83273862e.woff2?h1=bm9rc2hpLTIuYWNjb3VudC5teXNob3BpZnkuY29t&amp;hmac=b59e48f4ae60b7b41ef5b42d670e7e05a7a007738561bc24c1c6c8d8fb298792") format("woff2"),
+               url("https://fonts.shopifycdn.com/open_sans/opensans_n6.1c4dde7af5554df3b20e440ca17dc8a316a9e1d0.woff?h1=bm9rc2hpLTIuYWNjb3VudC5teXNob3BpZnkuY29t&amp;hmac=e20fb80148ea0e70f03e4b27d523ac7a0fc0cfdc9079ea4ba396b7b8f68136e0") format("woff");
+        }
+
+                    font-face {
+          font-family: "Work Sans";
+          font-weight: 400;
+          font-style: normal;
+          src: url("https://fonts.shopifycdn.com/work_sans/worksans_n4.29e3afeb38a0ba35e784cf169a40e8beaf814daa.woff2?h1=bm9rc2hpLTIuYWNjb3VudC5teXNob3BpZnkuY29t&amp;hmac=463f7b21d8c060d11eca1082f5a3016c310c4a6825c5132e8ff86c8cb4d5e95b") format("woff2"),
+               url("https://fonts.shopifycdn.com/work_sans/worksans_n4.e7c533c4afbed28070f6ac45dbcfe6f37840c0a8.woff?h1=bm9rc2hpLTIuYWNjb3VudC5teXNob3BpZnkuY29t&amp;hmac=f8e7857c597bcc6312acb092d89fd8e046f6f2f7023262e9d063bbc3223b400f") format("woff");
+        }
+
+                    font-face {
+          font-family: "Work Sans";
+          font-weight: 400;
+          font-style: normal;
+          src: url("https://fonts.shopifycdn.com/work_sans/worksans_n4.29e3afeb38a0ba35e784cf169a40e8beaf814daa.woff2?h1=bm9rc2hpLTIuYWNjb3VudC5teXNob3BpZnkuY29t&amp;hmac=463f7b21d8c060d11eca1082f5a3016c310c4a6825c5132e8ff86c8cb4d5e95b") format("woff2"),
+               url("https://fonts.shopifycdn.com/work_sans/worksans_n4.e7c533c4afbed28070f6ac45dbcfe6f37840c0a8.woff?h1=bm9rc2hpLTIuYWNjb3VudC5teXNob3BpZnkuY29t&amp;hmac=f8e7857c597bcc6312acb092d89fd8e046f6f2f7023262e9d063bbc3223b400f") format("woff");
+        }
+
+
+                    #section-template--15056306929779__1633582665d480efa2.slider-area .class-1633582665d480efa2-0.single-slider .slider-content h3 {
+                      font-family: "Open Sans", sans-serif;
+                      font-style: normal;
+                      font-weight: 600;
+                      color:#f44344;
+                      font-size:70px;
+                      line-height: 80px;
+                      margin-bottom: 10px;
+                    }
+                    #section-template--15056306929779__1633582665d480efa2.slider-area .class-1633582665d480efa2-0.single-slider .slider-content h3 span {
+                      color: #f44344;
+                    }
+
+                    #section-template--15056306929779__1633582665d480efa2.slider-area .class-1633582665d480efa2-0.single-slider .slider-content h1 {
+                      font-family: "Open Sans", sans-serif;
+                      font-style: normal;
+                      font-weight: 600;
+                      color:#111111;
+                      font-size:70px;
+                      line-height: 80px;
+                      margin-bottom: 50px;
+                    }
+                    #section-template--15056306929779__1633582665d480efa2.slider-area .class-1633582665d480efa2-0.single-slider .slider-content h1 span {
+                      color: #f44344;
+                    }
+
+                    #section-template--15056306929779__1633582665d480efa2.slider-area .class-1633582665d480efa2-0.single-slider .slider-content p {
+                      font-family: "Work Sans", sans-serif;
+                      font-style: normal;
+                      font-weight: 400;
+                      color:#333333;
+                      font-size:18px;
+                      line-height: 30px;
+                      margin:0 0 30px;
+                    }
+
+                    #section-template--15056306929779__1633582665d480efa2.slider-area .class-1633582665d480efa2-0.single-slider .slider-content p span {
+                      color: #f44344;
+                    }
+
+                    #section-template--15056306929779__1633582665d480efa2.slider-area .class-1633582665d480efa2-0.single-slider .slider-content .slider-btn a {
+                      background-color: #111111;
+                      color: #ffffff;
+                      border: 1px solid #000000;
+                      border-radius: 50px;
+                      padding:20px 30px;
+                      text-transform: unset;
+                      font-size:16px;
+                      font-family: "Work Sans", sans-serif;
+                      font-style: normal;
+                      font-weight: 400;
+                    }
+                    #section-template--15056306929779__1633582665d480efa2.slider-area .class-1633582665d480efa2-0.single-slider .slider-content .slider__animated__btn__wrap{
+                      margin-top: 40px;
+                    }
+                    #section-template--15056306929779__1633582665d480efa2.slider-area .class-1633582665d480efa2-0.single-slider .slider-content .slider-btn a i {
+                      color: #ffffff;
+                      font-size:16px;
+                    }
+                    #section-template--15056306929779__1633582665d480efa2.slider-area .class-1633582665d480efa2-0.single-slider .slider-content .slider-btn a:hover {
+                      background-color: #ff6162;
+                      color: #ffffff;
+                      border: 1px solid #ff6162;
+                    }
+                    #section-template--15056306929779__1633582665d480efa2.slider-area .class-1633582665d480efa2-0.single-slider .slider-content .slider-btn a:hover i {
+                      color: #ffffff;
+                    }
+
+
+
+                    #section-template--15056306929779__1633582665d480efa2.slider-area .owl-item.active .class-1633582665d480efa2-0.single-slider .slider-animated-1 h3 {
+                      -webkit-animation-name: fadeInLeft;
+                      animation-name: fadeInLeft;
+                    }
+                    #section-template--15056306929779__1633582665d480efa2.slider-area .owl-item.active .class-1633582665d480efa2-0.single-slider .slider-animated-1 h1 {
+                      -webkit-animation-name: fadeInLeft;
+                      animation-name: fadeInLeft;
+                    }
+                    #section-template--15056306929779__1633582665d480efa2.slider-area .owl-item.active .class-1633582665d480efa2-0.single-slider .slider-animated-1 p {
+                      -webkit-animation-name: fadeInLeft;
+                      animation-name: fadeInLeft;
+                    }
+                    #section-template--15056306929779__1633582665d480efa2.slider-area .owl-item.active .class-1633582665d480efa2-0.single-slider .slider-animated-1 .animated{
+                      -webkit-animation-name: fadeInLeft;
+                      animation-name: fadeInLeft;
+                    }#section-template--15056306929779__1633582665d480efa2.slider-area .class-1633582665d480efa2-0.single-slider .slider-content .slider__animated__btn a {
+                        box-shadow: 0 4px 30px  rgba(255, 97, 98, 0.2);
+                        color: #ff6162;
+                        border: 1px solid #ff6162;
+                        font-size:18px;
+                        height: 65px;
+                        width: 65px;
+                        line-height: 65px;
+                      }
+
+                      #section-template--15056306929779__1633582665d480efa2.slider-area .class-1633582665d480efa2-0.single-slider .slider-content .slider__animated__btn span {
+                        color: #ff6162;
+                        font-size:18px;
+                        font-family: "Work Sans", sans-serif;
+                        font-style: normal;
+                        font-weight: 500;
+                      }
+
+                    #section-template--15056306929779__1633582665d480efa2.slider-area .class-1633582665d480efa2-0 .slider__animated__btn .magni_video_pop:before,
+                    #section-template--15056306929779__1633582665d480efa2.slider-area .class-1633582665d480efa2-0 .slider__animated__btn .magni_video_pop:after {
+                      -webkit-box-shadow: 0 0 0 0 #ff6162;
+                      -moz-box-shadow: 0 0 0 0 #ff6162;
+                      -ms-box-shadow:0 0 0 0 #ff6162;
+                      -o-box-shadow:0 0 0 0 #ff6162;
+                      box-shadow:0 0 0 0 #ff6162;
+                      height: 65px;
+                      width: 65px;
+                    }#section-template--15056306929779__1633582665d480efa2.slider-area .class-1633582665d480efa2-0.single-slider .slider-content h1 {
+                      position: relative;
+                    }
+
+                    #section-template--15056306929779__1633582665d480efa2.slider-area .class-1633582665d480efa2-0.single-slider .slider-content h1::before {
+                      position: absolute;
+                      content: "";
+                      background: #ff6162;
+                      height: 5px;
+                      width: 70px;
+                      bottom: -30px;
+                    }</style>
+              </div>
+                }
+
+
+      </div>
+  </div>
+  <style>
+    #section-template--15056306929779__1633582665d480efa2.slider-area .nav-style-1.owl-carousel .owl-nav div, 
+    #section-template--15056306929779__1633582665d480efa2.slider-area .nav-style-2 .owl-nav div, 
+    #section-template--15056306929779__1633582665d480efa2.slider-area .nav-style-3 .owl-nav div {
+      color: #ffffff;
+      background-color: #e1e1e1;
+      border: 1px solid #e1e1e1;
+      border-radius:50px;
+    }
+    #section-template--15056306929779__1633582665d480efa2.slider-area .nav-style-1.owl-carousel .owl-nav div:hover, 
+    #section-template--15056306929779__1633582665d480efa2.slider-area .nav-style-2 .owl-nav div:hover, 
+    #section-template--15056306929779__1633582665d480efa2.slider-area .nav-style-3 .owl-nav div:hover {
+      color: #ffffff;
+      background-color: #ff6162;
+      border: 1px solid #ff6162;
+    }
+  </style>
+<style>
+
+    #section-template--15056306929779__1633582665d480efa2.slider-area .dot-style-1 .owl-dots .owl-dot {
+      border: 1px solid #ff6162;
+      outline: 1px solid #ff6162;
+    }
+
+    #section-template--15056306929779__1633582665d480efa2.slider-area .dot-style-1 .owl-dots .owl-dot.active {
+      background-color: #ff6162;
+      border: 1px solid #ff6162;
+      outline: 1px solid #ff6162;
+    }    
+
+  </style>
+<style>
+.slider__animated__btn__wrap {
+    display: flex;
+  }
+
+.single-slider .slider-content .slider__animated__btn a {
+    height: 65px;
+    box-shadow: 0 4px 30px  rgba(244, 67, 68, 0.2);
+    position: absolute;
+    border-radius: 100%;
+    width: 65px;
+    line-height: 65px;
+    text-align: center;
+    color: #f44344;
+    border: 1px solid #f44344;
+}
+
+.single-slider .slider-content .slider__animated__btn {
+    margin-left: 40px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+  }
+  .single-slider .slider-content .slider-btn.slider__animated__btn a{
+    margin-right: 10px;
+  }
+
+.single-slider .slider-content .slider__animated__btn span {
+    position: relative;
+    left: 90px;
+    color: #f44344;
+}
+
+.slider__animated__btn .magni_video_pop:before,
+.slider__animated__btn .magni_video_pop:after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 65px;
+    width: 65px;
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    -webkit-transform-origin: center;
+    transform-origin: center center;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    border-radius: 50%;
+    -webkit-box-shadow: 0 0 0 0 #f44344;
+    -moz-box-shadow: 0 0 0 0 #f44344;
+    -ms-box-shadow:0 0 0 0 #f44344;
+    -o-box-shadow:0 0 0 0 #f44344;
+    box-shadow:0 0 0 0 #f44344;
+    -webkit-animation: ripple 3s infinite;
+    -moz-animation: ripple 3s infinite;
+    -ms-animation: ripple 3s infinite;
+    -o-animation: ripple 3s infinite;
+    animation: ripple 3s infinite;
+}
+
+.slider__animated__btn .magni_video_pop:before {
+    -webkit-animation-delay: .9s;
+    -moz-animation-delay: .9s;
+    -ms-animation-delay: .9s;
+    -o-animation-delay: .9s;
+    animation-delay: .9s;
+    content: "";
+    position: absolute;
+}
+
+.slider__animated__btn .magni_video_pop:after {
+    -webkit-animation-delay: .6s;
+    -moz-animation-delay: .6s;
+    -ms-animation-delay: .6s;
+    -o-animation-delay: .6s;
+    animation-delay: .6s;
+    content: "";
+    position: absolute;
+}
+
+-webkit-keyframes ripple {
+    70% {
+        box-shadow: 0 0 0 20px rgba(255, 255, 255, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+    }
+}
+
+keyframes ripple {
+    70% {
+        box-shadow: 0 0 0 20px rgba(255, 255, 255, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+    }
+}
+
+</style>
+<style>
+
+  media (min-width: 1171px) and (max-width: 1366px){
+    #section-template--15056306929779__1633582665d480efa2 .single-slider {
+      height: 700px !important;
+    }
+
+  }
+
+  media (min-width: 992px) and (max-width: 1170px){
+    #section-template--15056306929779__1633582665d480efa2 .single-slider {
+      height: 600px !important;
+    }
+
+  }  
+
+  media (min-width: 768px) and (max-width: 991px){
+    #section-template--15056306929779__1633582665d480efa2 .single-slider {
+      height: 500px !important;
+    }
+
+  }
+
+
+  media (min-width: 576px) and (max-width: 767px){
+    #section-template--15056306929779__1633582665d480efa2 .single-slider {
+      height: 500px !important;
+    }
+
+  }
+
+
+  media (max-width: 575px){
+    #section-template--15056306929779__1633582665d480efa2 .single-slider {
+      height: 500px !important;
+    }
+
+  }
+
+
+</style>
+</div>
+<div id="shopify-section-template--15056306929779__1645604654016f2c1d" class="shopify-section">
+    <div class="best_collection_area" id="section-template--15056306929779__1645604654016f2c1d" data-section="Best_Collection">
+        <div class="container-fluid section-padding-1">
+
+
+    <div
+      class=" blog-slider-active carsoule_arrow_style row"
+      data-slick='{
+
+    "infinite": true,
+    "slidesToShow": 5,
+    "slidesToScroll": 1,
+
+    	"arrows": true,
+    	"prevArrow": "<span class=&#x27;product-dec-icon product-dec-prev&#x27;><i class=&#x27;sli sli-arrow-left&#x27;></i></span>",
+    	"nextArrow": "<span class=&#x27;product-dec-icon product-dec-next&#x27;><i class=&#x27;sli sli-arrow-right&#x27;></i></span>",
+
+
+    "responsive": [
+    {
+      "breakpoint": 1370,
+      "settings": {
+      "slidesToShow": 3,
+      "slidesToScroll": 1
+      }
+    },
+    {
+      "breakpoint": 991,
+      "settings": {
+      "slidesToShow": 2,
+      "slidesToScroll": 1
+      }
+    },
+    {
+      "breakpoint": 575,
+      "settings": {
+      "slidesToShow": 1,
+      "slidesToScroll": 1
+      }
+    }
+    ] 
+
+    }'
+    >
+
+  </div>
+</div>
+<style data-shopify>#section-template--15056306929779__1645604654016f2c1d{padding-top: 50px;
+    padding-bottom: 0px;}
+  media (min-width: 768px) and (max-width: 991px) {
+    #section-template--15056306929779__1645604654016f2c1d{padding-top: 40px;
+      padding-bottom: 0px;}
+  }
+  media (max-width: 767px) {
+    #section-template--15056306929779__1645604654016f2c1d{padding-top: 30px;
+      padding-bottom: 0px;}
+  }</style>
+
+<style>font-face {
+  font-family: "Geometric 415";
+  font-weight: 600;
+  font-style: normal;
+  src: url("https://fonts.shopifycdn.com/geometric_415/geometric415_n6.6c07d0f3010ebbcc9d76d3c536ab8f3dc02aa413.woff2?h1=bm9rc2hpLTIuYWNjb3VudC5teXNob3BpZnkuY29t&amp;hmac=23b62ad739ff7c21fafc261769fb119f85ed58385835375f59c1e5f4fac94d86") format("woff2"),
+       url("https://fonts.shopifycdn.com/geometric_415/geometric415_n6.7e0c2baf3f330a976f7cdfd832163142119eaf10.woff?h1=bm9rc2hpLTIuYWNjb3VudC5teXNob3BpZnkuY29t&amp;hmac=08b7207a6cad8c91caa7ea62cd07890758431e9f4161a9ef23f25b79bcb680d9") format("woff");
+}
+
+  font-face {
+  font-family: "Work Sans";
+  font-weight: 400;
+  font-style: normal;
+  src: url("https://fonts.shopifycdn.com/work_sans/worksans_n4.29e3afeb38a0ba35e784cf169a40e8beaf814daa.woff2?h1=bm9rc2hpLTIuYWNjb3VudC5teXNob3BpZnkuY29t&amp;hmac=463f7b21d8c060d11eca1082f5a3016c310c4a6825c5132e8ff86c8cb4d5e95b") format("woff2"),
+       url("https://fonts.shopifycdn.com/work_sans/worksans_n4.e7c533c4afbed28070f6ac45dbcfe6f37840c0a8.woff?h1=bm9rc2hpLTIuYWNjb3VudC5teXNob3BpZnkuY29t&amp;hmac=f8e7857c597bcc6312acb092d89fd8e046f6f2f7023262e9d063bbc3223b400f") format("woff");
+}
+
+
+
+  #section-template--15056306929779__1645604654016f2c1d .section-title h2{
+    font-family: "Geometric 415", sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    color: #333333;
+    font-size:36px;
+    line-height: 50px;
+    margin-bottom: 10px;
+  }
+
+  #section-template--15056306929779__1645604654016f2c1d .section-title p{
+    font-family: "Work Sans", sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    color: #5a5a5a;
+    font-size:16px;
+    line-height: 30px;
+    margin-bottom: 10px;
+  }
+
+
+  media (min-width: 768px) and (max-width: 1200px) {
+
+    #section-template--15056306929779__1645604654016f2c1d .section-title h2{
+      font-size:30px;
+      line-height: 45px;
+    }
+    #section-template--15056306929779__1645604654016f2c1d .section-title p{
+      font-size:16px;
+      line-height: 28px;
+    }
+  }
+
+  media (min-width: 300px) and (max-width: 767px) {    
+
+    #section-template--15056306929779__1645604654016f2c1d .section-title h2{
+      font-size:24px;
+      line-height: 40px;
+    }
+    #section-template--15056306929779__1645604654016f2c1d .section-title p{
+      font-size:14px;
+      line-height: 24px;
+    }
+  }
+
+</style>
+  <style>
+      #section-template--15056306929779__1645604654016f2c1d.best_collection_area .single_collection img {
+        border-radius: 0px;
+      }
+
+    }
+  </style>
+
+</div>
+<div id="shopify-section-template--15056306929779__1635661357a4cb0582" class="shopify-section">
+    <div class="product-area common_slick_slider" id="section-template--15056306929779__1635661357a4cb0582" data-section="Tab_With_Products">
+  <div class="container default ">
+      <div class="section-title text-center pb-30">
+                        @foreach (Title title in Model.titles.Where(x => x.Name == "Index Title 1"))
+                        {
+                    <h2>@title.Text</h2>
+                    <p>@title.Description</p>
+                        }
+      </div>
+
+
+    <div class="tab-collection-banner-wrapper row banner_right">
+        <div class="col-md-12 col-12">
+
+        <div class="product-tab-list nav pb-40 text-center position_center">
+<a class="active"  data-toggle="tab" href="#tab-1635661357a4cb0582-0-best-seller">
+            <h4>Discounted</h4>
+          </a>
+<a  data-toggle="tab" href="#tab-1635661357a4cb0582-1-featured">
+            <h4>Featured</h4>
+          </a>
+<a  data-toggle="tab" href="#tab-1635661357a4cb0582-2-latest">
+            <h4>Latest</h4>
+          </a>
+
+        </div>
+
+        <div class="tab-content jump-2">
+<div id="tab-1635661357a4cb0582-0-best-seller" class="tab-pane active">
+            <div class="ht-products custom_mobile_class  product-slider-active carsoule_arrow_style  row" data-slick='{
+
+      "infinite": true,
+      "slidesToShow": 4,
+      "slidesToScroll": 4,
+      "rows":1,
+
+
+      "arrows": true,
+      "prevArrow": "<span class=&#x27;product-dec-icon product-dec-prev&#x27;><i class=&#x27;sli sli-arrow-left&#x27;></i></span>",
+      "nextArrow": "<span class=&#x27;product-dec-icon product-dec-next&#x27;><i class=&#x27;sli sli-arrow-right&#x27;></i></span>",
+
+
+      "responsive": [
+
+      {
+      "breakpoint": 1800,
+      "settings": {
+      "slidesToShow": 4,
+      "slidesToScroll": 1
+      }
+      },
+      {
+      "breakpoint": 1200,
+      "settings": {
+      "slidesToShow": 3,
+      "slidesToScroll": 1
+      }
+      },
+      {
+      "breakpoint": 991,
+      "settings": {
+      "slidesToShow": 2,
+      "slidesToScroll": 1
+      }
+      },
+      {
+      "breakpoint": 767,
+      "settings": {
+      "slidesToShow": 2,
+      "slidesToScroll": 1
+      }
+      },
+      {
+      "breakpoint": 349,
+      "settings": {
+      "slidesToShow": 1,
+      "slidesToScroll": 1
+      }
+      }
+      ]
+
+
+      }'>
+                                        @foreach (Book book in Model.DiscountedBooks)
+                                        {                 
+                          <div class="col-md-12 ">               
+        <div class="39251764772979 ht-product ht-product-action-style-2 ht-product-action-on-hover mb-30 ht-product-action-middle ht-product-countdown-bottom product-wrapper-class">
+          <div class="ht-product-inner">
+            <div class="ht-product-image-wrap product-color">
+                                                            @if (book.IsAvailable == false)
+                                                            {
+                                                                        <span class="sale-title ht-product-label ht-product-label-right">Saldout</span>
+                                                            }
+                                                            else
+                                                            {
+                                                                if (book.DiscountPrice > 0)
+                                                                {
+                         <span class="sale-title ht-product-label ht-product-label-right">Sale</span>
+                         <span class="percent-count ht-product-label ht-product-label-right p_badge_p2">- @book.DiscountPrice %</span>
+                                                                }
+
+                                                                else
+                                                                {
+                                                                                <span class="sale-title ht-product-label ht-product-label-right">Soldout</span>
+                                                                }
+                                                            }
+        <a asp-controller="Book" asp-action="Detail" asp-route-id="@book.Id" class="ht-product-image"> 
+                <img class="popup_cart_image" src="~/uploads/books/@book.bookImages.FirstOrDefault(x=>x.IsPoster==true).ImageUrl" alt="The Green Spell Book">
+              </a>
+        <div class="ht-product-action">
+          <ul><li>
+              <a asp-controller="Book" asp-action="Detail" asp-route-id="@book.Id">
+                <i class="sli sli-magnifier"></i>
+                <span class="ht-product-action-tooltip">Quick View</span>
+              </a>
+            </li><li><a class="action-wishlist tile-actions--btn flex wishlist-btn wishlist" href="javascript: void(0)" button-wishlist data-product-handle="product-dummy-title-2" data-toggle="tooltip" data-placement="left" title="">
+                <span class="add-wishlist"><i class="sli sli-heart"></i><span class="ht-product-action-tooltip">Add to wishlist</span></span>
+                <span class="loading-wishlist"><i class="sli sli-heart"></i><span class="ht-product-action-tooltip">Add to wishlist</span></span>
+                <span class="remove-wishlist"><i class="sli sli-heart"></i><span class="ht-product-action-tooltip">Add to wishlist</span></span>
+              </a></li>@if (book.IsAvailable == true)
+                                                                    {
+                                                                                <li>
+                                                                                    <a asp-controller="Book" asp-action="AddtoBasket" asp-route-bookId="@book.Id" class="cart-able add-to-basket">
+                        <i class="sli sli-bag"></i><span class="ht-product-action-tooltip">Add to Cart</span>
+                      </a></li>
+                                                                    }
+                                                                    else
+                                                                    {
+                          <li><a  class="cart-disable remove_href">
+                        <i class="sli sli-bag"></i><span class="ht-product-action-tooltip">Soldout</span>
+                      </a></li>
+                                                                    }
+
+          </ul>
+        </div><div class="color_size_img_wrap"><div class="size-container">
+
+
+
+            </div>
+
+
+            <script>	
+              $('.size_varient').parent('div').addClass('size_var_parent');
+              $('.size_var_parent').parent('div').addClass('size_var_conatiner');
+            </script><ul class="color-categories grid-color-swatch"></ul></div><script>	
+          $('.color_img_variant').parent('ul').addClass('color_img_parent');
+          $('.color_img_parent').parent('div').addClass('color_img_conatiner');
+        </script>
+        </div>
+            <div class="ht-product-content">
+              <div class="ht-product-content-inner "><div class="ht-product-categories ">
+                  <a href="#" class="remove_href">@book.Category.Name</a>
+                </div><h4 class="ht-product-title popup_cart_title"><a asp-controller="Book" asp-action="Detail" asp-route-id="@book.Id">@book.Name</a></h4>
+                <div class="ht-product-price ">
+                                                                    @if (book.DiscountPrice > 0)
+                                                                    {
+                                                                                <span class="old">
+                                <span class=money>$@book.SalePrice</span></span>
+                                <span class="new"><span class=money>$@(book.SalePrice * (1 - book.DiscountPrice / 100))</span>
+                            </span>
+                                                                    }
+                                                                    else
+                                                                    {
+                                <span class="new"><span class=money>$@(book.SalePrice)</span>
+                            </span>
+
+                                                                    }
+                </div><div class="ht-product-ratting-wrap ">
+                  <span class="ht-product-ratting spr-badge-caption-none">
+                    <span class="shopify-product-reviews-badge" data-id="6536515125363"></span>
+                  </span>
+                </div></div><div class="ht-product-action">
+          <ul><li>
+              <a asp-controller="Book" asp-action="Detail" asp-route-id="@book.Id" >
+                <i class="sli sli-magnifier"></i>
+                <span class="ht-product-action-tooltip">Quick View</span>
+              </a>
+            </li><li><a class="action-wishlist tile-actions--btn flex wishlist-btn wishlist" href="javascript: void(0)" button-wishlist data-product-handle="product-dummy-title-2" data-toggle="tooltip" data-placement="left" title="">
+                <span class="add-wishlist"><i class="sli sli-heart"></i><span class="ht-product-action-tooltip">Add to wishlist</span></span>
+                <span class="loading-wishlist"><i class="sli sli-heart"></i><span class="ht-product-action-tooltip">Add to wishlist</span></span>
+                <span class="remove-wishlist"><i class="sli sli-heart"></i><span class="ht-product-action-tooltip">Add to wishlist</span></span>
+              </a></li><li><a href="javascript:void(0);" onclick="Shopify.addItem(39251753795699, 1); return false;" class="ht-product-action-btn">
+                <i class="sli sli-bag"></i><span class="ht-product-action-tooltip">Add to cart</span>
+              </a></li>
+
+          </ul>
+        </div></div>
+          </div>
+        </div></div>
+                                        }
+
+            </div>
+          </div>
+
+<div id="tab-1635661357a4cb0582-1-featured" class="tab-pane">
+            <div class="ht-products custom_mobile_class  product-slider-active carsoule_arrow_style  row" data-slick='{
+
+      "infinite": true,
+      "slidesToShow": 4,
+      "slidesToScroll": 4,
+      "rows":1,
+
+
+      "arrows": true,
+      "prevArrow": "<span class=&#x27;product-dec-icon product-dec-prev&#x27;><i class=&#x27;sli sli-arrow-left&#x27;></i></span>",
+      "nextArrow": "<span class=&#x27;product-dec-icon product-dec-next&#x27;><i class=&#x27;sli sli-arrow-right&#x27;></i></span>",
+
+
+      "responsive": [
+
+      {
+      "breakpoint": 1800,
+      "settings": {
+      "slidesToShow": 4,
+      "slidesToScroll": 1
+      }
+      },
+      {
+      "breakpoint": 1200,
+      "settings": {
+      "slidesToShow": 3,
+      "slidesToScroll": 1
+      }
+      },
+      {
+      "breakpoint": 991,
+      "settings": {
+      "slidesToShow": 2,
+      "slidesToScroll": 1
+      }
+      },
+      {
+      "breakpoint": 767,
+      "settings": {
+      "slidesToShow": 2,
+      "slidesToScroll": 1
+      }
+      },
+      {
+      "breakpoint": 349,
+      "settings": {
+      "slidesToShow": 1,
+      "slidesToScroll": 1
+      }
+      }
+      ]
+
+
+      }'>
+                                        @foreach (Book book in Model.FeaturedBooks)
+                                        {
+                                                <div class="col-md-12 ">
+                                                    <div class="39251764772979 ht-product ht-product-action-style-2 ht-product-action-on-hover mb-30 ht-product-action-middle ht-product-countdown-bottom product-wrapper-class">
+                                                        <div class="ht-product-inner">
+                                                            <div class="ht-product-image-wrap product-color">
+                                                            @if (book.IsAvailable == false)
+                                                            {
+                                                                        <span class="sale-title ht-product-label ht-product-label-right">Saldout</span>
+                                                            }
+                                                            else
+                                                            {
+                                                                if (book.DiscountPrice > 0)
+                                                                {
+                                                                                <span class="sale-title ht-product-label ht-product-label-right">Sale</span>
+                                                                                <span class="percent-count ht-product-label ht-product-label-right p_badge_p2">- @book.DiscountPrice %</span>
+                                                                }
+
+                                                                else
+                                                                {
+                                                                                <span class="sale-title ht-product-label ht-product-label-right">Soldout</span>
+                                                                }
+                                                            }
+                                                                <a asp-controller="Book" asp-action="Detail" asp-route-id="@book.Id" class="ht-product-image">
+                                                                    <img class="popup_cart_image" src="~/uploads/books/@book.bookImages.FirstOrDefault(x=>x.IsPoster==true).ImageUrl" alt="The Green Spell Book">
+                                                                </a>
+                                                                <div class="ht-product-action">
+                                                                    <ul>
+                                                                        <li>
+                                                                            <a asp-controller="Book" asp-action="Detail" asp-route-id="@book.Id">
+                                                                                <i class="sli sli-magnifier"></i>
+                                                                                <span class="ht-product-action-tooltip">Quick View</span>
+                                                                            </a>
+                                                                        </li>
+                                                                        <li>
+                                                                            <a class="action-wishlist tile-actions--btn flex wishlist-btn wishlist" href="javascript: void(0)" button-wishlist data-product-handle="product-dummy-title-2" data-toggle="tooltip" data-placement="left" title="">
+                                                                                <span class="add-wishlist"><i class="sli sli-heart"></i><span class="ht-product-action-tooltip">Add to wishlist</span></span>
+                                                                                <span class="loading-wishlist"><i class="sli sli-heart"></i><span class="ht-product-action-tooltip">Add to wishlist</span></span>
+                                                                                <span class="remove-wishlist"><i class="sli sli-heart"></i><span class="ht-product-action-tooltip">Add to wishlist</span></span>
+                                                                            </a>
+                                                                        </li>@if (book.IsAvailable == true)
+                                                                    {
+                                                                                <li>
+                                                                                    <a asp-controller="Book" asp-action="AddtoBasket" asp-route-bookId="@book.Id" class="cart-able add-to-basket">
+                                                                                        <i class="sli sli-bag"></i><span class="ht-product-action-tooltip">Add to Cart</span>
+                                                                                    </a>
+                                                                                </li>
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                                <li>
+                                                                                    <a class="cart-disable remove_href">
+                                                                                        <i class="sli sli-bag"></i><span class="ht-product-action-tooltip">Soldout</span>
+                                                                                    </a>
+                                                                                </li>
+                                                                    }
+
+                                                                    </ul>
+                                                                </div><div class="color_size_img_wrap">
+                                                                    <div class="size-container">
+                                                                    </div>
+
+
+                                                                    <script>
+                                                                        $('.size_varient').parent('div').addClass('size_var_parent');
+                                                                        $('.size_var_parent').parent('div').addClass('size_var_conatiner');
+                                                                    </script><ul class="color-categories grid-color-swatch"></ul>
+                                                                </div><script>
+                                                                          $('.color_img_variant').parent('ul').addClass('color_img_parent');
+                                                                          $('.color_img_parent').parent('div').addClass('color_img_conatiner');
+                                                                </script>
+                                                            </div>
+                                                            <div class="ht-product-content">
+                                                                <div class="ht-product-content-inner ">
+                                                                    <div class="ht-product-categories ">
+                                                                        <a href="#" class="remove_href">@book.Category.Name</a>
+                                                                    </div><h4 class="ht-product-title popup_cart_title"><a asp-controller="Book" asp-action="Detail" asp-route-id="@book.Id">@book.Name</a></h4>
+                                                                    <div class="ht-product-price ">
+                                                                    @if (book.DiscountPrice > 0)
+                                                                    {
+                                                                                <span class="old">
+                                                                                    <span class=money>$@book.SalePrice</span>
+                                                                                </span>
+                                                                                <span class="new">
+                                                                                    <span class=money>$@(book.SalePrice * (1 - book.DiscountPrice / 100))</span>
+                                                                                </span>
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                                <span class="new">
+                                                                                    <span class=money>$@(book.SalePrice)</span>
+                                                                                </span>
+
+                                                                    }
+                                                                    </div><div class="ht-product-ratting-wrap ">
+                                                                        <span class="ht-product-ratting spr-badge-caption-none">
+                                                                            <span class="shopify-product-reviews-badge" data-id="6536515125363"></span>
+                                                                        </span>
+                                                                    </div>
+                                                                </div><div class="ht-product-action">
+                                                                    <ul>
+                                                                        <li>
+                                                                            <a asp-controller="Book" asp-action="Detail" asp-route-id="@book.Id">
+                                                                                <i class="sli sli-magnifier"></i>
+                                                                                <span class="ht-product-action-tooltip">Quick View</span>
+                                                                            </a>
+                                                                        </li>
+                                                                        <li>
+                                                                            <a class="action-wishlist tile-actions--btn flex wishlist-btn wishlist" href="javascript: void(0)" button-wishlist data-product-handle="product-dummy-title-2" data-toggle="tooltip" data-placement="left" title="">
+                                                                                <span class="add-wishlist"><i class="sli sli-heart"></i><span class="ht-product-action-tooltip">Add to wishlist</span></span>
+                                                                                <span class="loading-wishlist"><i class="sli sli-heart"></i><span class="ht-product-action-tooltip">Add to wishlist</span></span>
+                                                                                <span class="remove-wishlist"><i class="sli sli-heart"></i><span class="ht-product-action-tooltip">Add to wishlist</span></span>
+                                                                            </a>
+                                                                        </li>
+                                                                        <li>
+                                                                            <a href="javascript:void(0);" onclick="Shopify.addItem(39251753795699, 1); return false;" class="ht-product-action-btn">
+                                                                                <i class="sli sli-bag"></i><span class="ht-product-action-tooltip">Add to cart</span>
+                                                                            </a>
+                                                                        </li>
+
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                        }
+
+            </div>
+          </div>
+
+<div id="tab-1635661357a4cb0582-2-latest" class="tab-pane">
+            <div class="ht-products custom_mobile_class  product-slider-active carsoule_arrow_style  row" data-slick='{
+
+      "infinite": true,
+      "slidesToShow": 4,
+      "slidesToScroll": 4,
+      "rows":1,
+
+
+      "arrows": true,
+      "prevArrow": "<span class=&#x27;product-dec-icon product-dec-prev&#x27;><i class=&#x27;sli sli-arrow-left&#x27;></i></span>",
+      "nextArrow": "<span class=&#x27;product-dec-icon product-dec-next&#x27;><i class=&#x27;sli sli-arrow-right&#x27;></i></span>",
+
+
+      "responsive": [
+
+      {
+      "breakpoint": 1800,
+      "settings": {
+      "slidesToShow": 4,
+      "slidesToScroll": 1
+      }
+      },
+      {
+      "breakpoint": 1200,
+      "settings": {
+      "slidesToShow": 3,
+      "slidesToScroll": 1
+      }
+      },
+      {
+      "breakpoint": 991,
+      "settings": {
+      "slidesToShow": 2,
+      "slidesToScroll": 1
+      }
+      },
+      {
+      "breakpoint": 767,
+      "settings": {
+      "slidesToShow": 2,
+      "slidesToScroll": 1
+      }
+      },
+      {
+      "breakpoint": 349,
+      "settings": {
+      "slidesToShow": 1,
+      "slidesToScroll": 1
+      }
+      }
+      ]
+
+
+      }'>
+                                        @foreach (Book book in Model.NewBooks)
+                                        {
+                                                    <div class="col-md-12 ">
+                                                        <div class="39251764772979 ht-product ht-product-action-style-2 ht-product-action-on-hover mb-30 ht-product-action-middle ht-product-countdown-bottom product-wrapper-class">
+                                                            <div class="ht-product-inner">
+                                                                <div class="ht-product-image-wrap product-color">
+                                                            @if (book.IsAvailable == false)
+                                                            {
+                                                                        <span class="sale-title ht-product-label ht-product-label-right">Saldout</span>
+                                                            }
+                                                            else
+                                                            {
+                                                                if (book.DiscountPrice > 0)
+                                                                {
+                         <span class="sale-title ht-product-label ht-product-label-right">Sale</span>
+                         <span class="percent-count ht-product-label ht-product-label-right p_badge_p2">- @book.DiscountPrice %</span>
+                                                                }
+
+                                                                else
+                                                                {
+                                                                                <span class="sale-title ht-product-label ht-product-label-right">Sale</span>
+                                                                }
+                                                            }
+                                                                    <a asp-controller="Book" asp-action="Detail" asp-route-id="@book.Id" class="ht-product-image">
+                                                                        <img class="popup_cart_image" src="~/uploads/books/@book.bookImages.FirstOrDefault(x=>x.IsPoster==true).ImageUrl" alt="The Green Spell Book">
+                                                                    </a>
+                                                                    <div class="ht-product-action">
+                                                                        <ul>
+                                                                            <li>
+                                                                                <a asp-controller="Book" asp-action="Detail" asp-route-id="@book.Id">
+                                                                                    <i class="sli sli-magnifier"></i>
+                                                                                    <span class="ht-product-action-tooltip">Quick View</span>
+                                                                                </a>
+                                                                            </li>
+                                                                            <li>
+                                                                                <a class="action-wishlist tile-actions--btn flex wishlist-btn wishlist" href="javascript: void(0)" button-wishlist data-product-handle="product-dummy-title-2" data-toggle="tooltip" data-placement="left" title="">
+                                                                                    <span class="add-wishlist"><i class="sli sli-heart"></i><span class="ht-product-action-tooltip">Add to wishlist</span></span>
+                                                                                    <span class="loading-wishlist"><i class="sli sli-heart"></i><span class="ht-product-action-tooltip">Add to wishlist</span></span>
+                                                                                    <span class="remove-wishlist"><i class="sli sli-heart"></i><span class="ht-product-action-tooltip">Add to wishlist</span></span>
+                                                                                </a>
+                                                                            </li>@if (book.IsAvailable == true)
+                                                                    {
+                                                                                        <li>
+                                                                                    <a asp-controller="Book" asp-action="AddtoBasket" asp-route-bookId="@book.Id" class="cart-able add-to-basket ">
+                                                                                                <i class="sli sli-bag"></i><span class="ht-product-action-tooltip">Add to Cart</span>
+                                                                                            </a>
+                                                                                        </li>
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                                        <li>
+                                                                                            <a class="cart-disable remove_href">
+                                                                                                <i class="sli sli-bag"></i><span class="ht-product-action-tooltip">Soldout</span>
+                                                                                            </a>
+                                                                                        </li>
+                                                                    }
+
+                                                                        </ul>
+                                                                    </div><div class="color_size_img_wrap">
+                                                                        <div class="size-container">
+                                                                        </div>
+
+
+                                                                        <script>
+                                                                            $('.size_varient').parent('div').addClass('size_var_parent');
+                                                                            $('.size_var_parent').parent('div').addClass('size_var_conatiner');
+                                                                        </script><ul class="color-categories grid-color-swatch"></ul>
+                                                                    </div><script>
+                                                                              $('.color_img_variant').parent('ul').addClass('color_img_parent');
+                                                                              $('.color_img_parent').parent('div').addClass('color_img_conatiner');
+                                                                    </script>
+                                                                </div>
+                                                                <div class="ht-product-content">
+                                                                    <div class="ht-product-content-inner ">
+                                                                        <div class="ht-product-categories ">
+                                                                            <a href="#" class="remove_href">@book.Category.Name</a>
+                                                                        </div><h4 class="ht-product-title popup_cart_title"><a asp-controller="Book" asp-action="Detail" asp-route-id="@book.Id">@book.Name</a></h4>
+                                                                        <div class="ht-product-price ">
+                                                                    @if (book.DiscountPrice > 0)
+                                                                    {
+                                                                                        <span class="old">
+                                                                                            <span class=money>$@book.SalePrice</span>
+                                                                                        </span>
+                                                                                        <span class="new">
+                                                                                            <span class=money>$@(book.SalePrice * (1 - book.DiscountPrice / 100))</span>
+                                                                                        </span>
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                                        <span class="new">
+                                                                                            <span class=money>$@(book.SalePrice)</span>
+                                                                                        </span>
+                                                                    }
+                                                                        </div><div class="ht-product-ratting-wrap ">
+                                                                            <span class="ht-product-ratting spr-badge-caption-none">
+                                                                                <span class="shopify-product-reviews-badge" data-id="6536515125363"></span>
+                                                                            </span>
+                                                                        </div>
+                                                                    </div><div class="ht-product-action">
+                                                                        <ul>
+                                                                            <li>
+                                                                                <a asp-controller="Book" asp-action="Detail" asp-route-id="@book.Id">
+                                                                                    <i class="sli sli-magnifier"></i>
+                                                                                    <span class="ht-product-action-tooltip">Quick View</span>
+                                                                                </a>
+                                                                            </li>
+                                                                            <li>
+                                                                                <a class="action-wishlist tile-actions--btn flex wishlist-btn wishlist" href="javascript: void(0)" button-wishlist data-product-handle="product-dummy-title-2" data-toggle="tooltip" data-placement="left" title="">
+                                                                                    <span class="add-wishlist"><i class="sli sli-heart"></i><span class="ht-product-action-tooltip">Add to wishlist</span></span>
+                                                                                    <span class="loading-wishlist"><i class="sli sli-heart"></i><span class="ht-product-action-tooltip">Add to wishlist</span></span>
+                                                                                    <span class="remove-wishlist"><i class="sli sli-heart"></i><span class="ht-product-action-tooltip">Add to wishlist</span></span>
+                                                                                </a>
+                                                                            </li>
+                                                                            <li>
+                                                                                <a href="javascript:void(0);" onclick="Shopify.addItem(39251753795699, 1); return false;" class="ht-product-action-btn">
+                                                                                    <i class="sli sli-bag"></i><span class="ht-product-action-tooltip">Add to cart</span>
+                                                                                </a>
+                                                                            </li>
+
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                        }
+
+            </div>
+          </div>
+
+        </div>
+      </div></div> 
+
+
+  </div>
+</div>
+<style data-shopify>#section-template--15056306929779__1635661357a4cb0582{padding-top: 50px;
+    padding-bottom: 50px;}
+  media (min-width: 768px) and (max-width: 991px) {
+    #section-template--15056306929779__1635661357a4cb0582{padding-top: 40px;
+      padding-bottom: 40px;}
+  }
+  media (max-width: 767px) {
+    #section-template--15056306929779__1635661357a4cb0582{padding-top: 30px;
+      padding-bottom: 30px;}
+  }</style>
+
+<style>font-face {
+  font-family: "Open Sans";
+  font-weight: 600;
+  font-style: normal;
+  src: url("https://fonts.shopifycdn.com/open_sans/opensans_n6.63a74f6cbbfef729fb07955b2d5b4cc83273862e.woff2?h1=bm9rc2hpLTIuYWNjb3VudC5teXNob3BpZnkuY29t&amp;hmac=b59e48f4ae60b7b41ef5b42d670e7e05a7a007738561bc24c1c6c8d8fb298792") format("woff2"),
+       url("https://fonts.shopifycdn.com/open_sans/opensans_n6.1c4dde7af5554df3b20e440ca17dc8a316a9e1d0.woff?h1=bm9rc2hpLTIuYWNjb3VudC5teXNob3BpZnkuY29t&amp;hmac=e20fb80148ea0e70f03e4b27d523ac7a0fc0cfdc9079ea4ba396b7b8f68136e0") format("woff");
+}
+
+  font-face {
+  font-family: "Work Sans";
+  font-weight: 400;
+  font-style: normal;
+  src: url("https://fonts.shopifycdn.com/work_sans/worksans_n4.29e3afeb38a0ba35e784cf169a40e8beaf814daa.woff2?h1=bm9rc2hpLTIuYWNjb3VudC5teXNob3BpZnkuY29t&amp;hmac=463f7b21d8c060d11eca1082f5a3016c310c4a6825c5132e8ff86c8cb4d5e95b") format("woff2"),
+       url("https://fonts.shopifycdn.com/work_sans/worksans_n4.e7c533c4afbed28070f6ac45dbcfe6f37840c0a8.woff?h1=bm9rc2hpLTIuYWNjb3VudC5teXNob3BpZnkuY29t&amp;hmac=f8e7857c597bcc6312acb092d89fd8e046f6f2f7023262e9d063bbc3223b400f") format("woff");
+}
+
+
+
+  #section-template--15056306929779__1635661357a4cb0582 .section-title h2{
+    font-family: "Open Sans", sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    color: #333333;
+    font-size:40px;
+    line-height: 50px;
+    margin-bottom: 15px;
+  }
+
+  #section-template--15056306929779__1635661357a4cb0582 .section-title p{
+    font-family: "Work Sans", sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    color: #5a5a5a;
+    font-size:18px;
+    line-height: 30px;
+    margin-bottom: 10px;
+  }
+
+
+  media (min-width: 768px) and (max-width: 1200px) {
+
+    #section-template--15056306929779__1635661357a4cb0582 .section-title h2{
+      font-size:30px;
+      line-height: 45px;
+    }
+    #section-template--15056306929779__1635661357a4cb0582 .section-title p{
+      font-size:16px;
+      line-height: 28px;
+    }
+  }
+
+  media (min-width: 300px) and (max-width: 767px) {    
+
+    #section-template--15056306929779__1635661357a4cb0582 .section-title h2{
+      font-size:24px;
+      line-height: 40px;
+    }
+    #section-template--15056306929779__1635661357a4cb0582 .section-title p{
+      font-size:14px;
+      line-height: 24px;
+    }
+  }
+
+</style>
+
+<style>
+  #section-template--15056306929779__1635661357a4cb0582 .product-tab-list a h4 {
+    background-color: #f1f1f1;
+    color: #1f2226;
+    font-size:18px;
+  }
+  #section-template--15056306929779__1635661357a4cb0582 .product-tab-list a.active h4 {
+    background-color: #f44344;
+    color: #ffffff;
+  }
+  #section-template--15056306929779__1635661357a4cb0582 .product-tab-list a h4 {
+    border-radius: 50px;
+  }
+</style>
+
+
+
+
+</div>
+<div id="shopify-section-template--15056306929779__1658729060b4b7441f" class="shopify-section">
+    <div class="banner-area common_slick_slider" id="section-template--15056306929779__1658729060b4b7441f" data-section="Simple_Banner">
+        <div class="container default ">
+
+     <div class="row " data-slick='{
+
+    "infinite": true,
+    "slidesToShow": 4,
+    "slidesToScroll": 1,
+    "rows":1,
+
+    	"arrows": true,
+    	"prevArrow": "<span class=&#x27;product-dec-icon product-dec-prev&#x27;><i class=&#x27;sli sli-arrow-left&#x27;></i></span>",
+    	"nextArrow": "<span class=&#x27;product-dec-icon product-dec-next&#x27;><i class=&#x27;sli sli-arrow-right&#x27;></i></span>",
+
+
+    "responsive": [{
+    "breakpoint": 1200,
+    "settings": {
+    "slidesToShow": 4,
+    "slidesToScroll": 1
+    }
+    },
+    {
+      "breakpoint": 1199,
+      "settings": {
+      "slidesToShow": 3,
+      "slidesToScroll": 1
+      }
+    },
+    {
+      "breakpoint": 991,
+      "settings": {
+      "slidesToShow": 2,
+      "slidesToScroll": 1
+      }
+    },
+    {
+      "breakpoint": 767,
+      "settings": {
+      "slidesToShow": 1,
+      "slidesToScroll": 1
+      }
+    },
+    {
+      "breakpoint": 575,
+      "settings": {
+      "slidesToShow": 1,
+      "slidesToScroll": 1
+      }
+    }
+    ]
+
+
+    }'>
+    <div class=" col-lg-6 col-md-6 col-sm-6 col-12  block_165872906067c4df71-0"> 
+        <div class="single-banner mb-30 banner_top">
+    <a href="collections/all.html"><img class="animated" src="~/uploads/images/@Model.images.FirstOrDefault(x=>x.Name=="Image index 1.1").ImageUrl" alt=""></a>
+    <div class="banner-content banner-position-1">
+
+    </div>
+  </div>
+
+
+
+  <style data-shopify>
+
+
+
+
+  </style>
+
+</div>
+<div class=" col-lg-6 col-md-6 col-sm-6 col-12  block_165872906067c4df71-1"> 
+    <div class="single-banner mb-30 banner_top">
+    <a href="collections/all.html">
+        <img class="animated" src="~/uploads/images/@Model.images.FirstOrDefault(x=>x.Name=="Image index 1.2").ImageUrl" alt=""></a>
+    <div class="banner-content banner-position-1"></div>
+  </div>
+
+
+
+  <style data-shopify>
+
+
+
+
+  </style>
+
+</div></div>
+  </div>
+</div>
+<style data-shopify>#section-template--15056306929779__1658729060b4b7441f{}
+  media (min-width: 768px) and (max-width: 991px) {
+    #section-template--15056306929779__1658729060b4b7441f{}
+  }
+  media (max-width: 767px) {
+    #section-template--15056306929779__1658729060b4b7441f{}
+  }</style>
+
+
+
+</div>
+<div id="shopify-section-template--15056306929779__1645959322bded8804" class="shopify-section">
+    <div class="product-area pb-150 common_slick_slider" id="section-template--15056306929779__1645959322bded8804" data-section="Feature_Collection">
+    <div class="container default ">
+
+    <div class="section-title text-center pb-40">
+
+                        @foreach (Title title in Model.titles.Where(x => x.Name == "Index Title 2"))
+                        {
+                    <h2>@title.Text</h2>
+                    <p>@title.Description</p>
+                        }
+
+    </div>
+
+
+    <div class="product-menu-banner-wrapper row"><div class="col-md-9">
+          <div class="arrivals-wrap item-wrapper"><div class="ht-products custom_mobile_class  feature-product-slider-active carsoule_arrow_style row" data-slick='{
+
+                        "infinite": true,
+                        "slidesToShow": 3,
+                        "slidesToScroll": 1,
+                        "rows":1,
+
+
+                            "arrows": true,
+                              "prevArrow": "<span class=&#x27;product-dec-icon product-dec-prev&#x27;><i class=&#x27;sli sli-arrow-left&#x27;></i></span>",
+                              "nextArrow": "<span class=&#x27;product-dec-icon product-dec-next&#x27;><i class=&#x27;sli sli-arrow-right&#x27;></i></span>",
+
+
+                        "responsive": [
+
+                        {
+                          "breakpoint": 1800,
+                          "settings": {
+                          "slidesToShow": 3,
+                          "slidesToScroll": 1
+                          }
+                        },
+                        {
+                          "breakpoint": 1200,
+                          "settings": {
+                          "slidesToShow": 2,
+                          "slidesToScroll": 1
+                          }
+                        },
+                        {
+                          "breakpoint": 991,
+                          "settings": {
+                          "slidesToShow": 2,
+                          "slidesToScroll": 1
+                          }
+                        },
+                        {
+                          "breakpoint": 767,
+                          "settings": {
+                          "slidesToShow": 2,
+                          "slidesToScroll": 1
+                          }
+                        },
+                        {
+                          "breakpoint": 349,
+                          "settings": {
+                          "slidesToShow": 1,
+                          "slidesToScroll": 1
+                          }
+                        }
+                        ]
+
+
+            }'>
+                                    @foreach (Book book in Model.FeaturedBooks)
+                                    {
+                                            <div class="col-md-12 ">
+                                                <div class="39251764772979 ht-product ht-product-action-style-2 ht-product-action-on-hover mb-30 ht-product-action-middle ht-product-countdown-bottom product-wrapper-class">
+                                                    <div class="ht-product-inner">
+                                                        <div class="ht-product-image-wrap product-color">
+                                                        @if (book.IsAvailable == false)
+                                                        {
+                                                                    <span class="sale-title ht-product-label ht-product-label-right">Saldout</span>
+                                                        }
+                                                        else
+                                                        {
+                                                            if (book.DiscountPrice > 0)
+                                                            {
+                                                                            <span class="sale-title ht-product-label ht-product-label-right">Sale</span>
+                                                                            <span class="percent-count ht-product-label ht-product-label-right p_badge_p2">- @book.DiscountPrice %</span>
+                                                            }
+
+                                                            else
+                                                            {
+                                                                            <span class="sale-title ht-product-label ht-product-label-right">Soldout</span>
+                                                            }
+                                                        }
+                                                            <a asp-controller="Book" asp-action="Detail" asp-route-id="@book.Id" class="ht-product-image">
+                                                                <img class="popup_cart_image" src="~/uploads/books/@book.bookImages.FirstOrDefault(x=>x.IsPoster==true).ImageUrl" alt="The Green Spell Book">
+                                                            </a>
+                                                            <div class="ht-product-action">
+                                                                <ul>
+                                                                    <li>
+                                                                        <a asp-controller="Book" asp-action="Detail" asp-route-id="@book.Id">
+                                                                            <i class="sli sli-magnifier"></i>
+                                                                            <span class="ht-product-action-tooltip">Quick View</span>
+                                                                        </a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a class="action-wishlist tile-actions--btn flex wishlist-btn wishlist" href="javascript: void(0)" button-wishlist data-product-handle="product-dummy-title-2" data-toggle="tooltip" data-placement="left" title="">
+                                                                            <span class="add-wishlist"><i class="sli sli-heart"></i><span class="ht-product-action-tooltip">Add to wishlist</span></span>
+                                                                            <span class="loading-wishlist"><i class="sli sli-heart"></i><span class="ht-product-action-tooltip">Add to wishlist</span></span>
+                                                                            <span class="remove-wishlist"><i class="sli sli-heart"></i><span class="ht-product-action-tooltip">Add to wishlist</span></span>
+                                                                        </a>
+                                                                    </li>@if (book.IsAvailable == true)
+                                                                {
+                                                                            <li>
+                                                                                <a asp-controller="Book" asp-action="AddtoBasket" asp-route-bookId="@book.Id" class="cart-able add-to-basket">
+                                                                                    <i class="sli sli-bag"></i><span class="ht-product-action-tooltip">Add to Cart</span>
+                                                                                </a>
+                                                                            </li>
+                                                                }
+                                                                else
+                                                                {
+                                                                            <li>
+                                                                                <a class="cart-disable remove_href">
+                                                                                    <i class="sli sli-bag"></i><span class="ht-product-action-tooltip">Soldout</span>
+                                                                                </a>
+                                                                            </li>
+                                                                }
+
+                                                                </ul>
+                                                            </div><div class="color_size_img_wrap">
+                                                                <div class="size-container">
+                                                                </div>
+
+
+                                                                <script>
+                                                                    $('.size_varient').parent('div').addClass('size_var_parent');
+                                                                    $('.size_var_parent').parent('div').addClass('size_var_conatiner');
+                                                                </script><ul class="color-categories grid-color-swatch"></ul>
+                                                            </div><script>
+                                                                      $('.color_img_variant').parent('ul').addClass('color_img_parent');
+                                                                      $('.color_img_parent').parent('div').addClass('color_img_conatiner');
+                                                            </script>
+                                                        </div>
+                                                        <div class="ht-product-content">
+                                                            <div class="ht-product-content-inner ">
+                                                                <div class="ht-product-categories ">
+                                                                    <a href="#" class="remove_href">@book.Category.Name</a>
+                                                                </div><h4 class="ht-product-title popup_cart_title"><a asp-controller="Book" asp-action="Detail" asp-route-id="@book.Id">@book.Name</a></h4>
+                                                                <div class="ht-product-price ">
+                                                                @if (book.DiscountPrice > 0)
+                                                                {
+                                                                            <span class="old">
+                                                                                <span class=money>$@book.SalePrice</span>
+                                                                            </span>
+                                                                            <span class="new">
+                                                                                <span class=money>$@(book.SalePrice * (1 - book.DiscountPrice / 100))</span>
+                                                                            </span>
+                                                                }
+                                                                else
+                                                                {
+                                                                            <span class="new">
+                                                                                <span class=money>$@(book.SalePrice)</span>
+                                                                            </span>
+
+                                                                }
+                                                                </div><div class="ht-product-ratting-wrap ">
+                                                                    <span class="ht-product-ratting spr-badge-caption-none">
+                                                                        <span class="shopify-product-reviews-badge" data-id="6536515125363"></span>
+                                                                    </span>
+                                                                </div>
+                                                            </div><div class="ht-product-action">
+                                                                <ul>
+                                                                    <li>
+                                                                        <a asp-controller="Book" asp-action="Detail" asp-route-id="@book.Id">
+                                                                            <i class="sli sli-magnifier"></i>
+                                                                            <span class="ht-product-action-tooltip">Quick View</span>
+                                                                        </a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a class="action-wishlist tile-actions--btn flex wishlist-btn wishlist" href="javascript: void(0)" button-wishlist data-product-handle="product-dummy-title-2" data-toggle="tooltip" data-placement="left" title="">
+                                                                            <span class="add-wishlist"><i class="sli sli-heart"></i><span class="ht-product-action-tooltip">Add to wishlist</span></span>
+                                                                            <span class="loading-wishlist"><i class="sli sli-heart"></i><span class="ht-product-action-tooltip">Add to wishlist</span></span>
+                                                                            <span class="remove-wishlist"><i class="sli sli-heart"></i><span class="ht-product-action-tooltip">Add to wishlist</span></span>
+                                                                        </a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="javascript:void(0);" onclick="Shopify.addItem(39251753795699, 1); return false;" class="ht-product-action-btn">
+                                                                            <i class="sli sli-bag"></i><span class="ht-product-action-tooltip">Add to cart</span>
+                                                                        </a>
+                                                                    </li>
+
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                    }
+            </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+        <div class="single-banner featured_banner">
+          <a href="collections/all.html"><img class="animated" src="~/uploads/images/@Model.images.FirstOrDefault(x=>x.Name=="Image index 2").ImageUrl" alt=""></a>
+        </div>
+      </div></div>
+  </div>
+</div>
+<style data-shopify>#section-template--15056306929779__1645959322bded8804{padding-top: 50px;
+    padding-bottom: 70px;}
+  media (min-width: 768px) and (max-width: 991px) {
+    #section-template--15056306929779__1645959322bded8804{padding-top: 40px;
+      padding-bottom: 60px;}
+  }
+  media (max-width: 767px) {
+    #section-template--15056306929779__1645959322bded8804{padding-top: 30px;
+      padding-bottom: 50px;}
+  }</style>
+
+<style>font-face {
+  font-family: "Open Sans";
+  font-weight: 600;
+  font-style: normal;
+  src: url("https://fonts.shopifycdn.com/open_sans/opensans_n6.63a74f6cbbfef729fb07955b2d5b4cc83273862e.woff2?h1=bm9rc2hpLTIuYWNjb3VudC5teXNob3BpZnkuY29t&amp;hmac=b59e48f4ae60b7b41ef5b42d670e7e05a7a007738561bc24c1c6c8d8fb298792") format("woff2"),
+       url("https://fonts.shopifycdn.com/open_sans/opensans_n6.1c4dde7af5554df3b20e440ca17dc8a316a9e1d0.woff?h1=bm9rc2hpLTIuYWNjb3VudC5teXNob3BpZnkuY29t&amp;hmac=e20fb80148ea0e70f03e4b27d523ac7a0fc0cfdc9079ea4ba396b7b8f68136e0") format("woff");
+}
+
+  font-face {
+  font-family: "Work Sans";
+  font-weight: 400;
+  font-style: normal;
+  src: url("https://fonts.shopifycdn.com/work_sans/worksans_n4.29e3afeb38a0ba35e784cf169a40e8beaf814daa.woff2?h1=bm9rc2hpLTIuYWNjb3VudC5teXNob3BpZnkuY29t&amp;hmac=463f7b21d8c060d11eca1082f5a3016c310c4a6825c5132e8ff86c8cb4d5e95b") format("woff2"),
+       url("https://fonts.shopifycdn.com/work_sans/worksans_n4.e7c533c4afbed28070f6ac45dbcfe6f37840c0a8.woff?h1=bm9rc2hpLTIuYWNjb3VudC5teXNob3BpZnkuY29t&amp;hmac=f8e7857c597bcc6312acb092d89fd8e046f6f2f7023262e9d063bbc3223b400f") format("woff");
+}
+
+
+
+  #section-template--15056306929779__1645959322bded8804 .section-title h2{
+    font-family: "Open Sans", sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    color: #333333;
+    font-size:40px;
+    line-height: 50px;
+    margin-bottom: 15px;
+  }
+
+  #section-template--15056306929779__1645959322bded8804 .section-title p{
+    font-family: "Work Sans", sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    color: #5a5a5a;
+    font-size:18px;
+    line-height: 30px;
+    margin-bottom: 10px;
+  }
+
+
+  media (min-width: 768px) and (max-width: 1200px) {
+
+    #section-template--15056306929779__1645959322bded8804 .section-title h2{
+      font-size:30px;
+      line-height: 45px;
+    }
+    #section-template--15056306929779__1645959322bded8804 .section-title p{
+      font-size:16px;
+      line-height: 28px;
+    }
+  }
+
+  media (min-width: 300px) and (max-width: 767px) {    
+
+    #section-template--15056306929779__1645959322bded8804 .section-title h2{
+      font-size:24px;
+      line-height: 40px;
+    }
+    #section-template--15056306929779__1645959322bded8804 .section-title p{
+      font-size:14px;
+      line-height: 24px;
+    }
+  }
+
+</style>
+
+
+</div>
+
+<div id="shopify-section-template--15056306929779__1658730469df861974" class="shopify-section">
+    <div class="testimonial-area" id="section-template--15056306929779__1658730469df861974" data-section="heroOwlSlider">
+  <div class="container default ">
+
+
+    <div class="section-title text-center pb-60">
+
+                        @foreach (Title title in Model.titles.Where(x => x.Name == "Index Title 3"))
+                        {
+                    <h2>@title.Text</h2>
+                    <p>@title.Description</p>
+                        }
+
+    </div>
+
+
+
+    <div class="row">
+      <div class="col-sm-10 ml-auto mr-auto">
+        <div class="testimonial-active-test owl-carousel  dot-style-1 dot_hide nav-style-1" data-owl-carousel='{ 
+
+              "loop": true,
+
+
+
+              "nav": true,
+
+
+
+              "navText": ["<i class=&#x27;sli sli-arrow-left&#x27;></i>", "<i class=&#x27;sli sli-arrow-right&#x27;></i>"],
+
+
+
+              "dots": false,
+
+
+              "autoplay": false,
+              "autoplayTimeout": 5000,
+              "items": 1,
+              "margin": 30,
+
+              "responsive":{
+              "0":{ "items": 1 },
+              "576":{ "items": 1 },
+              "768":{ "items": 1 },
+              "1000":{ "items": 1 },
+              "1500":{ "items": 1 }
+               }                
+
+           }'>
+                                @foreach (Testimonial testimonial in Model.testimonials)
+                                {
+                   <div class="single-testimonial text-center">
+
+                    <img src="~/uploads/testimonials/@testimonial.ImageUrl" alt="">
+
+
+                    <p style="color: #ffffff">@testimonial.Desc</p>
+                    <div class="client-info">
+
+                      <h5 style="color: #ffffff">@testimonial.Name</h5>
+                    </div>
+                  </div>
+                                }
+          </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+<style data-shopify>#section-template--15056306929779__1658730469df861974{padding-top: 120px;
+    padding-bottom: 130px;background: #ffffff url("../assets/cdn.shopify.com/s/files/1/0044/3328/1139/files/testimonial-bg_04f51690-9dc5-42bd-84f8-c721a09a23af8e63.png?v=1614835149")no-repeat scroll center center / cover;}
+  media (min-width: 768px) and (max-width: 991px) {
+    #section-template--15056306929779__1658730469df861974{padding-top: 100px;
+      padding-bottom: 110px;}
+  }
+  media (max-width: 767px) {
+    #section-template--15056306929779__1658730469df861974{padding-top: 80px;
+      padding-bottom: 70px;}
+  }</style>
+
+<style>font-face {
+  font-family: "Open Sans";
+  font-weight: 600;
+  font-style: normal;
+  src: url("https://fonts.shopifycdn.com/open_sans/opensans_n6.63a74f6cbbfef729fb07955b2d5b4cc83273862e.woff2?h1=bm9rc2hpLTIuYWNjb3VudC5teXNob3BpZnkuY29t&amp;hmac=b59e48f4ae60b7b41ef5b42d670e7e05a7a007738561bc24c1c6c8d8fb298792") format("woff2"),
+       url("https://fonts.shopifycdn.com/open_sans/opensans_n6.1c4dde7af5554df3b20e440ca17dc8a316a9e1d0.woff?h1=bm9rc2hpLTIuYWNjb3VudC5teXNob3BpZnkuY29t&amp;hmac=e20fb80148ea0e70f03e4b27d523ac7a0fc0cfdc9079ea4ba396b7b8f68136e0") format("woff");
+}
+
+  font-face {
+  font-family: "Work Sans";
+  font-weight: 400;
+  font-style: normal;
+  src: url("https://fonts.shopifycdn.com/work_sans/worksans_n4.29e3afeb38a0ba35e784cf169a40e8beaf814daa.woff2?h1=bm9rc2hpLTIuYWNjb3VudC5teXNob3BpZnkuY29t&amp;hmac=463f7b21d8c060d11eca1082f5a3016c310c4a6825c5132e8ff86c8cb4d5e95b") format("woff2"),
+       url("https://fonts.shopifycdn.com/work_sans/worksans_n4.e7c533c4afbed28070f6ac45dbcfe6f37840c0a8.woff?h1=bm9rc2hpLTIuYWNjb3VudC5teXNob3BpZnkuY29t&amp;hmac=f8e7857c597bcc6312acb092d89fd8e046f6f2f7023262e9d063bbc3223b400f") format("woff");
+}
+
+
+
+  #section-template--15056306929779__1658730469df861974 .section-title h2{
+    font-family: "Open Sans", sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    color: #ffffff;
+    font-size:40px;
+    line-height: 50px;
+    margin-bottom: 10px;
+  }
+
+  #section-template--15056306929779__1658730469df861974 .section-title p{
+    font-family: "Work Sans", sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    color: #ffffff;
+    font-size:18px;
+    line-height: 30px;
+    margin-bottom: 10px;
+  }
+
+
+  media (min-width: 768px) and (max-width: 1200px) {
+
+    #section-template--15056306929779__1658730469df861974 .section-title h2{
+      font-size:24px;
+      line-height: 35px;
+    }
+    #section-template--15056306929779__1658730469df861974 .section-title p{
+      font-size:14px;
+      line-height: 24px;
+    }
+  }
+
+  media (min-width: 300px) and (max-width: 767px) {    
+
+    #section-template--15056306929779__1658730469df861974 .section-title h2{
+      font-size:20px;
+      line-height: 30px;
+    }
+    #section-template--15056306929779__1658730469df861974 .section-title p{
+      font-size:14px;
+      line-height: 24px;
+    }
+  }
+
+</style>
+
+<style>
+  #section-template--15056306929779__1658730469df861974.testimonial-area .nav-style-1.owl-carousel .owl-nav div, 
+  #section-template--15056306929779__1658730469df861974.testimonial-area .nav-style-2 .owl-nav div, 
+  #section-template--15056306929779__1658730469df861974.testimonial-area .nav-style-3 .owl-nav div {
+    color: #1f2226;
+    background-color: #ffffff;
+    border: 1px solid #e1e2e2;
+    border-radius:30px;
+  }
+  #section-template--15056306929779__1658730469df861974.testimonial-area .nav-style-1.owl-carousel .owl-nav div:hover, 
+  #section-template--15056306929779__1658730469df861974.testimonial-area .nav-style-2 .owl-nav div:hover, 
+  #section-template--15056306929779__1658730469df861974.testimonial-area .nav-style-3 .owl-nav div:hover {
+    color: #ffffff;
+    background-color: #ff3535;
+    border: 1px solid #ff3535;
+  }
+</style>
+
+<style>
+
+  #section-template--15056306929779__1658730469df861974.testimonial-area .dot-style-1 .owl-dots .owl-dot {
+    border: 1px solid #ffffff;
+    outline: 1px solid #ffffff;
+  }
+
+  #section-template--15056306929779__1658730469df861974.testimonial-area .dot-style-1 .owl-dots .owl-dot.active {
+    background-color: #ffffff;
+    border: 1px solid #ffffff;
+    outline: 1px solid #ffffff;
+  }    
+
+</style>
+
+</div>
+
+    </main>
+@section Scripts{
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.7.2/sweetalert2.min.js" integrity="sha512-jSNGQoIZ0qago6DK45skZbDI1JC8bmANSwItgDnMXiAnJm0Lq6QB4yXY8QPKqS68iR3ngZi0pM5+wZvg1kCCKQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+}

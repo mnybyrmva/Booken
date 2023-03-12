@@ -1,0 +1,26 @@
+﻿@model Testimonial
+<div class="container">
+    <h1>Testimonial Created:</h1>
+    <form method="post" asp-action="Create" enctype="multipart/form-data">
+        <div class="row">
+        <div class="mb-3 col-4">
+            <label asp-for="Name" class="form-label">Name</label>
+            <input asp-for="Name" class="form-control" placeholder="Name">
+        </div>
+            <div class="mb-3 col-4">
+            <label asp-for="Desc" class="form-label">Description</label>
+            <input asp-for="Desc" class="form-control" placeholder="Description">
+        </div>
+            <div class="mb-3 col-4">
+            <label asp-for="Image" class="form-label">Image</label>
+            <input asp-for="Image" class="form-control" placeholder="Image">
+            <span asp-validation-for="Image" class="text-danger"></span>
+
+        </div>
+        </div>
+        <div>
+        <button type="submit" class="btn btn-primary">Created Testimonial</button>
+        <a asp-controller="Testimonial" asp-action="Index" class="btn btn-outline-success">Back</a>
+        </div>
+    </form>
+</div>

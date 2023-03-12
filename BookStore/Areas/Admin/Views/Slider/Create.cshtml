@@ -1,0 +1,43 @@
+﻿@model Slider
+<div class="container">
+    <h1>Created Slider:</h1>
+    <form method="post" asp-action="create" enctype="multipart/form-data">
+        <div class="row">
+            <div class="mb-3 col-2">
+                <label asp-for="Title1" class="form-label">Title1</label>
+                <input asp-for="Title1" class="form-control" placeholder="Title1">
+                <span asp-validation-for="Title1" class="text-danger"></span>
+            </div>
+            <div class="mb-3 col-2">
+                <label asp-for="Title2" class="form-label">Title2</label>
+                <input asp-for="Title2" class="form-control" placeholder="Title2">
+                <span asp-validation-for="Title2" class="text-danger"></span>
+            </div>
+            <div class="mb-3 col-2">
+                <label asp-for="RedirectUrlVideo" class="form-label">RedirectUrlVideo</label>
+                <input asp-for="RedirectUrlVideo" class="form-control" placeholder="RedirectUrlVideo">
+                <span asp-validation-for="RedirectUrlVideo" class="text-danger"></span>
+            </div>
+            <div class="mb-3 col-2">
+                <label asp-for="RedirectUrlShop" class="form-label">RedirectUrlShop</label>
+                <input asp-for="RedirectUrlShop" class="form-control" placeholder="RedirectUrlShop">
+                <span asp-validation-for="RedirectUrlShop" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="mb-3 ">
+            <label asp-for="Desc" class="form-label">Desc</label>
+            <input asp-for="Desc" class="form-control" placeholder="Desc">
+            <span asp-validation-for="Desc" class="text-danger"></span>
+
+        </div>
+        <div class="mb-3">
+            <label asp-for="Image" class="form-label">Image</label>
+            <input asp-for="Image" class="form-control" placeholder="Image">
+            <span asp-validation-for="Image" class="text-danger"></span>
+
+        </div>
+        <button type="submit" class="btn btn-primary">Created</button>
+        <a asp-controller="Slider" asp-action="Index" class="btn btn-outline-success">Back</a>
+
+    </form>
+</div>

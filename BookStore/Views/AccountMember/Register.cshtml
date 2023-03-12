@@ -1,0 +1,57 @@
+﻿@model MemberRegisterViewModel
+<main>
+    <div class="customer-page theme-default-margin">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 offset-lg-3 col-md-8 offset-md-2">
+                    <div class="login">
+                        <div class="login-form-container">
+                            <div class="login-text">
+                                <h2>Create Account</h2>
+
+                                <p>Please Register using account detail bellow.</p>
+
+                            </div>
+                            <div class="register-form">
+                                <form method="post" asp-controller="Account" asp-action="Register">
+                                    <input type="hidden" name="form_type" value="create_customer" /><input type="hidden" name="utf8" value="âœ“" />
+
+
+                                    <label asp-for="FullName" class="hidden-label">FullName</label>
+                                    <input asp-for="FullName" class="input-full" placeholder="FullName" autocapitalize="words" autofocus>
+                                    <span asp-validation-for="FullName" class="text-danger"></span>
+
+                                    <label asp-for="UserName" class="hidden-label">UserName</label>
+                                    <input asp-for="UserName" class="input-full" placeholder="UserName" autocapitalize="words" autofocus>
+                                    <span asp-validation-for="UserName" class="text-danger"></span>
+
+                                    <label asp-for="Email" class="hidden-label">Email</label>
+                                    <input asp-for="Email" class="input-full" placeholder="Email" autocapitalize="words" autofocus>
+                                    <span asp-validation-for="Email" class="text-danger"></span>
+
+                                    <label asp-for="Password" class="hidden-label">Password</label>
+                                    <input asp-for="Password" class="input-full" placeholder="Password" autocapitalize="words" autofocus>
+                                    <span asp-validation-for="Password" class="text-danger"></span>
+
+                                    <label asp-for="ComfirmPassword" class="hidden-label">Comfirm Password</label>
+                                    <input asp-for="ComfirmPassword" class="input-full" placeholder="Comfirm Password" autocapitalize="words" autofocus>
+                                    <span asp-validation-for="ComfirmPassword" class="text-danger"></span>
+
+                                    <div class="form-action-button">
+
+                                        <button asp-controller="AccountMember" asp-action="Register"  type="submit" class="theme-default-button">Create</button>
+                                    </div>
+                                </form>
+
+                                <div class="account-optional-action">
+                                    <a asp-controller="Home" asp-action="Index">Return to Store</a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

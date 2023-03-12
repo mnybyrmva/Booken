@@ -1,0 +1,20 @@
+﻿@model Image
+<div class="container">
+    <h1>Image Created:</h1>
+    <form method="post"  enctype="multipart/form-data">
+        <div class="mb-3">
+            <label asp-for="Name" class="form-label">Name</label>
+            <input asp-for="Name" class="form-control" placeholder="Name">
+            <span asp-validation-for="Name" style="color:red"></span>
+        </div>
+        <div class="mb-3 col-md-4">
+            <label asp-for="ImageFile" class="form-label">ImageFile</label>
+            <input asp-for="ImageFile" class="form-control" placeholder="ImageFile">
+            <span asp-validation-for="ImageFile" class="text-danger"></span>
+            <span asp-validation-for="ImageFile" style="color:red"></span>
+
+        </div>
+        <button type="submit" class="btn btn-primary">Created Image</button>
+        <a asp-controller="Image" asp-action="Index" class="btn btn-outline-success">Back</a>
+    </form>
+</div>

@@ -1,0 +1,40 @@
+﻿@model List<Image>
+@{
+    int count = 0;
+}
+@section Css{
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.7.2/sweetalert2.min.css" integrity="sha512-NvuRGlPf6cHpxQqBGnPe7fPoACpyrjhlSNeXVUY7BZAj1nNhuNpRBq3osC4yr2vswUEuHq2HtCsY2vfLNCndYA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+}
+<div class="container">
+    <div class="d-flex" style="justify-content: space-around; align-items:center">
+        <h1>Images</h1>
+        <th><a asp-controller="Image" asp-action="Create" class="btn btn-primary">Create</a></th>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Image</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Image image in Model)
+            {
+                count++;
+                <tr>
+                    <th scope="row">@count</th>
+                    <td>@image.Name</td>
+                    <td style="width:200px"><img style="max-width:100%" src="~/uploads/images/@image.ImageUrl"></td>
+                    <td>
+                        <a asp-controller="Image" asp-action="Edit" asp-route-id="@image.Id" class="btn btn-info">Edit</a>
+                    </td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+    @section Scripts{
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.7.2/sweetalert2.min.js" integrity="sha512-jSNGQoIZ0qago6DK45skZbDI1JC8bmANSwItgDnMXiAnJm0Lq6QB4yXY8QPKqS68iR3ngZi0pM5+wZvg1kCCKQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    }

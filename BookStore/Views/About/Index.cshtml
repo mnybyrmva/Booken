@@ -1,0 +1,606 @@
+﻿@model HomeViewModel
+<main>
+      <div id="shopify-section-template--15056306995315__16424002725adda8ce" class="shopify-section">
+          <div class="banner-area countdown_promotion_banner" id="section-template--15056306995315__16424002725adda8ce">
+  <div class="container default ">
+
+      @foreach(Text text in Model.texts){
+    <div class="row align-items-center text-left left-def">
+
+        <div class="col-md-6 col-sm-12">
+              <div class="banner-img-2 pr-10 scroll-zoom promotion_video_btn">
+                  <a href="#"><img class="animated" src="~/assets/cdn.shopify.com/s/files/1/0044/3328/1139/files/home-2-siider-1_b7084a39-db26-4dc2-8dfb-5688d8912c2a7ecb.png?v=1614845510" alt=""></a>
+                  <a class="video-popup magni_video_pop" href="@text.VideoUrl">
+                    <i class="icofont-play"></i>
+                  </a>
+                  </div>
+            </div>
+            <div class="col-md-6 col-sm-12">
+              <div class="banner-bg-content scroll-zoom"><h2>@text.Name</h2><p>@text.Desc</p></div>
+            </div>
+
+
+              <style data-shopify>
+                                font-face {
+  font-family: "Open Sans";
+  font-weight: 600;
+  font-style: normal;
+  src: url("https://fonts.shopifycdn.com/open_sans/opensans_n6.63a74f6cbbfef729fb07955b2d5b4cc83273862e.woff2?h1=bm9rc2hpLTIuYWNjb3VudC5teXNob3BpZnkuY29t&amp;hmac=b59e48f4ae60b7b41ef5b42d670e7e05a7a007738561bc24c1c6c8d8fb298792") format("woff2"),
+       url("https://fonts.shopifycdn.com/open_sans/opensans_n6.1c4dde7af5554df3b20e440ca17dc8a316a9e1d0.woff?h1=bm9rc2hpLTIuYWNjb3VudC5teXNob3BpZnkuY29t&amp;hmac=e20fb80148ea0e70f03e4b27d523ac7a0fc0cfdc9079ea4ba396b7b8f68136e0") format("woff");
+}
+
+                                font-face {
+  font-family: "Open Sans";
+  font-weight: 600;
+  font-style: normal;
+  src: url("https://fonts.shopifycdn.com/open_sans/opensans_n6.63a74f6cbbfef729fb07955b2d5b4cc83273862e.woff2?h1=bm9rc2hpLTIuYWNjb3VudC5teXNob3BpZnkuY29t&amp;hmac=b59e48f4ae60b7b41ef5b42d670e7e05a7a007738561bc24c1c6c8d8fb298792") format("woff2"),
+       url("https://fonts.shopifycdn.com/open_sans/opensans_n6.1c4dde7af5554df3b20e440ca17dc8a316a9e1d0.woff?h1=bm9rc2hpLTIuYWNjb3VudC5teXNob3BpZnkuY29t&amp;hmac=e20fb80148ea0e70f03e4b27d523ac7a0fc0cfdc9079ea4ba396b7b8f68136e0") format("woff");
+}
+
+                                font-face {
+  font-family: "Work Sans";
+  font-weight: 400;
+  font-style: normal;
+  src: url("https://fonts.shopifycdn.com/work_sans/worksans_n4.29e3afeb38a0ba35e784cf169a40e8beaf814daa.woff2?h1=bm9rc2hpLTIuYWNjb3VudC5teXNob3BpZnkuY29t&amp;hmac=463f7b21d8c060d11eca1082f5a3016c310c4a6825c5132e8ff86c8cb4d5e95b") format("woff2"),
+       url("https://fonts.shopifycdn.com/work_sans/worksans_n4.e7c533c4afbed28070f6ac45dbcfe6f37840c0a8.woff?h1=bm9rc2hpLTIuYWNjb3VudC5teXNob3BpZnkuY29t&amp;hmac=f8e7857c597bcc6312acb092d89fd8e046f6f2f7023262e9d063bbc3223b400f") format("woff");
+}
+
+                                font-face {
+  font-family: Poppins;
+  font-weight: 300;
+  font-style: normal;
+  src: url("https://fonts.shopifycdn.com/poppins/poppins_n3.bf4dd4af82ac263dde50abfd3dfa16485ed1e002.woff2?h1=bm9rc2hpLTIuYWNjb3VudC5teXNob3BpZnkuY29t&amp;hmac=34ac0e04b114d55328f29c19d79d29bdf809f390a723d979299ff4df264c1ca0") format("woff2"),
+       url("https://fonts.shopifycdn.com/poppins/poppins_n3.6758f33361b35d8ab1e3e2f74c575be1fc4c1fda.woff?h1=bm9rc2hpLTIuYWNjb3VudC5teXNob3BpZnkuY29t&amp;hmac=83967f552565973686cfb892396cccc14bab9bf1b360c5918d6d1c8b9a2a18f3") format("woff");
+}
+
+
+
+                  #section-template--15056306995315__16424002725adda8ce.countdown_promotion_banner .banner-bg-content h3 {
+                    color:#dcb14a;
+                    font-family: "Open Sans", sans-serif;
+                    font-style: normal;
+                    font-weight: 600;
+                    font-size:24px;
+                    line-height:28px;
+                    margin: 0 0 15px;
+
+                    }
+
+
+                  #section-template--15056306995315__16424002725adda8ce.countdown_promotion_banner .banner-bg-content h2 {
+                    color:#ff6162;
+                    font-family: "Open Sans", sans-serif;
+                    font-style: normal;
+                    font-weight: 600;
+                    font-size:40px;
+                    line-height:50px;
+                    margin: 0 0 40px;
+                  }
+
+
+                  #section-template--15056306995315__16424002725adda8ce.countdown_promotion_banner .banner-bg-content p {
+                    color:#1f2226;
+                    font-family: "Work Sans", sans-serif;
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size:18px;
+                    margin: 0 0 15px;
+                    line-height:28px;
+                  }
+
+
+                                media (min-width: 768px) and (max-width: 992px) {
+
+                  #section-template--15056306995315__16424002725adda8ce.countdown_promotion_banner .banner-bg-content h3 {
+                      font-size:24px;
+                     line-height:28px;
+                  }
+                  #section-template--15056306995315__16424002725adda8ce.countdown_promotion_banner .banner-bg-content h2 {
+                      font-size:35px;
+                      line-height:40px;
+                  }
+                  #section-template--15056306995315__16424002725adda8ce.countdown_promotion_banner .banner-bg-content p {
+                      font-size:16px;
+                      line-height:26px;
+                  }
+
+                  }
+
+                                media (min-width: 300px) and (max-width: 767px) {
+
+                  #section-template--15056306995315__16424002725adda8ce.countdown_promotion_banner .banner-bg-content h3 {
+                      font-size:24px;
+                      line-height:28px;
+                  }
+                  #section-template--15056306995315__16424002725adda8ce.countdown_promotion_banner .banner-bg-content h2 {
+                      font-size:30px;
+                      line-height:35px;
+                  }
+                  #section-template--15056306995315__16424002725adda8ce.countdown_promotion_banner .banner-bg-content p {
+                      font-size:14px;
+                      line-height:24px;
+                  }
+
+                  }
+
+
+
+                  #section-template--15056306995315__16424002725adda8ce .count_down_wrapper .single-countdown {
+                      border-radius: 10px;
+                  }
+
+                  #section-template--15056306995315__16424002725adda8ce .banner-bg-content a.ban_btn1 {
+                      font-family: Poppins, sans-serif;
+                      font-style: normal;
+                      font-weight: 300;
+                      font-size:14px;
+                      margin: 10px 0 0;
+                      color: #1f2226;
+                  }
+
+                  #section-template--15056306995315__16424002725adda8ce .banner-bg-content a.ban_btn1:hover {
+                      color: #1f2226;
+                  }
+
+                  #section-template--15056306995315__16424002725adda8ce .banner-bg-content a.ban_btn1.banner_style_2{
+                      border: 1px solid #ffffff;
+                      background: #ffffff;
+                      border-radius: 0px;
+                      padding:15px 30px;
+                  }
+
+                  #section-template--15056306995315__16424002725adda8ce .banner-bg-content a.ban_btn1.banner_style_2:hover{
+                      background: #000000;
+                      border: 1px solid #000000;
+                  }#section-template--15056306995315__16424002725adda8ce.countdown_promotion_banner .banner-bg-content h2 {
+                      position: relative;
+                  }
+
+                  #section-template--15056306995315__16424002725adda8ce.countdown_promotion_banner .banner-bg-content h2::before {
+                      position: absolute;
+                      content: "";
+                      background: #ff6162;
+                      height: 4px;
+                      width: 70px;
+                      bottom: -20px;
+                  }</style>
+
+</div>
+}
+  </div>
+</div>
+
+<style>
+    #section-template--15056306995315__16424002725adda8ce .count_down_wrapper .single-countdown {
+      background: #fff;
+    }
+
+    #section-template--15056306995315__16424002725adda8ce .count_down_wrapper.count_border_disable .single-countdown {
+      background: none;
+      border:none;
+      text-align:left;
+      padding-left:0;
+    }
+    .count_down_wrapper.count_border_disable .count-number {
+      margin-bottom: 10px;
+    }
+
+    #section-template--15056306995315__16424002725adda8ce .promotion_video_btn{
+      position: relative;
+    }
+
+    #section-template--15056306995315__16424002725adda8ce .promotion_video_btn .magni_video_pop {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      height: 90px;
+      width: 90px;
+      border: 1px solid #fff;
+      border-radius: 100%;
+      text-align: center;
+      line-height: 90px;
+      font-size: 20px;
+      background: #fff;
+      color: #f44344;
+      transition: .3s;
+      margin-left: -45px;
+      margin-top: -45px;
+    }
+    #section-template--15056306995315__16424002725adda8ce .promotion_video_btn .magni_video_pop:hover {
+      transform: scale(1.15);
+      background: transparent;
+      color: #f44344;
+      border:1px solid #f44344;
+    }
+
+
+
+    #section-template--15056306995315__16424002725adda8ce .faq-page .card .card-header button {
+      color: #333;
+      transition: .3s;
+    }
+    #section-template--15056306995315__16424002725adda8ce .faq-page .card .card-header button:hover {
+      color: #f44344;
+    }
+    #section-template--15056306995315__16424002725adda8ce .faq-page .card-body p{
+      color: #333;
+    }
+    #section-template--15056306995315__16424002725adda8ce .card {
+      background-color: #fff;
+    }
+
+
+</style>
+<style data-shopify>#section-template--15056306995315__16424002725adda8ce{padding-top: 80px;
+    padding-bottom: 80px;}
+                    media (min-width: 768px) and (max-width: 991px) {
+    #section-template--15056306995315__16424002725adda8ce{padding-top: 70px;
+      padding-bottom: 70px;}
+  }
+                    media (max-width: 767px) {
+    #section-template--15056306995315__16424002725adda8ce{padding-top: 50px;
+      padding-bottom: 50px;}
+  }</style>
+
+<script>
+  $('.count_down_wrapper [data-countdown]').each(function() {
+    var $this = $(this), finalDate = $(this).data('countdown');
+    $this.countdown(finalDate, function(event) {
+      $this.html(event.strftime('<div class="countdown-area"><div class="single-countdown"><div class="count-number">%D</div><div class="count-title">days</div></div><div class="single-countdown"><div class="count-number">%H</div><div class="count-title">Hour</div></div><div class="single-countdown"><div class="count-number">%M</div><div class="count-title">Mint</div></div><div class="single-countdown"><div class="count-number">%S</div><div class="count-title">Sec</div></div></div>'));
+    });
+  });
+</script>
+
+
+
+
+
+
+</div>
+<div id="shopify-section-template--15056306995315__163359830970e43663" class="shopify-section">
+    <div class="testimonial-area" id="section-template--15056306995315__163359830970e43663" data-section="heroOwlSlider">
+  <div class="container default ">
+
+      @foreach (Title title in Model.titles.Where(x => x.Name == "About Title 1"))
+                        {
+    <div class="section-title text-center pb-60">
+
+      <h2>@title.Text</h2>
+
+
+
+      <p>@title.Description</p>
+
+    </div>
+                        }
+
+
+    <div class="row">
+      <div class="col-sm-10 ml-auto mr-auto">
+        <div class="testimonial-active-test owl-carousel  dot-style-1 dot_hide nav-style-2" data-owl-carousel='{ 
+
+              "loop": true,
+
+
+
+              "nav": false,
+
+
+
+
+
+              "dots": false,
+
+
+              "autoplay": false,
+              "autoplayTimeout": 5000,
+              "items": 1,
+              "margin": 30,
+
+              "responsive":{
+              "0":{ "items": 1 },
+              "576":{ "items": 1 },
+              "768":{ "items": 1 },
+              "1000":{ "items": 1 },
+              "1500":{ "items": 1 }
+               }                
+
+           }'>
+           @foreach(Testimonial testimonial in Model.testimonials){
+           <div class="single-testimonial text-center">
+
+            <img src="~/uploads/testimonials/@testimonial.ImageUrl" alt="">
+
+
+            <p style="color: #222222">@testimonial.Desc</p>
+            <div class="client-info">
+
+              <h5 style="color: #222222">@testimonial.Name</h5>
+            </div>
+          </div>
+          }
+          </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+<style data-shopify>#section-template--15056306995315__163359830970e43663{padding-top: 100px;
+    padding-bottom: 100px;background: #f0ac3f url("../assets/cdn.shopify.com/s/files/1/0044/3328/1139/files/home-3-slide-2bb74.png?v=1614846534")no-repeat scroll center center / cover;}
+                    media (min-width: 768px) and (max-width: 991px) {
+    #section-template--15056306995315__163359830970e43663{padding-top: 90px;
+      padding-bottom: 90px;}
+  }
+                    media (max-width: 767px) {
+    #section-template--15056306995315__163359830970e43663{padding-top: 80px;
+      padding-bottom: 80px;}
+  }</style>
+
+
+<style>
+
+  #section-template--15056306995315__163359830970e43663.testimonial-area .dot-style-1 .owl-dots .owl-dot {
+    border: 1px solid #ff6162;
+    outline: 1px solid #ff6162;
+  }
+
+  #section-template--15056306995315__163359830970e43663.testimonial-area .dot-style-1 .owl-dots .owl-dot.active {
+    background-color: #ff6162;
+    border: 1px solid #ff6162;
+    outline: 1px solid #ff6162;
+  }    
+
+</style>
+
+</div>
+<div id="shopify-section-template--15056306995315__16335990759a98a4c8" class="shopify-section">
+    <div class="team-area common_slick_slider" id="section-template--15056306995315__16335990759a98a4c8" data-section="About_team">
+  <div class="container default ">
+     @foreach (Title title in Model.titles.Where(x => x.Name == "About Title 2"))
+                        {
+    <div class="section-title text-center pb-40">
+
+      <h2>@title.Text</h2>
+
+
+
+      <p>@title.Description</p>
+
+    </div>
+      }
+
+
+     <div class=" banner-slider-active-team carsoule_arrow_style  row" data-slick='{
+
+    "infinite": true,
+    "slidesToShow": 5,
+    "slidesToScroll": 1,
+    "rows":1,
+
+    "arrows": true,
+    "prevArrow": "<span class=&#x27;product-dec-icon product-dec-prev&#x27;><i class=&#x27;sli sli-arrow-left&#x27;></i></span>",
+    "nextArrow": "<span class=&#x27;product-dec-icon product-dec-next&#x27;><i class=&#x27;sli sli-arrow-right&#x27;></i></span>",
+
+
+    "responsive": [{
+    "breakpoint": 1200,
+    "settings": {
+    "slidesToShow": 5,
+    "slidesToScroll": 1
+    }
+    },
+    {
+    "breakpoint": 1199,
+    "settings": {
+    "slidesToShow": 5,
+    "slidesToScroll": 1
+    }
+    },
+    {
+    "breakpoint": 991,
+    "settings": {
+    "slidesToShow": 3,
+    "slidesToScroll": 1
+    }
+    },
+    {
+    "breakpoint": 767,
+    "settings": {
+    "slidesToShow": 2,
+    "slidesToScroll": 1
+    }
+    },
+    {
+    "breakpoint": 575,
+    "settings": {
+    "slidesToShow": 1,
+    "slidesToScroll": 1
+    }
+    }
+    ]
+    }'>
+    @foreach(Team team in Model.teams){
+    <div class="col-md-12 ">
+
+        <div class="team-wrapper mb-30">
+
+          <div class="team-img">
+            <a href="#"><img src="~/uploads/teams/@team.ImageUrl" alt=""></a>
+            <div class="team-action"><a class="facebook" href="@team.Facebook">
+                <i class="sli sli-social-facebook"></i>
+              </a><a class="twitter" href="@team.Twitter">
+                <i class="sli sli-social-twitter"></i>
+              </a><a class="instagram" href="@team.Instagram">
+                <i class="sli sli-social-instagram"></i>
+              </a></div>
+          </div>
+
+          <div class="team-content text-center">
+            <h4>@team.FullName</h4><span>@team.Position.Name</span></div>
+        </div>
+      </div>
+      }
+      
+      </div>
+  </div>
+</div>
+<style data-shopify>#section-template--15056306995315__16335990759a98a4c8{padding-top: 90px;
+    padding-bottom: 90px;}
+                    media (min-width: 768px) and (max-width: 991px) {
+    #section-template--15056306995315__16335990759a98a4c8{padding-top: 80px;
+      padding-bottom: 80px;}
+  }
+                    media (max-width: 767px) {
+    #section-template--15056306995315__16335990759a98a4c8{padding-top: 70px;
+      padding-bottom: 70px;}
+  }</style>
+<style>font-face {
+  font-family: "Open Sans";
+  font-weight: 600;
+  font-style: normal;
+  src: url("https://fonts.shopifycdn.com/open_sans/opensans_n6.63a74f6cbbfef729fb07955b2d5b4cc83273862e.woff2?h1=bm9rc2hpLTIuYWNjb3VudC5teXNob3BpZnkuY29t&amp;hmac=b59e48f4ae60b7b41ef5b42d670e7e05a7a007738561bc24c1c6c8d8fb298792") format("woff2"),
+       url("https://fonts.shopifycdn.com/open_sans/opensans_n6.1c4dde7af5554df3b20e440ca17dc8a316a9e1d0.woff?h1=bm9rc2hpLTIuYWNjb3VudC5teXNob3BpZnkuY29t&amp;hmac=e20fb80148ea0e70f03e4b27d523ac7a0fc0cfdc9079ea4ba396b7b8f68136e0") format("woff");
+}
+
+                    font-face {
+  font-family: "Work Sans";
+  font-weight: 400;
+  font-style: normal;
+  src: url("https://fonts.shopifycdn.com/work_sans/worksans_n4.29e3afeb38a0ba35e784cf169a40e8beaf814daa.woff2?h1=bm9rc2hpLTIuYWNjb3VudC5teXNob3BpZnkuY29t&amp;hmac=463f7b21d8c060d11eca1082f5a3016c310c4a6825c5132e8ff86c8cb4d5e95b") format("woff2"),
+       url("https://fonts.shopifycdn.com/work_sans/worksans_n4.e7c533c4afbed28070f6ac45dbcfe6f37840c0a8.woff?h1=bm9rc2hpLTIuYWNjb3VudC5teXNob3BpZnkuY29t&amp;hmac=f8e7857c597bcc6312acb092d89fd8e046f6f2f7023262e9d063bbc3223b400f") format("woff");
+}
+
+
+
+  #section-template--15056306995315__16335990759a98a4c8 .section-title h2{
+    font-family: "Open Sans", sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    color: #333333;
+    font-size:40px;
+    line-height: 50px;
+    margin-bottom: 10px;
+  }
+
+  #section-template--15056306995315__16335990759a98a4c8 .section-title p{
+    font-family: "Work Sans", sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    color: #5a5a5a;
+    font-size:16px;
+    line-height: 30px;
+    margin-bottom: 10px;
+  }
+
+
+                    media (min-width: 768px) and (max-width: 1200px) {
+
+    #section-template--15056306995315__16335990759a98a4c8 .section-title h2{
+      font-size:30px;
+      line-height: 45px;
+    }
+    #section-template--15056306995315__16335990759a98a4c8 .section-title p{
+      font-size:16px;
+      line-height: 28px;
+    }
+  }
+
+                    media (min-width: 300px) and (max-width: 767px) {    
+
+    #section-template--15056306995315__16335990759a98a4c8 .section-title h2{
+      font-size:24px;
+      line-height: 40px;
+    }
+    #section-template--15056306995315__16335990759a98a4c8 .section-title p{
+      font-size:14px;
+      line-height: 24px;
+    }
+  }
+
+
+
+#section-template--15056306995315__16335990759a98a4c8 .team-wrapper .team-content h4{
+  color: #333333
+}
+
+#section-template--15056306995315__16335990759a98a4c8 .team-wrapper .team-content span{
+    color: #333333
+}
+
+</style>
+
+
+
+
+
+
+
+
+<script> 
+
+  $('#section-template--15056306995315__16335990759a98a4c8 .banner-slider-active').slick({
+
+    infinite: true,
+    slidesToShow: 5,
+    slidesToScroll: 1,
+    rows:1,
+
+    arrows: true,
+    prevArrow: '<span class="product-dec-icon product-dec-prev"><i class="sli sli-arrow-left"></i></span>',
+    nextArrow: '<span class="product-dec-icon product-dec-next"><i class="sli sli-arrow-right"></i></span>',
+
+
+    responsive: [{
+    breakpoint: 1200,
+    settings: {
+    slidesToShow: 5,
+    slidesToScroll: 1
+    }
+    },
+    {
+    breakpoint: 1199,
+    settings: {
+    slidesToShow: 5,
+    slidesToScroll: 1
+    }
+    },
+    {
+    breakpoint: 991,
+    settings: {
+    slidesToShow: 3,
+    slidesToScroll: 1
+    }
+    },
+    {
+    breakpoint: 767,
+    settings: {
+    slidesToShow: 2,
+    slidesToScroll: 1
+    }
+    },
+    {
+    breakpoint: 575,
+    settings: {
+    slidesToShow: 1,
+    slidesToScroll: 1
+    }
+    }
+    ]
+
+
+    });
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+</div>
+    </main>

@@ -1,0 +1,21 @@
+﻿@model Text
+<div class="container">
+    <h1>Text Created:</h1>
+    <form method="post">
+        <div class="mb-3">
+            <label asp-for="Name" class="form-label">Name</label>
+            <input asp-for="Name" class="form-control" placeholder="Name">
+        </div>
+        <div class="mb-3">
+            <label asp-for="Desc" class="form-label">Description</label>
+            <input asp-for="Desc" class="form-control" placeholder="Description">
+        </div>
+        <div class="mb-3">
+            <label asp-for="VideoUrl" class="form-label">VideoUrl</label>
+            <input asp-for="VideoUrl" class="form-control" placeholder="VideoUrl">
+        </div>
+        <button type="submit" class="btn btn-primary">Created Text</button>
+        <a asp-controller="Text" asp-action="Index" class="btn btn-outline-success">Back</a>
+
+    </form>
+</div>

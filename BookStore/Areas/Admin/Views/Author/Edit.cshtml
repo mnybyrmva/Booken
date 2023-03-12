@@ -1,0 +1,13 @@
+﻿@model Author
+<div class="container">
+    <h1>Edit:</h1>
+    <form method="post">
+        <div class="mb-3">
+            <label asp-for="FullName" class="form-label">FullName</label>
+            <input asp-for="FullName" class="form-control" placeholder="FullName">
+        </div>
+        <button type="submit" class="btn btn-primary">Edit</button>
+        <a asp-controller="Edit" asp-action="Index" class="btn btn-outline-success">Back</a>
+
+    </form>
+</div>

@@ -1,0 +1,1909 @@
+﻿@inject BookStore.Service.LayoutService service
+@{
+    
+    AppUser user = null;
+    if (User.Identity.IsAuthenticated)
+    {
+        user = await service.GetUser();
+    }
+    List<BasketItem> baskets = await service.GetBasket();
+    List<Setting> settings=service.GetSetting();
+    List<Author> authors=service.GetAuthors();
+    List<Category> categories=service.GetCategories();
+    double TotalPrice = 0;
+}
+<!doctype html>
+<html class="no-js supports-no-cookies" lang="en">
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<head>
+    <!-- Basic and Helper page needs -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="theme-color" content="#f44344">
+    <link rel="canonical" href="index.html"><!-- Title and description -->
+    <title>
+        Booken - Book Store Shopify Theme
+    </title><!-- Helpers --><!-- /snippets/social-meta-tags.liquid -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Booken - Book Store Shopify Theme">
+    <meta property="og:description" content="">
+    <meta property="og:url" content="index.html">
+    <meta property="og:site_name" content="Booken">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Booken - Book Store Shopify Theme">
+    <meta name="twitter:description" content="">
+    <!-- CSS -->
+    <link href="~/assets/cdn.shopify.com/s/files/1/0044/3328/1139/t/14/assets/timber.scss7f91.css?v=127293131314949344311675849134" rel="stylesheet" type="text/css" media="all" />
+    <link href="~/assets/cdn.shopify.com/s/files/1/0044/3328/1139/t/14/assets/bootstrap.min8ea2.css?v=19868337340211324411675837214" rel="stylesheet" type="text/css" media="all" />
+    <link href="~/assets/cdn.shopify.com/s/files/1/0044/3328/1139/t/14/assets/icons.minb968.css?v=144771626144460745771675837215" rel="stylesheet" type="text/css" media="all" />
+    <link href="~/assets/cdn.shopify.com/s/files/1/0044/3328/1139/t/14/assets/icofont.min4a49.css?v=49818375117710154861675837215" rel="stylesheet" type="text/css" media="all" />
+    <link href="~/assets/cdn.shopify.com/s/files/1/0044/3328/1139/t/14/assets/animated485.css?v=114383688823196960631675837214" rel="stylesheet" type="text/css" media="all" />
+    <link href="~/assets/cdn.shopify.com/s/files/1/0044/3328/1139/t/14/assets/magnific-popupce85.css?v=65451962456944049981675837216" rel="stylesheet" type="text/css" media="all" />
+    <link href="~/assets/cdn.shopify.com/s/files/1/0044/3328/1139/t/14/assets/owl-carousela5e1.css?v=174821606744937199751675837216" rel="stylesheet" type="text/css" media="all" />
+    <link href="~/assets/cdn.shopify.com/s/files/1/0044/3328/1139/t/14/assets/slick-sliderd284.css?v=98065853508920828541675837218" rel="stylesheet" type="text/css" media="all" />
+    <link href="~/assets/cdn.shopify.com/s/files/1/0044/3328/1139/t/14/assets/plugins6638.css?v=122149010790743861711675837217" rel="stylesheet" type="text/css" media="all" />
+    <link href="~/assets/cdn.shopify.com/s/files/1/0044/3328/1139/t/14/assets/style864a.css?v=166576662507251559461675837218" rel="stylesheet" type="text/css" media="all" />
+    <!-- Theme Default CSS -->
+    <link href="~/assets/cdn.shopify.com/s/files/1/0044/3328/1139/t/14/assets/theme-defaultabc1.css?v=7809027325963819351675849134" rel="stylesheet" type="text/css" media="all" />
+    <!-- Make your theme CSS calls here -->
+    <link href="~/assets/cdn.shopify.com/s/files/1/0044/3328/1139/t/14/assets/theme-custom1bb6.css?v=161209254064272160941675849134" rel="stylesheet" type="text/css" media="all" />
+    <link href="~/assets/cdn.shopify.com/s/files/1/0044/3328/1139/t/14/assets/theme-responsiveac82.css?v=82576424684323171021675837218" rel="stylesheet" type="text/css" media="all" />
+    <link href="~/assets/cdn.shopify.com/s/files/1/0044/3328/1139/t/14/assets/skin-and-colorf9b8.css?v=141429473840039532401675849134" rel="stylesheet" type="text/css" media="all" />
+    @RenderSection("Css",required:false)
+
+    <!-- Header hook for plugins -->
+    <script>window.performance && window.performance.mark && window.performance.mark('shopify.content_for_header.start');</script>
+    <meta id="shopify-digital-wallet" name="shopify-digital-wallet" content="/4433281139/digital_wallets/dialog">
+    <script>
+        (function () {
+            var scripts = ["https://cdn.shopify.com/shopifycloud/checkout-web/assets/runtime.baseline.en.f8423b4aeafd3581e601.js", "~/assets/cdn.shopify.com/shopifycloud/checkout-web/assets/checkout-web-packages_Information_NoAddressLocation_Payment_PostPurchase_Review_Shipping_ShopPay_Sho_cf13f96e.baseline.en.8d3a709bcf8c04f77ed7.js", "~/assets/cdn.shopify.com/shopifycloud/checkout-web/assets/Information_Payment_ShopPay.baseline.en.935f71e1b5e37b1a673d.js", "~/assets/cdn.shopify.com/shopifycloud/checkout-web/assets/Information_Payment.baseline.en.e38e94a10255bd8dac2c.js", "~/assets/cdn.shopify.com/shopifycloud/checkout-web/assets/Information.baseline.en.3c067bc64a64a71ff5ad.js", "~/assets/cdn.shopify.com/shopifycloud/checkout-web/assets/checkout-web-ui_app.baseline.en.26a0342d355a675e2801.js", "~/assets/cdn.shopify.com/shopifycloud/checkout-web/assets/vendors_app.baseline.en.1188b9033722bc012e84.js", "~/assets/cdn.shopify.com/shopifycloud/checkout-web/assets/checkout-web-packages_app.baseline.en.4e70883e139eb5a799c1.js", "https://cdn.shopify.com/shopifycloud/checkout-web/assets/app.baseline.en.d102fc12c433371f18b0.js"];
+            var styles = ["https://cdn.shopify.com/shopifycloud/checkout-web/assets/checkout-web-ui~app.baseline.en.ba7746e3965877991bae.css", "~/assets/cdn.shopify.com/shopifycloud/checkout-web/assets/vendors_app.baseline.en.954db6995929b6f1f646.css", "~/assets/cdn.shopify.com/shopifycloud/checkout-web/assets/app.baseline.en.dd733f21b66b59afc26d.css", "~/assets/cdn.shopify.com/shopifycloud/checkout-web/assets/Information_Payment_ShopPay.baseline.en.9f248e42bf2a8151ea27.css", "https://cdn.shopify.com/shopifycloud/checkout-web/assets/Information.baseline.en.6d08f77e3a864d9cf367.css"];
+
+            function prefetch(url, as, callback) {
+                var link = document.createElement('link');
+                if (link.relList.supports('prefetch')) {
+                    link.rel = 'prefetch';
+                    link.fetchPriority = 'low';
+                    link.as = as;
+                    link.href = url;
+                    link.onload = link.onerror = callback;
+                    document.head.appendChild(link);
+                } else {
+                    var xhr = new XMLHttpRequest();
+                    xhr.open('GET.html', url, true);
+                    xhr.onloadend = callback;
+                    xhr.send();
+                }
+            }
+
+            function prefetchAssets() {
+                var resources = [].concat(
+                    scripts.map(function (url) { return [url, 'script']; }),
+                    styles.map(function (url) { return [url, 'style']; })
+                );
+                var index = 0;
+                (function next() {
+                    var res = resources[index++];
+                    if (res) prefetch(res[0], res[1], next);
+                })();
+            }
+
+            addEventListener('load', prefetchAssets);
+        })();
+    </script>
+    <script id="shopify-features" type="application/json">{"accessToken":"41592226754fb53133f8e3cb72908561","betas":["rich-media-storefront-analytics"],"domain":"nokshi-2.myshopify.com","predictiveSearch":true,"shopId":4433281139,"smart_payment_buttons_url":"https:\/\/cdn.shopify.com\/shopifycloud\/payment-sheet\/assets\/latest\/spb.en.js?v=2","dynamic_checkout_cart_url":"https:\/\/cdn.shopify.com\/shopifycloud\/payment-sheet\/assets\/latest\/dynamic-checkout-cart.en.js?v=2","locale":"en","optimusEnabled":false}</script>
+    <script>
+        var Shopify = Shopify || {};
+        Shopify.shop = "nokshi-2.myshopify.com";
+        Shopify.locale = "en";
+        Shopify.currency = { "active": "USD", "rate": "1.0" };
+        Shopify.country = "US";
+        Shopify.theme = { "name": "Booken OS-2.0 (Home 01)", "id": 125490004083, "theme_store_id": null, "role": "main" };
+        Shopify.theme.handle = "null";
+        Shopify.theme.style = { "id": null, "handle": null };
+        Shopify.cdnHost = "cdn.shopify.com";
+        Shopify.routes = Shopify.routes || {};
+        Shopify.routes.root = "index.html";</script>
+    <script type="module">!function (o) { (o.Shopify = o.Shopify || {}).modules = !0 }(window);</script>
+    <script>!function (o) { function n() { var o = []; function n() { o.push(Array.prototype.slice.apply(arguments)) } return n.q = o, n } var t = o.Shopify = o.Shopify || {}; t.loadFeatures = n(), t.autoloadFeatures = n() }(window);</script>
+    <script>
+        (function () {
+            function asyncLoad() {
+                var urls = ["\/\/productreviews.shopifycdn.com\/embed\/loader.js?shop=nokshi-2.myshopify.com", "https:\/\/cdn.assortion.com\/app.js?shop=nokshi-2.myshopify.com"];
+                for (var i = 0; i < urls.length; i++) {
+                    var s = document.createElement('script');
+                    s.type = 'text/javascript';
+                    s.async = true;
+                    s.src = urls[i];
+                    var x = document.getElementsByTagName('script')[0];
+                    x.parentNode.insertBefore(s, x);
+                }
+            };
+            if (window.attachEvent) {
+                window.attachEvent('onload', asyncLoad);
+            } else {
+                window.addEventListener('load', asyncLoad, false);
+            }
+        })();</script>
+    <script id="__st">var __st = { "a": 4433281139, "offset": -18000, "reqid": "10755184-1ac4-4c6f-a512-492fb134e1cb", "pageurl": "nokshi-2.myshopify.com\/", "u": "7e0059d47734", "p": "home" };</script>
+    <script>window.ShopifyPaypalV4VisibilityTracking = true;</script>
+    <script>!function (o) { o.addEventListener("DOMContentLoaded", function () { window.Shopify = window.Shopify || {}, window.Shopify.recaptchaV3 = window.Shopify.recaptchaV3 || { siteKey: "6LcCR2cUAAAAANS1Gpq_mDIJ2pQuJphsSQaUEuc9" }; var t = ['form[action*="/contact"] input[name="form_type"][value="contact"]', 'form[action*="/comments"] input[name="form_type"][value="new_comment"]', 'form[action*="/account"] input[name="form_type"][value="customer_login"]', 'form[action*="/account"] input[name="form_type"][value="recover_customer_password"]', 'form[action*="/account"] input[name="form_type"][value="create_customer"]', 'form[action*="/contact"] input[name="form_type"][value="customer"]'].join(","); function n(e) { e = e.target; null == e || null != (e = function e(t, n) { if (null == t.parentElement) return null; if ("FORM" != t.parentElement.tagName) return e(t.parentElement, n); for (var o = t.parentElement.action, r = 0; r < n.length; r++)if (-1 !== o.indexOf(n[r])) return t.parentElement; return null }(e, ["/contact", "/comments", "/account"])) && null != e.querySelector(t) && ((e = o.createElement("script")).setAttribute("src", "~/assets/cdn.shopify.com/shopifycloud/storefront-recaptcha-v3/v0.6/index.js"), o.body.appendChild(e), o.removeEventListener("focus", n, !0), o.removeEventListener("change", n, !0), o.removeEventListener("click", n, !0)) } o.addEventListener("click", n, !0), o.addEventListener("change", n, !0), o.addEventListener("focus", n, !0) }) }(document);</script>
+    <script integrity="sha256-4VRZk5nmuLKdyxECzHbrGZ+jOgmvT6eNFej4VE7mT80=" data-source-attribution="shopify.loadfeatures" defer="defer" src="~/assets/cdn.shopify.com/shopifycloud/shopify/assets/storefront/load_feature-e154599399e6b8b29dcb1102cc76eb199fa33a09af4fa78d15e8f8544ee64fcd.js" crossorigin="anonymous"></script>
+    <script integrity="sha256-h+g5mYiIAULyxidxudjy/2wpCz/3Rd1CbrDf4NudHa4=" data-source-attribution="shopify.dynamic-checkout" defer="defer" src="~/assets/cdn.shopify.com/shopifycloud/shopify/assets/storefront/features-87e8399988880142f2c62771b9d8f2ff6c290b3ff745dd426eb0dfe0db9d1dae.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" media="screen" href="~/assets/cdn.shopify.com/s/files/1/0044/3328/1139/t/14/compiled_assets/stylesb0b1.css?837">
+    <script id="sections-script" data-sections="slider,best-collection,banner,promotion-banner,testimonial,latest-blog,header,footer_5,footer-bottom" defer="defer" src="~/assets/cdn.shopify.com/s/files/1/0044/3328/1139/t/14/compiled_assets/scriptsb0b1.js?837"></script>
+
+    <script>window.performance && window.performance.mark && window.performance.mark('shopify.content_for_header.end');</script>
+    <!-- /snippets/oldIE-js.liquid -->
+    <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js" type="text/javascript"></script>
+    <script src="//cdn.shopify.com/s/files/1/0044/3328/1139/t/14/assets/respond.min.js?v=52248677837542619231675837217" type="text/javascript"></script>
+    <link href="//cdn.shopify.com/s/files/1/0044/3328/1139/t/14/assets/respond-proxy.html" id="respond-proxy" rel="respond-proxy" />
+    <link href="//nokshi-2.myshopify.com/search?q=6340a0d109a44f7f549a4f54e143b195" id="respond-redirect" rel="respond-redirect" />
+    <script src="//nokshi-2.myshopify.com/search?q=6340a0d109a44f7f549a4f54e143b195" type="text/javascript"></script>
+    <![endif]-->
+    <!-- JS --><!-- Your update file include here -->
+    <script src="~/assets/cdn.shopify.com/s/files/1/0044/3328/1139/t/14/assets/modernizr-3.5.0.min61a7.js?v=129302752053281709951675837216"></script>
+    <script src="~/assets/cdn.shopify.com/s/files/1/0044/3328/1139/t/14/assets/jquery-1.12.4.mincbf5.js?v=167620768852842279821675837215"></script>
+    <script src="~/assets/cdn.shopify.com/s/files/1/0044/3328/1139/t/14/assets/popper.minc32d.js?v=34695330375260839601675837217"></script>
+    <script src="~/assets/cdn.shopify.com/s/files/1/0044/3328/1139/t/14/assets/bootstrap.min693c.js?v=16883752084331194951675837214"></script>
+    <script src="~/assets/cdn.shopify.com/s/files/1/0044/3328/1139/t/14/assets/magnific-popup7126.js?v=142983337434679885831675837216"></script>
+    <script src="~/assets/cdn.shopify.com/s/files/1/0044/3328/1139/t/14/assets/countdown433b.js?v=14012044983135477401675837214"></script>
+    <script src="~/assets/cdn.shopify.com/s/files/1/0044/3328/1139/t/14/assets/owl-carousel68cd.js?v=39625633880638491061675837216"></script>
+    <script src="~/assets/cdn.shopify.com/s/files/1/0044/3328/1139/t/14/assets/slick-sliderd222.js?v=156015854412133448501675837218"></script>
+    <script src="~/assets/cdn.shopify.com/s/files/1/0044/3328/1139/t/14/assets/scrollreveal21f5.js?v=63923836180324878301675837217"></script>
+    <script src="~/assets/cdn.shopify.com/s/files/1/0044/3328/1139/t/14/assets/pluginsf005.js?v=28728741735110059211675837257"></script>
+    <script src="~/assets/cdn.shopify.com/s/files/1/0044/3328/1139/t/14/assets/vendor94e3.js?v=26783820724150299271675837257"></script>
+    <script src="~/assets/cdn.shopify.com/s/files/1/0044/3328/1139/t/14/assets/auto-parts-search-filterd374.js?v=149934856612987258451675837214" defer="defer"></script>
+
+    <!-- Ajax Cart js -->
+    <script src="~/assets/cdn.shopify.com/shopifycloud/shopify/assets/themes_support/option_selection-9f517843f664ad329c689020fb1e45d03cac979f64b9eb1651ea32858b0ff452.js"></script>
+    <script src="~/assets/cdn.shopify.com/shopifycloud/shopify/assets/themes_support/api.jquery-e94e010e92e659b566dbc436fdfe5242764380e00398907a14955ba301a4749f.js"></script>
+    <script src="~/assets/cdn.shopify.com/s/files/1/0044/3328/1139/t/14/assets/cart.api3a95.js?v=168067226923720647551675837214"></script>
+
+    <!-- Your main.js file upload this file -->
+    <script src="~/assets/cdn.shopify.com/s/files/1/0044/3328/1139/t/14/assets/themee104.js?v=163895126186928906831675837257"></script>
+    <link href="https://monorail-edge.shopifysvc.com/" rel="dns-prefetch">
+    <script>(function () { if ("sendBeacon" in navigator && "performance" in window) { var session_token = document.cookie.match(/_shopify_s=([^;]*)/); function handle_abandonment_event(e) { var entries = performance.getEntries().filter(function (entry) { return /monorail-edge.shopifysvc.com/.test(entry.name); }); if (!window.abandonment_tracked && entries.length === 0) { window.abandonment_tracked = true; var currentMs = Date.now(); var navigation_start = performance.timing.navigationStart; var payload = { shop_id: 4433281139, url: window.location.href, navigation_start, duration: currentMs - navigation_start, session_token: session_token && session_token.length === 2 ? session_token[1] : "", page_type: "index" }; window.navigator.sendBeacon("https://monorail-edge.shopifysvc.com/v1/produce", JSON.stringify({ schema_id: "online_store_buyer_site_abandonment/1.1", payload: payload, metadata: { event_created_at_ms: currentMs, event_sent_at_ms: currentMs } })); } } window.addEventListener('pagehide', handle_abandonment_event); } }());</script>
+    <script>
+        window.ShopifyAnalytics = window.ShopifyAnalytics || {};
+        window.ShopifyAnalytics.meta = window.ShopifyAnalytics.meta || {};
+        window.ShopifyAnalytics.meta.currency = 'USD';
+        var meta = { "page": { "pageType": "home" } };
+        for (var attr in meta) {
+            window.ShopifyAnalytics.meta[attr] = meta[attr];
+        }</script>
+    <script>
+        window.ShopifyAnalytics.merchantGoogleAnalytics = function () {
+
+        };
+    </script>
+    <script class="analytics">
+        (function () {
+            var customDocumentWrite = function (content) {
+                var jquery = null;
+
+                if (window.jQuery) {
+                    jquery = window.jQuery;
+                } else if (window.Checkout && window.Checkout.$) {
+                    jquery = window.Checkout.$;
+                }
+
+                if (jquery) {
+                    jquery('body').append(content);
+                }
+            };
+
+            var hasLoggedConversion = function (token) {
+                if (token) {
+                    return document.cookie.indexOf('loggedConversion=' + token) !== -1;
+                }
+                return false;
+            }
+
+            var setCookieIfConversion = function (token) {
+                if (token) {
+                    var twoMonthsFromNow = new Date(Date.now());
+                    twoMonthsFromNow.setMonth(twoMonthsFromNow.getMonth() + 2);
+
+                    document.cookie = 'loggedConversion=' + token + '; expires=' + twoMonthsFromNow;
+                }
+            }
+
+            var trekkie = window.ShopifyAnalytics.lib = window.trekkie = window.trekkie || [];
+            if (trekkie.integrations) {
+                return;
+            }
+            trekkie.methods = [
+                'identify',
+                'page',
+                'ready',
+                'track',
+                'trackForm',
+                'trackLink'
+            ];
+            trekkie.factory = function (method) {
+                return function () {
+                    var args = Array.prototype.slice.call(arguments);
+                    args.unshift(method);
+                    trekkie.push(args);
+                    return trekkie;
+                };
+            };
+            for (var i = 0; i < trekkie.methods.length; i++) {
+                var key = trekkie.methods[i];
+                trekkie[key] = trekkie.factory(key);
+            }
+            trekkie.load = function (config) {
+                trekkie.config = config || {};
+                trekkie.config.initialDocumentCookie = document.cookie;
+                var first = document.getElementsByTagName('script')[0];
+                var script = document.createElement('script');
+                script.type = 'text/javascript';
+                script.onerror = function (e) {
+                    var scriptFallback = document.createElement('script');
+                    scriptFallback.type = 'text/javascript';
+                    scriptFallback.onerror = function (error) {
+                        var Monorail = {
+                            produce: function produce(monorailDomain, schemaId, payload) {
+                                var currentMs = new Date().getTime();
+                                var event = {
+                                    schema_id: schemaId,
+                                    payload: payload,
+                                    metadata: {
+                                        event_created_at_ms: currentMs,
+                                        event_sent_at_ms: currentMs
+                                    }
+                                };
+                                return Monorail.sendRequest("https://" + monorailDomain + "/v1/produce", JSON.stringify(event));
+                            },
+                            sendRequest: function sendRequest(endpointUrl, payload) {
+                                // Try the sendBeacon API
+                                if (window && window.navigator && typeof window.navigator.sendBeacon === 'function' && typeof window.Blob === 'function' && !Monorail.isIos12()) {
+                                    var blobData = new window.Blob([payload], {
+                                        type: 'text/plain'
+                                    });
+
+                                    if (window.navigator.sendBeacon(endpointUrl, blobData)) {
+                                        return true;
+                                    } // sendBeacon was not successful
+
+                                } // XHR beacon
+
+                                var xhr = new XMLHttpRequest();
+
+                                try {
+                                    xhr.open('POST.html', endpointUrl);
+                                    xhr.setRequestHeader('Content-Type', 'text/plain');
+                                    xhr.send(payload);
+                                } catch (e) {
+                                    console.log(e);
+                                }
+
+                                return false;
+                            },
+                            isIos12: function isIos12() {
+                                return window.navigator.userAgent.lastIndexOf('iPhone; CPU iPhone OS 12_') !== -1 || window.navigator.userAgent.lastIndexOf('iPad; CPU OS 12_') !== -1;
+                            }
+                        };
+                        Monorail.produce('monorail-edge.shopifysvc.com',
+                            'trekkie_storefront_load_errors/1.1',
+                            {
+                                shop_id: 4433281139,
+                                theme_id: 125490004083,
+                                app_name: "storefront",
+                                context_url: window.location.href,
+                                source_url: "https://cdn.shopify.com/s/trekkie.storefront.f23242e0bcba6b88e94c243310082bbb178ab50f.min.js"
+                            });
+
+                    };
+                    scriptFallback.async = true;
+                    scriptFallback.src = '~/assets/cdn.shopify.com/s/trekkie.storefront.f23242e0bcba6b88e94c243310082bbb178ab50f.min.js';
+                    first.parentNode.insertBefore(scriptFallback, first);
+                };
+                script.async = true;
+                script.src = '~/assets/cdn.shopify.com/s/trekkie.storefront.f23242e0bcba6b88e94c243310082bbb178ab50f.min.js';
+                first.parentNode.insertBefore(script, first);
+            };
+            trekkie.load(
+                { "Trekkie": { "appName": "storefront", "development": false, "defaultAttributes": { "shopId": 4433281139, "isMerchantRequest": null, "themeId": 125490004083, "themeCityHash": "5563877563797716718", "contentLanguage": "en", "currency": "USD" }, "isServerSideCookieWritingEnabled": true, "monorailRegion": "shop_domain" }, "Session Attribution": {}, "S2S": { "facebookCapiEnabled": false, "source": "trekkie-storefront-renderer" } }
+            );
+
+            var loaded = false;
+            trekkie.ready(function () {
+                if (loaded) return;
+                loaded = true;
+
+                window.ShopifyAnalytics.lib = window.trekkie;
+
+
+                var originalDocumentWrite = document.write;
+                document.write = customDocumentWrite;
+                try { window.ShopifyAnalytics.merchantGoogleAnalytics.call(this); } catch (error) { };
+                document.write = originalDocumentWrite;
+
+                window.ShopifyAnalytics.lib.page(null, { "pageType": "home" });
+
+                var match = window.location.pathname.match(/checkouts\/(.+)\/(thank_you|post_purchase)/)
+                var token = match ? match[1] : undefined;
+                if (!hasLoggedConversion(token)) {
+                    setCookieIfConversion(token);
+
+                }
+            });
+
+
+            var eventsListenerScript = document.createElement('script');
+            eventsListenerScript.async = true;
+            eventsListenerScript.src = "~/assets/cdn.shopify.com/shopifycloud/shopify/assets/shop_events_listener-65cd0ba3fcd81a1df33f2510ec5bcf8c0e0958653b50e3965ec972dd638ee13f.js";
+            document.getElementsByTagName('head')[0].appendChild(eventsListenerScript);
+
+        })();</script>
+    <script class="boomerang">
+        (function () {
+            if (window.BOOMR && (window.BOOMR.version || window.BOOMR.snippetExecuted)) {
+                return;
+            }
+            window.BOOMR = window.BOOMR || {};
+            window.BOOMR.snippetStart = new Date().getTime();
+            window.BOOMR.snippetExecuted = true;
+            window.BOOMR.snippetVersion = 12;
+            window.BOOMR.application = "storefront-renderer";
+            window.BOOMR.themeName = "Booken - Shopify Theme";
+            window.BOOMR.themeVersion = "v1.0.5";
+            window.BOOMR.shopId = 4433281139;
+            window.BOOMR.themeId = 125490004083;
+            window.BOOMR.renderRegion = "gcp-europe-west1";
+            window.BOOMR.url =
+                "~/assets/cdn.shopify.com/shopifycloud/boomerang/shopify-boomerang-1.0.0.min.js";
+            var where = document.currentScript || document.getElementsByTagName("script")[0];
+            var parentNode = where.parentNode;
+            var promoted = false;
+            var LOADER_TIMEOUT = 3000;
+            function promote() {
+                if (promoted) {
+                    return;
+                }
+                var script = document.createElement("script");
+                script.id = "boomr-scr-as";
+                script.src = window.BOOMR.url;
+                script.async = true;
+                parentNode.appendChild(script);
+                promoted = true;
+            }
+            function iframeLoader(wasFallback) {
+                promoted = true;
+                var dom, bootstrap, iframe, iframeStyle;
+                var doc = document;
+                var win = window;
+                window.BOOMR.snippetMethod = wasFallback ? "if" : "i";
+                bootstrap = function (parent, scriptId) {
+                    var script = doc.createElement("script");
+                    script.id = scriptId || "boomr-if-as";
+                    script.src = window.BOOMR.url;
+                    BOOMR_lstart = new Date().getTime();
+                    parent = parent || doc.body;
+                    parent.appendChild(script);
+                };
+                if (!window.addEventListener && window.attachEvent && navigator.userAgent.match(/MSIE [67]./)) {
+                    window.BOOMR.snippetMethod = "s";
+                    bootstrap(parentNode, "boomr-async");
+                    return;
+                }
+                iframe = document.createElement("IFRAME");
+                iframe.src = "about:blank";
+                iframe.title = "";
+                iframe.role = "presentation";
+                iframe.loading = "eager";
+                iframeStyle = (iframe.frameElement || iframe).style;
+                iframeStyle.width = 0;
+                iframeStyle.height = 0;
+                iframeStyle.border = 0;
+                iframeStyle.display = "none";
+                parentNode.appendChild(iframe);
+                try {
+                    win = iframe.contentWindow;
+                    doc = win.document.open();
+                } catch (e) {
+                    dom = document.domain;
+                    iframe.src = "javascript:var d=document.open();d.domain='" + dom + "';void(0);";
+                    win = iframe.contentWindow;
+                    doc = win.document.open();
+                }
+                if (dom) {
+                    doc._boomrl = function () {
+                        this.domain = dom;
+                        bootstrap();
+                    };
+                    doc.write("<body onload='document._boomrl();'>");
+                } else {
+                    win._boomrl = function () {
+                        bootstrap();
+                    };
+                    if (win.addEventListener) {
+                        win.addEventListener("load", win._boomrl, false);
+                    } else if (win.attachEvent) {
+                        win.attachEvent("onload", win._boomrl);
+                    }
+                }
+                doc.close();
+            }
+            var link = document.createElement("link");
+            if (link.relList &&
+                typeof link.relList.supports === "function" &&
+                link.relList.supports("preload") &&
+                ("as" in link)) {
+                window.BOOMR.snippetMethod = "p";
+                link.href = window.BOOMR.url;
+                link.rel = "preload";
+                link.as = "script";
+                link.addEventListener("load", promote);
+                link.addEventListener("error", function () {
+                    iframeLoader(true);
+                });
+                setTimeout(function () {
+                    if (!promoted) {
+                        iframeLoader(true);
+                    }
+                }, LOADER_TIMEOUT);
+                BOOMR_lstart = new Date().getTime();
+                parentNode.appendChild(link);
+            } else {
+                iframeLoader(false);
+            }
+            function boomerangSaveLoadTime(e) {
+                window.BOOMR_onload = (e && e.timeStamp) || new Date().getTime();
+            }
+            if (window.addEventListener) {
+                window.addEventListener("load", boomerangSaveLoadTime, false);
+            } else if (window.attachEvent) {
+                window.attachEvent("onload", boomerangSaveLoadTime);
+            }
+            if (document.addEventListener) {
+                document.addEventListener("onBoomerangLoaded", function (e) {
+                    e.detail.BOOMR.init({
+                        ResourceTiming: {
+                            enabled: true,
+                            trackedResourceTypes: ["script", "img", "css"]
+                        },
+                    });
+                    e.detail.BOOMR.t_end = new Date().getTime();
+                });
+            } else if (document.attachEvent) {
+                document.attachEvent("onpropertychange", function (e) {
+                    if (!e) e = event;
+                    if (e.propertyName === "onBoomerangLoaded") {
+                        e.detail.BOOMR.init({
+                            ResourceTiming: {
+                                enabled: true,
+                                trackedResourceTypes: ["script", "img", "css"]
+                            },
+                        });
+                        e.detail.BOOMR.t_end = new Date().getTime();
+                    }
+                });
+            }
+        })();</script>
+    <script id="web-pixels-manager-setup">(function e(e, n, a, o, t) { e && (window.Shopify = window.Shopify || {}, window.Shopify.analytics = window.Shopify.analytics || {}, window.Shopify.analytics.replayQueue = [], window.Shopify.analytics.publish = function (e, n, a) { window.Shopify.analytics.replayQueue.push([e, n, a]) }); var r, i, s, l, d, c, p, u, f = a + "/" + o + "." + function () { var e = "legacy", n = "unknown", a = null, o = navigator.userAgent.match(/(Firefox|Chrome)\/(\d+)/i), t = navigator.userAgent.match(/(Edg)\/(\d+)/i), r = navigator.userAgent.match(/(Version)\/(\d+)(.+)(Safari)\/(\d+)/i); r ? (n = "safari", a = parseInt(r[2], 10)) : t ? (n = "edge", a = parseInt(t[2], 10)) : o && (n = o[1].toLocaleLowerCase(), a = parseInt(o[2], 10)); var i = { chrome: 60, firefox: 55, safari: 11, edge: 80 }[n]; return void 0 !== i && null !== a && i <= a && (e = "modern"), e }() + ".js"; r = { src: f, async: !0, onload: function () { if (e) { var a = window.webPixelsManager.init(e); n(a), window.Shopify.analytics.replayQueue.forEach((function (e) { a.publishCustomEvent(e[0], e[1], e[2]) })), window.Shopify.analytics.replayQueue = [], window.Shopify.analytics.publish = a.publishCustomEvent } }, onerror: function () { var n = (e.storefrontBaseUrl ? e.storefrontBaseUrl.replace(/\/$/, "") : self.location.origin) + "/.well-known/shopify/monorail/unstable/produce_batch", a = JSON.stringify({ metadata: { event_sent_at_ms: (new Date).getTime() }, events: [{ schema_id: "web_pixels_manager_load/2.0", payload: { version: t || "latest", page_url: self.location.href, status: "failed", error_msg: f + " has failed to load" }, metadata: { event_created_at_ms: (new Date).getTime() } }] }); try { if (self.navigator.sendBeacon.bind(self.navigator)(n, a)) return !0 } catch (e) { } const o = new XMLHttpRequest; try { return o.open("POST.html", n, !0), o.setRequestHeader("Content-Type", "text/plain"), o.send(a), !0 } catch (e) { console && console.warn && console.warn("[Web Pixels Manager] Got an unhandled error while logging a load error.") } return !1 } }, i = document.createElement("script"), s = r.src, l = r.async || !0, d = r.onload, c = r.onerror, p = document.head, u = document.body, i.async = l, i.src = s, d && i.addEventListener("load", d), c && i.addEventListener("error", c), p ? p.appendChild(i) : u ? u.appendChild(i) : console.error("Did not find a head or body element to append the script") })({ shopId: 4433281139, storefrontBaseUrl: "https://nokshi-2.myshopify.com", cdnBaseUrl: "https://cdn.shopify.com", surface: "storefront-renderer", enabledBetaFlags: ["web_pixels_use_shop_domain_monorail_endpoint", "web_pixels_shopify_pixel_validation"], webPixelExtensionBaseUrl: "https://cdn.shopify.com", webPixelsConfigList: [{ "id": "shopify-app-pixel", "configuration": "{}", "eventPayloadVersion": "v1", "runtimeContext": "STRICT", "scriptVersion": "054", "apiClientId": "shopify-pixel", "type": "APP" }, { "id": "shopify-custom-pixel", "eventPayloadVersion": "v1", "runtimeContext": "LAX", "scriptVersion": "054", "apiClientId": "shopify-pixel", "type": "CUSTOM" }], initData: { "cart": null, "checkout": null, "customer": null, "productVariants": [] }, }, function pageEvents(webPixelsManagerAPI) { webPixelsManagerAPI.publish("page_viewed"); }, "https://cdn.shopify.com/shopifycloud/web-pixels-manager/0.0.216", "browser", "0.0.216");</script>
+</head>
+<body id="booken-book-store-shopify-theme" class="template-index">
+    <div id="preloader_active">
+        <div id="loading-center">
+            <div id="loading-center-absolute">
+                <div class="object" id="object_one"></div>
+                <div class="object" id="object_two"></div>
+                <div class="object" id="object_three"></div>
+                <div class="object" id="object_four"></div>
+                <div class="object" id="object_five"></div>
+                <div class="object" id="object_six"></div>
+                <div class="object" id="object_seven"></div>
+                <div class="object" id="object_eight"></div>
+                <div class="object" id="object_big"></div>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(window).on('load', function () {
+            $('#preloader_active').fadeOut('slow');
+        });
+    </script>
+    <div class="wrapper">
+        <div id="shopify-section-header" class="shopify-section">
+            <script src="~/assets/cdn.shopify.com/s/files/1/0044/3328/1139/t/14/assets/predictive-search1311.js?v=42609991257564171675837217" defer="defer"></script>
+            <script>
+                $('body').on('click', function () {
+                    $('#predictive-search').attr('style', $('#predictive-search').attr('style') === 'display: block;' ? 'display: none' : 'display: none;');
+                    $('#Search').click(function () { return false; });
+                    $('.predictive-search__list-item a').click(function () { return false; });
+                });
+            </script>
+            <header class="header-area sticky-bar  transparent_disable menu-left">
+                <div class="main-header-wrap">
+                    <div class="container default ">
+                        <div class="row header_custom_row">
+                            <div class="col-xl-2 col-lg-2">
+                                <div class="logo text-left">
+                                    <a asp-controller="Home" asp-action="index" class="theme-logo">
+                                        <img src="~/assets/cdn.shopify.com/s/files/1/0044/3328/1139/files/@settings.FirstOrDefault(x=>x.Key=="Logo").Value" alt="Booken">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-xl-8 col-lg-7 ">
+                                <div class="main-menu">
+                                    <nav>
+                                        <ul>
+                                            <li class="angle-shape drop_arrow"><a asp-controller="Home" asp-action="Index">Home</a></li>
+                                            <li class="angle-shape"><a asp-action="index" asp-controller="about">About Us</a></li>
+                                            <li class="angle-shape drop_arrow">
+                                                <a href="collections/all.html">Shop</a>
+                                                <ul class="disturb_menu d-none">
+                                                    <li class="mega-menu-li">
+                                                        <a class="menu-title" asp-controller="Shop" asp-action="Index">Book Type</a>
+                                                        <ul>
+                                                           @foreach(Category category in categories){
+                                                            <li><a asp-controller="Shop" asp-action="Index">@category.Name</a></li>}
+                                                        </ul>
+                                                    </li>
+                                                    <li class="mega-menu-li">
+                                                        <a class="menu-title" href="collections.html">Author</a>
+                                                        <ul>
+                                                            @foreach (Author author in authors)
+                                                            {
+                                                            <li><a asp-controller="Shop" asp-action="Index">@author.FullName</a></li>}
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                                @*<li class="angle-shape"><a href="pages/contact-us.html">Contact Us</a></li>*@
+
+                                    </nav>
+                                    <script>
+                                        setTimeout(function () {
+                                            $('.disturb_menu').removeClass('d-none');
+                                        }, 2000);
+                                        $('.mega-menu-li').parent('ul').addClass('mega-menu');
+                                        $('.sub-menu-li').parent('ul').addClass('submenu');
+                                    </script>
+                                </div>
+                            </div>
+
+                            <div class="col-xl-2 col-lg-3">
+                                <div class="header-right-wrap">
+                                    <div class="header-search">
+                                        <a class="search-active" href="#">
+
+                                            <i class="icofont-search-2"></i>
+
+                                        </a>
+                                    </div>
+
+                                    <div class="main-search-active">
+                                        <div class="sidebar-search-icon">
+                                            <button class="search-close"><span class="icofont-close-circled"></span></button>
+                                        </div>
+                                        <div class="sidebar-search-input">
+
+                                            <div class="header-search-container form-search">
+                                                <predictive-search id="predictive-search-toggle" search-open="false">
+                                                    <form action="https://nokshi-2.myshopify.com/search" method="get" role="search" class="header-search-box animated jackInTheBox">
+                                                        <input id="Search"
+                                                               type="search"
+                                                               name="q"
+                                                               value="" role="combobox"
+                                                               aria-expanded="false"
+                                                               aria-owns="predictive-search-results-list"
+                                                               aria-controls="predictive-search-results-list"
+                                                               aria-haspopup="listbox"
+                                                               aria-autocomplete="list"
+                                                               autocorrect="off"
+                                                               autocomplete="off"
+                                                               autocapitalize="off"
+                                                               spellcheck="false" class="header-search-field input-text"
+                                                               placeholder="Search our store">
+                                                        <button type="submit">
+                                                            <svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="search" role="img"
+                                                                 xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg-inline--fa fa-search fa-w-16 fa-2x">
+                                                                <path fill="currentColor" d="M508.5 468.9L387.1 347.5c-2.3-2.3-5.3-3.5-8.5-3.5h-13.2c31.5-36.5 50.6-84 50.6-136C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c52 0 99.5-19.1 136-50.6v13.2c0 3.2 1.3 6.2 3.5 8.5l121.4 121.4c4.7 4.7 12.3 4.7 17 0l22.6-22.6c4.7-4.7 4.7-12.3 0-17zM208 368c-88.4 0-160-71.6-160-160S119.6 48 208 48s160 71.6 160 160-71.6 160-160 160z" class=""></path>
+                                                            </svg>
+                                                        </button>
+                                                        <input name="options[prefix]" type="hidden" value="last"><div id="predictive-search" tabindex="-1"></div>
+                                                    </form>
+                                                </predictive-search>
+                                            </div>
+
+
+                                        </div>
+                                    </div>     <div class="cart-wrap">
+
+                                        <button class="icon-cart-active">
+                                            <span class="icon-cart">
+
+                                                <i class="icofont-cart"></i>
+
+                                                <span class="count-style bigcounter">0</span>
+                                            </span>
+
+
+
+                                        </button>
+
+
+                                        <div class="shopping-cart-content">
+                                            <div class="shopping-cart-top">
+                                                <h4>Shoping Cart</h4><a class="cart-close" href="#"><i class="icofont-close-circled"></i></a>
+                                            </div>
+                                            <ul class="single-product-cart single-cart-item-loop" style="display:none;"></ul>
+                                            @if (baskets != null)
+                                            {
+                                                foreach (BasketItem basketItem in baskets)
+                                                {
+                                                    @(TotalPrice += (basketItem.Book.SalePrice * (1 - basketItem.Book.DiscountPrice/100)))
+                                                    <div class=" single-cart-block ">
+                                                        <div class="cart-product" >
+                                                            
+                                                            <div class="content">
+                                                                <h3 class="title">
+                                                                    <a asp-controller="Book" asp-action="detail" asp-route-id="@basketItem.BookId">
+                                                                        @basketItem.Book.Name
+                                                                    </a>
+                                                                </h3>
+                                                                <p class="price"><span class="qty">1 ×</span> $ @((basketItem.Book.SalePrice * (1 - basketItem.Book.DiscountPrice/100)).ToString("0.00"))</p>
+                                                                <button class="cross-btn"><i class="fas fa-times"></i></button>
+                                                                
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                    
+                                                }
+
+                                                <div class="content">
+                                                    <div ><h3 class="title">
+                                                           Total Price
+                                                    </h3></div>
+                                                    <div>
+                                                        <p class="price"><span class="qty">1 ×</span> $  @TotalPrice.ToString("0.00");</p>
+                                                    </div>
+                                                   
+                                                   
+                                                </div>
+                                                <div class=" single-cart-block ">
+                                                    <div class="btn-block">
+                                                        <a asp-action="Card" asp-controller="Book" class="btn">
+                                                            View Cart <i class="fas fa-chevron-right"></i>
+                                                        </a>
+                                                        <a asp-action="checkout" asp-controller="book" class="btn btn--primary">
+                                                            Check Out <i class="fas fa-chevron-right"></i>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            }
+
+                                        </div>
+                                    </div>
+                                    <div class="setting-wrap">
+                                        <button class="setting-active">
+                                            <i class="icofont-gear-alt"></i>
+                                        </button>
+                                        <div class="setting-content">
+                                            </ul></li><li>
+                                                <h4>Account</h4>
+                                                <ul>
+                                                    @if (User.Identity.IsAuthenticated)
+                                                    {
+                                                        <li>@User.Identity.Name</li>
+                                                        <li><a asp-controller="AccountMember" asp-action="Profile">Orders</a></li>
+                                                        <li><a asp-controller="AccountMember" asp-action="Logout">Logout</a></li>
+                                                    }
+                                                    else
+                                                    {
+                                                        <li><a asp-controller="AccountMember" asp-action="Login">Login</a></li>
+                                                        <li><a asp-controller="AccountMember" asp-action="Register">Register</a></li>
+                                                    }
+                                                </ul>
+                                            </li></ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                </div><div class="header-small-mobile">
+                    <div class="container default ">
+                        <div class="row align-items-center">
+                            <div class="col-6">
+                                <div class="mobile-logo">
+                                    <a href="index.html" class="theme-logo">
+                                        <img src="~/assets/cdn.shopify.com/s/files/1/0044/3328/1139/files/booken-logo_150x3e4e.png?v=1615364709" alt="Booken">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="header-right-wrap">
+                                    <div class="cart-wrap">
+
+                                        <button class="icon-cart-active">
+                                            <span class="icon-cart">
+
+                                                <i class="icofont-cart"></i>
+
+                                                <span class="count-style bigcounter">0</span>
+                                            </span>
+
+
+
+                                        </button>
+
+
+                                        <div class="shopping-cart-content">
+                                            <div class="shopping-cart-top">
+                                                <h4>Shoping Cart</h4><a class="cart-close" href="#"><i class="icofont-close-circled"></i></a>
+                                            </div>
+                                            <ul class="single-product-cart single-cart-item-loop" style="display:none;"></ul>
+                                            <div class="single-product-cart shopping-cart-bottom" style="display:none;">
+                                                <div class="shopping-cart-total">
+                                                    <h4>Total: <span class="shop-total shopping-cart__total"><span class=money>$0.00</span></span></h4>
+                                                </div>
+                                                <div class="shopping-cart-btn btn-hover text-center">
+                                                    <a class="default-btn" href="index.html">Checkout</a><a class="default-btn" href="cart.html">View Cart</a>
+                                                </div>
+                                            </div>
+
+                                            <div class="cart-empty-title" style="display:block;">
+                                                <p>Your cart is empty now.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mobile-off-canvas">
+                                        <a class="mobile-aside-button" href="#"><i class="sli sli-menu"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <div class="mobile-off-canvas-active">
+                <a class="mobile-aside-close"><i class="sli sli-close"></i></a>
+                <div class="header-mobile-aside-wrap">
+                    <div class="mobile-search">
+                        <form class="search-form" action="https://nokshi-2.myshopify.com/search" method="get" role="search">
+                            <input type="search"
+                                   name="q"
+                                   value=""
+                                   placeholder="Search our store">
+                            <button class="button-search" type="submit"><i class="sli sli-magnifier"></i></button>
+                        </form>
+                    </div><div class="mobile-menu-wrap">
+                        <div class="mobile-navigation">
+                            <nav>
+                                <ul class="mobile-menu">
+                                    <li class="menu-item-has-children"><a asp-controller="Home" asp-action="Index">Home</a></li>
+                                    <li><a asp-action="index" asp-controller="about">About Us</a></li>
+                                    <li class="menu-item-has-children">
+                                        <a href="collections/all.html">Shop</a>
+                                        <ul class="dropdown">
+                                            <li class="m_mega-menu-li">
+                                                <a href="collections.html">Book Type</a>
+                                                <ul class="dropdown">
+                                                    @*@foreach (Category category in ViewBag.Categories)
+                                                    {
+                                                    <li><a asp-controller="Shop" asp-action="Index">@category.Name</a></li>
+                                                    }*@
+                                                </ul>
+                                            </li>
+                                            <li class="m_mega-menu-li">
+                                                <a href="collections.html">Author</a>
+                                                <ul class="dropdown">
+                                                    @*@foreach (Author author in ViewBag.Authors)
+                                                    {
+                                                    <li><a asp-controller="Shop" asp-action="Index">@author.FullName</a></li>
+                                                    }*@
+                                                </ul>
+                                            </li>
+                                            <li><a href="collections/best-seller.html">Menu_Collection</a></li>
+                                        </ul>
+                                    </li>
+                                    @*<li><a asp-controller="Contact" asp-action="Index">Contact Us</a></li>*@
+                                </ul>
+                            </nav>
+                            <script>
+                                $('.m_mega-menu-li').addClass('menu-item-has-children');
+                            </script>
+                        </div>
+                    </div><div class="mobile-curr-lang-wrap">
+                        <div class="single-mobile-curr-lang">
+                            <a class="mobile-currency-active" href="#">Currency <i class="sli sli-arrow-down"></i></a><div class="lang-curr-dropdown curr-dropdown-active currency">
+                                <ul>
+                                </ul>
+                            </div>
+                        </div><div class="single-mobile-curr-lang">
+                            <a class="mobile-account-active remove_href" href="#">Account <i class="sli sli-arrow-down"></i></a><div class="lang-curr-dropdown account-dropdown-active">
+                                <ul>
+                                    <li><a asp-controller="Account" asp-action="Login">Login</a></li>
+                                    <li><a asp-controller="Account" asp-action="Register">Create Account</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <style>
+                .theme-logo img {
+                    max-width: 150px;
+                }
+
+                .header-area,
+                .main-menu > nav > ul > li ul.submenu {
+                    background: #ffffff;
+                }
+
+                    .header-area.sticky-bar.stick {
+                        background: #ffffff;
+                    }
+
+                    .main-menu > nav > ul > li > a,
+                    .header-right-wrap .header-search > a,
+                    .cart-wrap > button span.icon-cart,
+                    .cart-wrap > button span.cart-price,
+                    .header-right-wrap .setting-wrap button,
+                    .main-menu > nav > ul > li ul.submenu li a {
+                        color: #5b5b5b;
+                    }
+
+                    .header-area .cart-wrap:hover button span.icon-cart .count-style {
+                        background-color: #f44344;
+                    }
+
+                    .main-menu > nav > ul > li:hover > a,
+                    .main-menu > nav > ul > li ul.mega-menu > li > ul > li:hover > a,
+                    .main-menu > nav > ul > li ul.submenu li a:hover,
+                    .header-right-wrap .header-search > a:hover,
+                    .cart-wrap > button:hover span.icon-cart,
+                    .header-right-wrap .setting-wrap button:hover,
+                    .mobile-off-canvas-active .header-mobile-aside-wrap .mobile-menu-wrap .mobile-navigation nav .mobile-menu li ul li a:hover,
+                    .mobile-off-canvas-active .header-mobile-aside-wrap .mobile-menu-wrap .mobile-navigation nav li a:hover {
+                        color: #f44344;
+                    }
+
+                .main-menu > nav > ul > li.angle-shape::before {
+                    border-bottom: 16px solid #ffffff;
+                }
+
+                .main-menu > nav > ul > li > a > span {
+                    background-color: #f44344;
+                }
+
+                .header-small-mobile .cart-wrap > button span.icon-cart,
+                .header-small-mobile .cart-wrap > button span.cart-price,
+                .header-small-mobile .header-right-wrap .setting-wrap button,
+                .header_contact_info a {
+                    color: #5b5b5b;
+                }
+
+                    .header-small-mobile .cart-wrap > button span.icon-cart:hover,
+                    .header-small-mobile .cart-wrap > button span.cart-price:hover,
+                    .header-small-mobile .header-right-wrap .setting-wrap button:hover,
+                    .header_contact_info a:hover {
+                        color: #f44344;
+                    }
+
+                .header-area .main-menu > nav > ul > li ul.mega-menu {
+                    width: 1000px;
+                    left: -400px;
+                    background-color: #fff;
+                }
+
+
+                media only screen and (min-width: 992px) and (max-width: 1199px) {
+                    .header-area .main-menu > nav > ul > li ul.mega-menu
+
+                {
+                    width: 900px;
+                    left: -350px;
+                }
+
+                }
+
+
+                .header-right-wrap .setting-wrap button svg,
+                .cart-wrap > button span.icon-cart svg,
+                .header-right-wrap .header-search svg {
+                    width: 24px;
+                    fill: #5b5b5b;
+                    transition: .3s
+                }
+
+                    .header-right-wrap .setting-wrap button svg:hover,
+                    .cart-wrap > button span.icon-cart svg:hover,
+                    .header-right-wrap .header-search svg:hover {
+                        fill: #f44344;
+                    }
+
+                .header_contact_info a svg {
+                    width: 30px;
+                    fill: #5b5b5b;
+                    transition: .3s;
+                    margin-right: 10px;
+                }
+
+                .header_contact_info a:hover svg {
+                    fill: #f44344;
+                }
+
+                .clickable-menu a:hover {
+                    color: #f44344;
+                }
+
+                .clickable-mainmenu {
+                    color: #f44344;
+                }
+
+                    .clickable-mainmenu .clickable-mainmenu-icon button {
+                        color: #5b5b5b;
+                    }
+
+                        .clickable-mainmenu .clickable-mainmenu-icon button:hover {
+                            color: #f44344;
+                        }
+
+                    .clickable-mainmenu .clickable-menu-style ul li a {
+                        color: #5b5b5b;
+                    }
+
+                        .clickable-mainmenu .clickable-menu-style ul li a:hover {
+                            color: #f44344;
+                        }
+
+                .slinky-menu a span span {
+                    color: #f44344;
+                }
+
+                .header-hm-7.stick .clickable-menu a {
+                    color: #5b5b5b;
+                }
+
+                    .header-hm-7.stick .clickable-menu a:hover {
+                        color: #f44344;
+                    }
+
+                .slinky-theme-default .next::after {
+                    color: #5b5b5b;
+                }
+
+                .slinky-theme-default .next:hover::after {
+                    color: #f44344;
+                }
+
+                .slinky-theme-default .back::before {
+                    background-color: #f44344;
+                }
+
+                font-face {
+                    font-family: "Work Sans";
+                    font-weight: 400;
+                    font-style: normal;
+                    src: url("https://fonts.shopifycdn.com/work_sans/worksans_n4.29e3afeb38a0ba35e784cf169a40e8beaf814daa.woff2?h1=bm9rc2hpLTIuYWNjb3VudC5teXNob3BpZnkuY29t&amp;hmac=463f7b21d8c060d11eca1082f5a3016c310c4a6825c5132e8ff86c8cb4d5e95b") format("woff2"), url("https://fonts.shopifycdn.com/work_sans/worksans_n4.e7c533c4afbed28070f6ac45dbcfe6f37840c0a8.woff?h1=bm9rc2hpLTIuYWNjb3VudC5teXNob3BpZnkuY29t&amp;hmac=f8e7857c597bcc6312acb092d89fd8e046f6f2f7023262e9d063bbc3223b400f") format("woff");
+                }
+
+                font-face {
+                    font-family: "Work Sans";
+                    font-weight: 400;
+                    font-style: normal;
+                    src: url("https://fonts.shopifycdn.com/work_sans/worksans_n4.29e3afeb38a0ba35e784cf169a40e8beaf814daa.woff2?h1=bm9rc2hpLTIuYWNjb3VudC5teXNob3BpZnkuY29t&amp;hmac=463f7b21d8c060d11eca1082f5a3016c310c4a6825c5132e8ff86c8cb4d5e95b") format("woff2"), url("https://fonts.shopifycdn.com/work_sans/worksans_n4.e7c533c4afbed28070f6ac45dbcfe6f37840c0a8.woff?h1=bm9rc2hpLTIuYWNjb3VudC5teXNob3BpZnkuY29t&amp;hmac=f8e7857c597bcc6312acb092d89fd8e046f6f2f7023262e9d063bbc3223b400f") format("woff");
+                }
+
+
+                .header-area .main-menu > nav > ul > li > a,
+                .header-area .header-right-wrap .setting-wrap .setting-content ul li h4,
+                .header-area .cart-wrap .shopping-cart-content .shopping-cart-top h4,
+                .header-area .header-right-wrap .cart-empty-title p,
+                .header-area .main-search-active .sidebar-search-input .form-search input,
+                .clickable-mainmenu .clickable-menu-style ul li a,
+                .header-area .cart-wrap > button span.cart-price {
+                    font-family: "Work Sans", sans-serif;
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 18px;
+                }
+
+                .header-area .main-menu > nav > ul > li ul.submenu li a,
+                .header-area .main-menu > nav > ul > li ul.mega-menu > li ul li a,
+                .header-area .main-menu > nav > ul > li ul.mega-menu > li a.menu-title,
+                .header-right-wrap .setting-wrap .setting-content ul li ul li {
+                    font-family: "Work Sans", sans-serif;
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 16px;
+                }
+
+                .header-area .cart-wrap:hover > button span.cart-price {
+                    color: #f44344;
+                }
+
+                .header_style_5 .main-menu > nav > ul > li:first-child {
+                    margin-left: 0;
+                }
+
+                .header_style_5 .main-menu > nav > ul > li > a {
+                    line-height: 80px;
+                }
+
+                .header_style_5 .header_top_search button,
+                .header_style_5 .header-search-container .header_5_btn {
+                    background: #f44344;
+                    border: 1px solid #f44344;
+                }
+
+                    .header_style_5 .header_top_search button:hover,
+                    .header_style_5 .header-search-container .header_5_btn:hover {
+                        color: #f44344;
+                        background: transparent;
+                    }
+
+                .header-area.menu-left .main-menu {
+                    text-align: left
+                }
+
+                .header-area.menu-center .main-menu {
+                    text-align: center;
+                    margin-left: 0;
+                }
+
+                .header-area.menu-right .main-menu {
+                    text-align: right
+                }
+
+                .header-small-mobile .header-right-wrap .mobile-off-canvas a {
+                    color: #5b5b5b;
+                }
+
+                    .header-small-mobile .header-right-wrap .mobile-off-canvas a:hover {
+                        color: #f44344;
+                    }
+
+                .clickable-menu.clickable-mainmenu-active i {
+                    transition: .3s;
+                    color: #ffffff;
+                    background: #5b5b5b;
+                    outline: 1px solid #5b5b5b;
+                }
+
+                    .clickable-menu.clickable-mainmenu-active i:hover {
+                        color: #f44344;
+                    }
+
+            </style>
+
+
+
+
+        </div>
+
+
+
+
+        @RenderBody()
+        <footer class="footer-area">
+            <div id="shopify-section-footer_5" class="shopify-section">
+                <div class="theme_footer_top" id="section-footer_5">
+                    <div class="container default ">
+
+                        <div class="footer-top-2 pb-20 footer_style_5">
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                                    <div class="footer-widget mb-40">
+                                        <div class="footer-title">
+                                            <h3>ABOUT INFO</h3>
+                                        </div><div class="subscribe-style"><p> @settings.FirstOrDefault(x=>x.Key=="About").Value</p></div>
+
+
+
+                                    </div>
+                                </div><div class="col-lg-6 col-md-6 col-sm-6 col-6">
+                                    <div class="footer_about_contact">
+
+
+                                        <p>
+                                            <i class="sli sli-location-pin"></i>
+                                            <span>Address: @settings.FirstOrDefault(x=>x.Key=="Address").Value</span>
+                                        </p>
+
+
+
+                                        <p>
+                                            <i class="sli sli-envelope"></i>
+                                            <span>Email: @settings.FirstOrDefault(x=>x.Key=="Email").Value</span>
+                                        </p>
+
+
+
+                                        <p>
+                                            <i class="sli sli-phone"></i>
+                                            <span>Phone: @settings.FirstOrDefault(x=>x.Key=="Phone").Value</span>
+                                        </p>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div><style>
+                          .footer-widget .footer-title h3 {
+                              color: #000000;
+                          }
+
+                          .subscribe-style p, .footer-widget .footer-list ul li a,
+                          .footer-top ul li a,
+                          .theme_footer_top .social_widget a,
+                          .footer-widget .footer-list ul li {
+                              color: #333333;
+                          }
+
+                          .theme_footer_top .footer-widget .subscribe-style p {
+                              color: #333333;
+                          }
+
+                          .subscribe-style .subscribe-form .mc-form .clear:hover {
+                              background-color: #f44344;
+                          }
+
+                          .footer-top ul li a:hover {
+                              color: #f44344;
+                          }
+
+                          .subscribe-style .subscribe-form .mc-form input::-moz-placeholder {
+                              color: #333333 !important;
+                          }
+
+                          .subscribe-style .subscribe-form .mc-form input::-webkit-input-placeholder {
+                              color: #333333 !important;
+                          }
+
+                          .subscribe-style .subscribe-form .mc-form input {
+                              border-color: #333333
+                          }
+
+                          .footer-widget .footer_about_contact p {
+                              color: #333333;
+                          }
+
+                          .theme_footer_top .top_bar_social a {
+                              color: #333333;
+                          }
+
+                              .theme_footer_top .top_bar_social a:hover {
+                                  color: #f44344;
+                              }
+
+                          font-face {
+                              font-family: "Open Sans";
+                              font-weight: 600;
+                              font-style: normal;
+                              src: url("https://fonts.shopifycdn.com/open_sans/opensans_n6.63a74f6cbbfef729fb07955b2d5b4cc83273862e.woff2?h1=bm9rc2hpLTIuYWNjb3VudC5teXNob3BpZnkuY29t&amp;hmac=b59e48f4ae60b7b41ef5b42d670e7e05a7a007738561bc24c1c6c8d8fb298792") format("woff2"), url("https://fonts.shopifycdn.com/open_sans/opensans_n6.1c4dde7af5554df3b20e440ca17dc8a316a9e1d0.woff?h1=bm9rc2hpLTIuYWNjb3VudC5teXNob3BpZnkuY29t&amp;hmac=e20fb80148ea0e70f03e4b27d523ac7a0fc0cfdc9079ea4ba396b7b8f68136e0") format("woff");
+                          }
+
+                          font-face {
+                              font-family: "Work Sans";
+                              font-weight: 400;
+                              font-style: normal;
+                              src: url("https://fonts.shopifycdn.com/work_sans/worksans_n4.29e3afeb38a0ba35e784cf169a40e8beaf814daa.woff2?h1=bm9rc2hpLTIuYWNjb3VudC5teXNob3BpZnkuY29t&amp;hmac=463f7b21d8c060d11eca1082f5a3016c310c4a6825c5132e8ff86c8cb4d5e95b") format("woff2"), url("https://fonts.shopifycdn.com/work_sans/worksans_n4.e7c533c4afbed28070f6ac45dbcfe6f37840c0a8.woff?h1=bm9rc2hpLTIuYWNjb3VudC5teXNob3BpZnkuY29t&amp;hmac=f8e7857c597bcc6312acb092d89fd8e046f6f2f7023262e9d063bbc3223b400f") format("woff");
+                          }
+
+
+
+                          .theme_footer_top .footer-widget .footer-title h3 {
+                              font-family: "Open Sans", sans-serif;
+                              font-style: normal;
+                              font-weight: 600;
+                              font-size: 18px;
+                          }
+
+                          .theme_footer_top .subscribe-style p,
+                          .theme_footer_top .footer-widget .footer-list ul li a,
+                          .theme_footer_top .footer-top ul li a,
+                          .theme_footer_top .footer-widget .footer_about_contact p,
+                          .theme_footer_top .social_widget a {
+                              font-family: "Work Sans", sans-serif;
+                              font-style: normal;
+                              font-weight: 400;
+                              font-size: 16px;
+                          }
+
+                </style><style data-shopify>
+                            #section-footer_5 {
+                                background: #f1f1f1 no-repeat scroll center center / cover;
+                                padding-top: 100px;
+                                padding-bottom: 0px;
+                            }
+
+                            media (min-width: 768px) and (max-width: 991px) {
+                                #section-footer_5
+
+                            {
+                                padding-top: 80px;
+                                padding-bottom: 0px;
+                            }
+
+                            }
+
+                            media (max-width: 767px) {
+                                #section-footer_5
+
+                            {
+                                padding-top: 60px;
+                                padding-bottom: 0px;
+                            }
+
+                            }</style>
+
+
+
+
+            </div>
+
+
+
+            <div id="shopify-section-footer-bottom" class="shopify-section">
+                <div class="footer-bottom " id="section-footer-bottom" style="border-top: 1px solid #666666;">
+                    <div class="container default ">
+
+                        <div class="row align-items-center">
+                            <div class="col-lg-12 col-md-12 col-12">
+                                <div class="copyright text-center pb-20">
+                                    <p><p>Copyright HasThemes | Built with <strong>Booken</strong> by HasThemes.</p></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><style>
+                          .footer-bottom .footer-social a,
+                          .footer-bottom .copyright p,
+                          .footer-bottom .copyright a {
+                              color: #ffffff;
+                          }
+
+                              .footer-bottom .footer-social a:hover,
+                              .footer-bottom .copyright a:hover {
+                                  color: #f44344;
+                              }
+
+                          font-face {
+                              font-family: "Work Sans";
+                              font-weight: 400;
+                              font-style: normal;
+                              src: url("https://fonts.shopifycdn.com/work_sans/worksans_n4.29e3afeb38a0ba35e784cf169a40e8beaf814daa.woff2?h1=bm9rc2hpLTIuYWNjb3VudC5teXNob3BpZnkuY29t&amp;hmac=463f7b21d8c060d11eca1082f5a3016c310c4a6825c5132e8ff86c8cb4d5e95b") format("woff2"), url("https://fonts.shopifycdn.com/work_sans/worksans_n4.e7c533c4afbed28070f6ac45dbcfe6f37840c0a8.woff?h1=bm9rc2hpLTIuYWNjb3VudC5teXNob3BpZnkuY29t&amp;hmac=f8e7857c597bcc6312acb092d89fd8e046f6f2f7023262e9d063bbc3223b400f") format("woff");
+                          }
+
+
+
+                          .footer-bottom .footer-social a,
+                          .footer-bottom .copyright p {
+                              font-family: "Work Sans", sans-serif;
+                              font-style: normal;
+                              font-weight: 400;
+                              font-size: 16px;
+                          }
+
+                          .footer-bottom.position_fb {
+                              position: absolute;
+                              left: 0;
+                              bottom: 0;
+                              right: 0;
+                          }
+
+                </style><style data-shopify>
+                            #section-footer-bottom {
+                                padding-top: 20px;
+                                padding-bottom: 0px;
+                                background: #333333 no-repeat scroll center center / cover;
+                            }
+
+                            media (min-width: 768px) and (max-width: 991px) {
+                                #section-footer-bottom
+
+                            {
+                                padding-top: 20px;
+                                padding-bottom: 0px;
+                            }
+
+                            }
+
+                            media (max-width: 767px) {
+                                #section-footer-bottom
+
+                            {
+                                padding-top: 20px;
+                                padding-bottom: 0px;
+                            }
+
+                            }</style>
+            </div>
+        </footer>
+
+
+        <!-- Necessary JS --><script src="~/assets/cdn.shopify.com/s/files/1/0044/3328/1139/t/14/assets/fastclick.mine17f.js?v=29723458539410922371675837215"></script>
+        <script src="~/assets/cdn.shopify.com/s/files/1/0044/3328/1139/t/14/assets/timber355a.js?v=132601391146540697821675837258"></script>
+
+
+        <script>
+
+        </script>
+        <!-- modalAddToCart -->
+        <div class="modal fade ajax-popup" id="modalAddToCart" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog white-modal modal-md">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="modal-content-text">
+                            <div class="popup-image">
+                                <img class="popupimage" src="#">
+                            </div>
+                            <div class="popup-content">
+                                <h3 class="productmsg"></h3>
+                                <p class="success-message"><i class="sli sli-check"></i> Added to cart successfully!</p>
+                                <div class="modal-button">
+                                    <a href="cart.html" class="theme-default-button">View Cart</a>
+                                    <a href="index.html" class="theme-default-button">Checkout</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-close">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="sli sli-close"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- modalAddToCart -->
+        <!-- modalAddToCart Error -->
+        <div class="modal fade ajax-popup error-ajax-popup" id="modalAddToCartError" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog white-modal modal-md">
+                <div class="modal-content ">
+                    <div class="modal-body">
+                        <div class="modal-content-text">
+                            <p class="error_message"></p>
+                        </div>
+                        <div class="modal-close">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="sli sli-close"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><div class="modal fade productModal" id="quickViewModal" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-12">
+                                <div class="qwick-view-left">
+                                    <div class="quick-view-learg-img">
+                                        <div class="quick-view-tab-content tab-content">
+                                            <div class="product-main-image__item">
+                                                <div class="img_box_1"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-12">
+                                <div class="qwick-view-right product-details-content quickview-content">
+                                    <div class="qwick-view-content">
+                                        <h2 class="product_title">FROM_JS</h2>
+                                        <div class="product-price product-info__price price-part product-details-price">
+                                            <span class="price-box__new">jsprice</span>
+                                            <span class="main">jsprice</span>
+                                        </div>
+                                        <div class="product-rating pro-details-rating-wrap">
+                                            <div class="quick-view-rating rating pro-details-rating">FROM_JS</div>
+                                        </div>
+                                        <div class="short-description product-des">FROM_JS</div>
+
+                                        <form id="add-item-qv" action="https://nokshi-2.myshopify.com/cart/add" method="post">
+                                            <div class="quick-view-select variants select-option-part"></div>
+                                            <div class="quickview-plus-minus">
+                                                <div class="cart-plus-minus">
+                                                    <input type="text" value="01" name="quantity" class="cart-plus-minus-box">
+                                                </div>
+                                                <div class="quickview-btn-cart">
+                                                    <button type="submit" class="addtocartqv theme-default-button">Add to cart</button>
+                                                </div>
+                                            </div>
+                                            <script>
+                                                jQuery('.addtocartqv').click(function (e) {
+                                                    e.preventDefault();
+                                                    Shopify.addItemFromFormStart('add-item-qv', jQuery(this).attr('id'));
+                                                });
+                                            </script>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><i class="sli sli-close"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+        <div class="quickViewModal_info" style="display: none;">
+            <div class="button">Add to cart</div>
+            <div class="button_added">Added</div>
+            <div class="button_error">Limit Products</div>
+            <div class="button_wait">Wait..</div>
+        </div>
+
+
+
+
+        <script>
+            var mainImage = '';
+            jQuery(function ($) {
+
+                quiqview = function (product_handle) {
+                    Shopify.getProduct(product_handle);
+                }
+                Shopify.onProduct = function (product) {
+                    $('.viewfullinfo').attr('href', product.url);
+
+                    // product description without shortcode
+                    text_truncate = function (str, length, ending) {
+                        if (length == null) {
+                            length = 500;
+                        }
+                        if (ending == null) {
+                            ending = '...';
+                        }
+                        if (str.length > length) {
+                            return str.substring(0, length - ending.length) + ending;
+                        } else {
+                            return str;
+                        }
+                    };
+
+                    var _parent = '#quickViewModal';
+                    $(_parent + ' .product_title').text(product.title);
+
+
+
+                    // product rating
+                    $(_parent + ' .rating').empty();
+                    $(_parent + ' .rating').append("<span class=\"shopify-product-reviews-badge\" data-id=\"" + product.id + "\"></span>");
+
+
+                    //check variants
+                    var variant = '';
+
+                    for (i = 0; i < product.variants.length; i++) {
+                        if (product.variants[i].inventory_quantity > 0) {
+                            variant = product.variants[i];
+                            break;
+                        }
+                    }
+
+                    if (variant == '') {
+                        for (i = 0; i < product.variants.length; i++) {
+                            if (product.variants[i].inventory_policy == "continue") {
+                                variant = product.variants[i];
+                                break;
+                            }
+                        }
+                        if (variant == '') {
+                            variant = product.variants[0];
+                        }
+                    }
+
+                    mainImage = product.featured_image;
+                    var shopifyimgurl = variant.featured_image ? variant.featured_image.src : product.featured_image;
+                    var imgurl = "<img class=\"full-width\" alt=\"\" src = \"" + shopifyimgurl + "\" >";
+                    jQuery(_parent + ' .product-main-image__item .img_box_1').empty();
+                    jQuery(_parent + ' .product-main-image__item .img_box_1').append(imgurl);
+                    jQuery(_parent + ' .product-main-image__item .img_box_2').empty();
+                    jQuery(_parent + ' .product-main-image__item .img_box_2').append(imgurl);
+
+                    // product description with shortcode
+                    var desc = product.description;
+                    if (desc.indexOf("[short_description]") >= 0) {
+                        desc = desc.split("[short_description]");
+                        desc = desc[1].split("[/short_description]");
+                        $(_parent + ' .product-des').show();
+                        $(_parent + ' .product-des').html(desc[0]);
+                    }
+                    else {
+                        $(_parent + ' .product-des').html(text_truncate(product.description, 250));
+                    }
+
+                    //set variants property
+                    var inv_qua = variant.inventory_quantity;
+                    //price
+                    if (variant.price < variant.compare_at_price) {
+                        $('.price-part .main').addClass('amount');
+                        $('.price-part .price-box__new').show();
+                        changePriceValue('.price-part .main', variant.compare_at_price);
+                        changePriceValue('.price-part .price-box__new', variant.price);
+                    }
+                    else {
+                        $('.price-part .price-box__new').hide();
+                        $('.price-part .main').removeClass('amount');
+                        changePriceValue('.price-part .main', variant.price);
+                    }
+
+                    // Variants select
+                    if (product.variants.length > 1) {
+                        var variants_margin = product.options.length == 2 ? 'variants_margin' : '';
+
+                        var select = '<select id="product-select-qv" name="id">';
+                        var selected = 'selected';
+                        for (i = 0; i < product.variants.length; i++) {
+                            var _var = product.variants[i];
+                            if (_var.available) {
+                                select += '<option value="' + _var.id + '"' + selected + '>' + _var.title + ' - ' + Shopify.formatMoney(_var.price, "<span class=money>${{amount}}</span>") + '</option>'
+                                selected = '';
+                            }
+                        }
+                        select += '</select>';
+
+                        var variant_select = '<div class="variants_selects ' + variants_margin + '">';
+                        variant_select += select;
+                        variant_select += '</div><div class="divider divider--sm"></div>';
+                        select = variant_select;
+                    }
+                    else {
+                        var select = '<input type="hidden" name="id" value="' + product.variants[0].id + '" />';
+                    }
+                    $('.variants').empty();
+                    $('.variants').html(select);
+
+                    //parametres
+                    setParametresText(_parent + ' .product-sku', variant.sku);
+                    if (jQuery(_parent + ' .product-sku').length) {
+                        var $ava = jQuery(_parent + " .product-info__availabilitu");
+                        if (variant.sku != "") {
+                            if ($ava.hasClass('pull-left')) { $ava.removeClass('pull-left') }
+                        } else {
+                            if (!$ava.hasClass('pull-left')) { $ava.addClass('pull-left') }
+                        }
+                    }
+
+                    //quantity
+                    var out_of_stock = false;
+                    if (variant.inventory_management) {
+                        if (inv_qua > 0) {
+                            $(_parent + ' .product-availability').text(inv_qua + " In Stock");
+                        }
+                        else {
+                            out_of_stock = true;
+                            $(_parent + ' .product-availability').text("In Stock");
+                        }
+                    }
+                    else {
+                        $(_parent + ' .product-availability').text("Many in stock");
+                    }
+
+                    // button
+                    if (!out_of_stock || variant.inventory_policy == "continue") {
+                        $('.product-available').show();
+                        $('.product-disable').hide();
+                        $('.addtocartqv').attr('id', product.id);
+                    }
+                    else {
+                        $('.product-available').hide();
+                        $('.product-disable').show();
+                    }
+
+                    if (product.available && product.variants.length > 1) {
+                        new Shopify.OptionSelectors("product-select-qv", { product: product, onVariantSelected: selectCallbackQv, enableHistoryState: true });
+
+                        if ($('#quickViewModal .variants_selects .selector-wrapper').length > 0) {
+                            $.each(jQuery('#quickViewModal .variants_selects .selector-wrapper'), function (index) {
+                                $(this).find('label').text(product.options[index].name);
+                            });
+                        }
+                    }
+                    else {
+                        jQuery('.currency .active').trigger('click');
+                    }
+                    selectGrid(_parent);
+
+                    if ($(".spr-badge").length > 0) {
+                        $.getScript(window.location.protocol + "//productreviews.shopifycdn.com/assets/v4/spr.js");
+                    }
+
+                    if ($(".selector-wrapper label").length) {
+                        $(".selector-wrapper label").each(function (index) {
+                            $(this).text(jQuery(this).text() + ":");
+                        });
+                    }
+
+                    $(_parent).modal('show');
+
+                    if (!('ontouchstart' in window) &&
+                        !navigator.msMaxTouchPoints &&
+                        !navigator.userAgent.toLowerCase().match(/windows phone os 7/i)) return false;
+
+                    $j('body').css("top", -$j('body').scrollTop());
+                    $j('body').addClass("no-scroll");
+                    $j('.close').click(function () {
+                        var top = parseInt($j('body').css("top").replace("px", "")) * -1;
+                        $j('body').removeAttr("style");
+                        $j('body').removeClass("no-scroll");
+                        $j('body').scrollTop(top);
+                    });
+                }
+
+                function setParametresText(obj, value) {
+                    if (value != '') {
+                        $(obj).parent().show();
+                        $(obj).text(value);
+                    }
+                    else {
+                        $(obj).parent().hide();
+                    }
+                }
+
+                function changePriceValue(cell, value) {
+                    $(cell).html(Shopify.formatMoney(value, "<span class=money>${{amount}}</span>"));
+                };
+
+            });
+
+
+
+            var selectCallbackQv = function (variant, selector) {
+
+                var _parent = '#quickViewModal';
+                var _parentprice = _parent + ' .price-part';
+                if (!variant) {
+                    jQuery(_parent + " .price-box").hide();
+                    jQuery(_parent + " .qwt").hide();
+                    jQuery(_parent + " .control-console").hide();
+                    jQuery(_parent + ' .addtocartqv').attr('disabled', 'disabled');
+                    jQuery(_parent + ' .addtocartqv').text('Unavailable');
+                    return false;
+                }
+
+                jQuery(_parent + " .price-box").show();
+                jQuery(_parent + " .qwt").show();
+                jQuery(_parent + " .control-console").show();
+
+                if (variant.price < variant.compare_at_price) {
+                    jQuery(_parentprice + ' .main').addClass('price-box__old');
+                    jQuery(_parentprice + ' .price-box__new').show();
+                    changePriceValue(_parentprice + ' .main', variant.compare_at_price);
+                    changePriceValue(_parentprice + ' .price-box__new', variant.price);
+                } else {
+                    jQuery(_parentprice + ' .price-box__new').hide();
+                    jQuery(_parentprice + ' .main').removeClass('price-box__old');
+                    changePriceValue(_parentprice + ' .main', variant.price);
+                }
+
+                newVariantTextDataQv(_parent + ' .product-sku', variant.sku);
+
+                if (jQuery(_parent + ' .product-sku').length) {
+                    var $ava = jQuery(_parent + " .product-info__availabilitu");
+                    if (variant.sku != "") {
+                        if ($ava.hasClass('pull-left')) { $ava.removeClass('pull-left') }
+                    } else {
+                        if (!$ava.hasClass('pull-left')) { $ava.addClass('pull-left') }
+                    }
+                }
+
+                if (variant.available) {
+                    if (variant.inventory_management == null) {
+                        jQuery(_parent + " .product-availability").text("Many in stock");
+                    } else {
+                        jQuery(_parent + " .product-availability").text(" Many in stock");
+                    }
+                } else {
+                    jQuery(_parent + " .product-availability").text("Sold Out");
+                }
+
+                var shopifyimgurl = variant.featured_image ? variant.featured_image.src : mainImage;
+                var imgurl = "<img class=\"full-width\" alt=\"\" src = \"" + shopifyimgurl + "\" >";
+                if (jQuery(_parent + ' .product-main-image__item .img_box_1').children().length > 0) {
+                    var detach = jQuery(_parent + ' .product-main-image__item .img_box_1 img').detach();
+                    jQuery(_parent + ' .product-main-image__item .img_box_2').empty();
+                    jQuery(_parent + ' .product-main-image__item .img_box_2').append(detach);
+                }
+                jQuery(_parent + ' .product-main-image__item .img_box_1').empty();
+                jQuery(_parent + ' .product-main-image__item .img_box_1').append(imgurl);
+
+                if (variant && variant.available) {
+                    jQuery(_parent + ' .addtocartqv').removeAttr('disabled');
+                    jQuery(_parent + ' .addtocartqv').html('Add to Cart');
+                    jQuery(_parent + " .control-console").show();
+                } else {
+                    jQuery(_parent + ' .addtocartqv').attr('disabled', 'disabled');
+                    jQuery(_parent + ' .addtocartqv').text('Unavailable');
+                    jQuery(_parent + " .control-console").hide();
+                }
+
+                jQuery('.currency .active').trigger('click');
+            };
+
+            function changePriceValue(cell, value) {
+                jQuery(cell).html(Shopify.formatMoney(value, "<span class=money>${{amount}}</span>"));
+            };
+
+            function newVariantTextDataQv(obj, value) {
+                if (value != '') {
+                    jQuery(obj).parent().show();
+                    jQuery(obj).text(value);
+                }
+                else {
+                    jQuery(obj).parent().hide();
+                }
+            };
+
+
+            function selectGrid(_parent) {
+                setTimeout(timeout, 5);
+                function timeout() {
+                    if (jQuery(_parent + " .selector-wrapper").length > 2) {
+                        jQuery(_parent + " .single-option-selector").addClass("select--wd");
+                    } else if (jQuery(_parent + " .selector-wrapper").length == 1) {
+                        jQuery(_parent + " .single-option-selector").before("<label></label>");
+                        jQuery(_parent + " .single-option-selector").addClass("select--wd");
+                    }
+                }
+            };
+        </script>
+
+        <!-- END QUICKVIEW PRODUCT -->
+
+
+
+        <script src="~/assets/cdn.shopify.com/s/files/1/0044/3328/1139/t/14/assets/wishlist1414.js?v=164725692185917909391675837218"></script>
+        <script>
+            /* Ajax Wishlist */
+            $(".action-wishlist").on('click', function () {
+                $(this).addClass("loading-wishlist adding-wishlist");
+                setTimeout(function () {
+                    $(".action-wishlist").removeClass("loading-wishlist");
+                }, 1000);
+                setTimeout(function () {
+                    $(".adding-wishlist").removeClass("adding-wishlist");
+                }, 2000);
+
+            });
+        </script><!-- Recently Viewed Products -->
+        <script src="~/assets/cdn.shopify.com/s/javascripts/currencies.js"></script>
+        <script src="~/assets/cdn.shopify.com/s/files/1/0044/3328/1139/t/14/assets/jquery.currencies.minc4f7.js?v=35452912321688254271675837216"></script>
+        <script src="~/assets/js/main.js"></script>
+            @RenderSection("Scripts",required:false)
+
+            <script>
+
+              // Pick your format here:
+              // money_format or money_with_currency_format
+              Currency.format = 'money_format';
+
+              var shopCurrency = 'USD';
+
+              /* Sometimes merchants change their shop currency, let's tell our JavaScript file */
+              Currency.moneyFormats[shopCurrency].money_with_currency_format = "${{amount}} USD";
+              Currency.moneyFormats[shopCurrency].money_format = "${{amount}}";
+
+              var cookieCurrency;
+              try {cookieCurrency = Currency.cookie.read();} catch (err) {} // ignore errors reading cookies
+
+              // Fix for customer account pages.
+              jQuery('span.money span.money').each(function() {
+                jQuery(this).parents('span.money').removeClass('money');
+              });
+
+              // Saving the current price.
+              jQuery('span.money').each(function() {
+                jQuery(this).attr('data-currency-USD', jQuery(this).html());
+                                  });
+
+                // Select all your currencies buttons.
+                var buttons = jQuery('.currency li');
+
+                // If there's no cookie or it's the shop currency.
+                if (cookieCurrency == null || cookieCurrency === shopCurrency) {
+                  buttons.removeClass('active');
+                  jQuery('.currency li[data-currency=' + shopCurrency + ']').addClass('active');
+                  Currency.currentCurrency = shopCurrency;
+                  jQuery(".current-currency").text(shopCurrency);
+                }
+                else {
+                  Currency.convertAll(shopCurrency, cookieCurrency);
+                  buttons.removeClass('active');
+                  jQuery('.currency li[data-currency=' + cookieCurrency + ']').addClass('active');
+                  jQuery(".current-currency").text(cookieCurrency);
+                }
+
+                // When customer clicks on a currency button.
+                buttons.click(function() {
+                  buttons.removeClass('active');
+                  var cur = jQuery(this).attr('data-currency');
+                  jQuery( ".currency li[data-currency='" + cur + "']" ).addClass('active');
+
+                  var newCurrency =  jQuery(this).attr('data-currency');
+                  if(newCurrency == Currency.currentCurrency)
+                  {
+                    Currency.convertAll(shopCurrency, newCurrency);
+                  }
+                  else
+                  {
+                    Currency.convertAll(Currency.currentCurrency, newCurrency);
+                  }
+
+                  jQuery(".current-currency").text(cur);
+                });
+
+                // For product options.
+                var main_selectCallback = window.selectCallback;
+                var selectCallback = function(variant, selector) {
+                  main_selectCallback(variant, selector);
+                  Currency.convertAll(shopCurrency, jQuery(".currency .active").attr('data-currency'));
+                };
+        </script>
+        <script>
+            $('.ht-product-countdown').each(function () {
+                var $this = $(this), finalDate = $(this).data('countdown');
+                $this.countdown(finalDate, function (event) {
+                    $this.html(event.strftime('<div class="cd-single"><div class="cd-single-inner"><h3>%D</h3><p>Days</p></div></div><div class="cd-single"><div class="cd-single-inner"><h3>%H</h3><p>Hours</p></div></div><div class="cd-single"><div class="cd-single-inner"><h3>%M</h3><p>Min</p></div></div><div class="cd-single"><div class="cd-single-inner"><h3>%S</h3><p>Sec</p></div></div>'));
+                });
+            });
+        </script>
+        <script>
+            $('#privacyoption2').click(function () {
+                //check if checkbox is checked
+                if ($(this).is(':checked')) {
+                    $('#subscribe2').removeAttr('disabled'); //enable input
+                } else {
+                    $('#subscribe2').attr('disabled', true); //disable input
+                }
+            });
+        </script>
+        <div class="loading-modal compare_modal">translation missing: en.general.search.loading</div>
+        <div class="ajax-success-compare-modal compare_modal" id="moda-compare" tabindex="-1" role="dialog" style="display:none">
+            <div class="overlay"> </div>
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content content" id="compare-modal">
+                    <div class="modal-header">
+                        <div class="modal-close">
+                            <span class="compare-modal-close"><i class="sli sli-close"></i></span>
+                        </div>
+                        <h4 class="modal-title">Compare Product</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="table-wrapper">
+                            <table class="table table-hover table-responsive">
+                                <thead>
+                                    <tr class="th-compare">
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody id="table-compare">
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><script>
+                  window.advanceSearch = {
+                      field_label_1: `Make`,
+                      field_label_2: `Model`,
+                      field_label_3: `Year`,
+                      field_label_4: `Engine`
+                  }
+        </script>
+
+    </div>
+
+</body>
+
+<!-- Mirrored from nokshi-2.myshopify.com/ by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Feb 2023 12:37:02 GMT -->
+</html>
