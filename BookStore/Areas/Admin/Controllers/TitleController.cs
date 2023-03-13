@@ -45,13 +45,14 @@ namespace BookStore.Areas.Admin.Controllers
         public IActionResult Edit(int id)
         {
             Title title = _dataContext.Titles.Find(id);
+            if(title == null) return View("Error");
             return View(title);
         }
         [HttpPost]
         public IActionResult Edit(Title newtitle)
         {
             Title existtitle = _dataContext.Titles.Find(newtitle.Id);
-            if (existtitle is null) return NotFound();
+            if (existtitle is null) return View("Error");
             existtitle.Name = newtitle.Name;
             existtitle.Description = newtitle.Description;
             existtitle.Text = newtitle.Text;

@@ -26,7 +26,7 @@ namespace BookStore.Controllers
         [HttpPost]
         public async Task<IActionResult> Login(MemberLoginViewModel memberLoginVM)
         {
-            if (!ModelState.IsValid) return View("Error");
+            if (!ModelState.IsValid) return View();
             AppUser member = await _userManager.FindByNameAsync(memberLoginVM.UserName);
             if (member == null)
             {

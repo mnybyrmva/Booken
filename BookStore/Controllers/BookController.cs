@@ -70,7 +70,7 @@ namespace BookStore.Controllers
 
         public async Task<IActionResult> AddtoBasket(int bookId)
         {
-            if (!_datacontext.Books.Any(x => x.Id == bookId)) return NotFound();
+            if (!_datacontext.Books.Any(x => x.Id == bookId)) return View("Error");
             List<BasketViewModel> basketitems = new List<BasketViewModel>();
             BasketViewModel basket = null;
             AppUser member = null;
@@ -200,8 +200,9 @@ namespace BookStore.Controllers
 				Email = member?.Email,
 				Phone = member?.PhoneNumber
 			};
-
-			return View(orderViewModel);
+			
+				
+            return View(orderViewModel);
 		}
 		[HttpPost]
 		[ValidateAntiForgeryToken]
@@ -214,8 +215,8 @@ namespace BookStore.Controllers
 			OrderItem orderItem = null;
 			double totalPrice = 0;
 			string basketItemsStr = HttpContext.Request.Cookies["BasketItems"];
-			//if (!ModelState.IsValid) return View();
-			AppUser member = null;
+            if (!ModelState.IsValid) return View("Error");
+            AppUser member = null;
 			if (HttpContext.User.Identity.IsAuthenticated)
 			{
 				member = await _userManager.FindByNameAsync(HttpContext.User.Identity.Name);
@@ -304,7 +305,13 @@ namespace BookStore.Controllers
 			_datacontext.SaveChanges();
             return RedirectToAction("index", "Home");
 		}
-
-
+		public IActionResult HardDelete(int id)
+		{
+			BasketItem basketItem  = _datacontext.BasketItems.Find(id);
+			if (basketItem is null) return View("Error");
+            _datacontext.BasketItems.Remove(basketItem);
+			_datacontext.SaveChanges();
+			return RedirectToAction("Card","Book");
+		}
 	}
 }

@@ -46,14 +46,14 @@ namespace BookStore.Areas.Admin.Controllers
         {
 
             Position position = _dataContext.Positions.FirstOrDefault(x => x.Id == id);
-            if (position == null) { return NotFound(); }
+            if (position == null)  return View("Error"); 
             return View(position);
         }
         [HttpPost]
         public IActionResult Update(Position position)
         {
             Position existposition = _dataContext.Positions.FirstOrDefault(x => x.Id == position.Id);
-            if (existposition == null) return NotFound();
+            if (existposition == null) return View("Error");
             existposition.Name = position.Name;
             _dataContext.SaveChanges();
             return RedirectToAction("index");
@@ -61,7 +61,7 @@ namespace BookStore.Areas.Admin.Controllers
         public IActionResult HardDelete(int id)
         {
             Position position = _dataContext.Positions.FirstOrDefault(x => x.Id == id);
-            if (position == null) return NotFound();
+            if (position == null) return View("Error");
             _dataContext.Remove(position);
             _dataContext.SaveChanges();
             return Ok();
@@ -69,7 +69,7 @@ namespace BookStore.Areas.Admin.Controllers
         public IActionResult SoftDelete(int id)
         {
             Position position = _dataContext.Positions.Find(id);
-            if (position is null) return NotFound();
+            if (position is null) return View("Error");
             position.IsDeleted = true;
             _dataContext.SaveChanges();
             return RedirectToAction("index");

@@ -623,7 +623,7 @@
 
                                                 <i class="icofont-cart"></i>
 
-                                                <span class="count-style bigcounter">@baskets.Count()</span>
+                                                <span class="count-style bigcounter">@(baskets==null ? "0":baskets.Count())</span>
                                             </span>
 
 
@@ -636,7 +636,7 @@
                                                 <h4>Shoping Cart</h4><a class="cart-close" href="#"><i class="icofont-close-circled"></i></a>
                                             </div>
                                             <ul class="single-product-cart single-cart-item-loop" style="display:none;"></ul>
-                                            @if (baskets != null)
+                                            @if (baskets!=null)
                                             {
                                                 foreach (BasketItem basketItem in baskets)
                                                 {

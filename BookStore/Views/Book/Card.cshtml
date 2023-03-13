@@ -4,19 +4,21 @@
 	double Price = 0;
 	double TotalPrice = 0;
 }
-<main class="cart-page-main-block inner-page-sec-padding-bottom">
+<main class="cart-page-main-block inner-page-sec-padding-bottom" >
 	<div class="cart_area cart-area-padding  ">
-		<div class="container">
+		<div class="container" >
 			<div class="page-section-title">
-				<h1>Shopping Cart</h1>
+				<h1 style="height:100px">Shopping Cart</h1>
 			</div>
-			<div class="row">
-				<div class="col-12">
-					<form action="#" class="">
-						<!-- Cart Table -->
-						<div class="cart-table table-responsive mb--40">
-							@if (Model != null)
-							{
+			<div class="row" >
+				@if (Model.Count != 0)
+				{
+					<div class="col-12">
+						<form action="#" class="">
+							<!-- Cart Table -->
+
+							<div class="cart-table table-responsive mb--40">
+
 								<table class="table">
 									<!-- Head Row -->
 									<thead>
@@ -30,27 +32,32 @@
 									</thead>
 
 									<tbody>
-										@foreach(BasketItem basketItem in Model){
+										@foreach (BasketItem basketItem in Model)
+										{
 											<!-- Product Row -->
 											Price = (basketItem.Book.SalePrice * (1 - basketItem.Book.DiscountPrice / 100));
-											TotalPrice =TotalPrice+ (Price*basketItem.Count);
+											TotalPrice = TotalPrice + (Price * basketItem.Count);
 											SubTotal = SubTotal + (basketItem.Book.SalePrice * basketItem.Count);
 											<tr>
-											<td class="pro-remove">
-													<button >X</button>
-											</td>
-											<td class="pro-title"><a href="#">@basketItem.Book.Name</a></td>
-											<td class="pro-price"><span>$@(Price.ToString("0.00"))</span></td>
-											<td class="pro-quantity">
-												<div class="pro-qty">
-													<div class="count-input-block">
-														<input type="number" class="form-control text-center"
+												<td class="pro-remove">
+													<button class="btn btn-outline-danger" asp-controller="Book" asp-action="HardDelete" asp-route-id="@basketItem.Id">X</button>
+												</td>
+												<td class="pro-title"><a href="#">@basketItem.Book.Name</a></td>
+												<td class="pro-price"><span>$@(
+												Price.ToString("0.00")
+)</span></td>
+												<td class="pro-quantity">
+													<div class="pro-qty">
+														<div class="count-input-block">
+															<input type="number" class="form-control text-center"
 														   value="@basketItem.Count">
+														</div>
 													</div>
-												</div>
-											</td>
-												<td class="pro-subtotal"><span>$@((basketItem.Book.SalePrice * (1 - basketItem.Book.DiscountPrice / 100)*basketItem.Count).ToString("0.00"))</span></td>
-										</tr>
+												</td>
+												<td class="pro-subtotal"><span>$@(
+												(basketItem.Book.SalePrice * (1 - basketItem.Book.DiscountPrice / 100) * basketItem.Count).ToString("0.00")
+)</span></td>
+											</tr>
 										}
 
 										<!-- Discount Row  -->
@@ -68,32 +75,50 @@
 										</tr>
 									</tbody>
 								</table>
-							}
-						</div>
-					</form>
-				</div>
+
+
+							</div>
+
+
+						</form>
+
+					</div>
+				}
+				else
+				{
+					<div style="height:100px">
+						<h3>--------------Your basket is empty----------------</h3>
+					</div>
+				}
 			</div>
 		</div>
 	</div>
-	<div class="cart-section-2">
-		<div class="container">
-			<div class="row">
-				<!-- Cart Summary -->
-				<div class="col-lg-6 col-12 d-flex">
-					<div class="cart-summary">
-						<div class="cart-summary-wrap">
-							<h4><span>Cart Summary</span></h4>
-							<p>Sub Total <span class="text-primary">$@SubTotal.ToString("0.00")</span></p>
-							<p>Shipping Cost <span class="text-primary">$@((SubTotal - TotalPrice).ToString("0.00"))</span></p>
-							<h2>Grand Total <span class="text-primary">$@TotalPrice</span></h2>
-						</div>
-						<div class="cart-summary-button">
-							<a asp-controller="Book" asp-action="Checkout" class="checkout-btn btn btn-outline-primary">Checkout</a>
-							<button class="update-btn btn btn-outline-success">Update Cart</button>
+	@if (Model.Count != 0)
+	{
+		<div>
+			<div class="cart-section-2">
+				<div class="container">
+					<div class="row">
+						<!-- Cart Summary -->
+						<div class="col-lg-6 col-12 d-flex">
+							<div class="cart-summary">
+								<div class="cart-summary-wrap">
+									<h4><span>Cart Summary</span></h4>
+									<p>Sub Total <span class="text-primary">$@SubTotal.ToString("0.00")</span></p>
+									<p>Shipping Cost <span class="text-primary">$@(
+										(SubTotal - TotalPrice).ToString("0.00")
+)</span></p>
+									<h2>Grand Total <span class="text-primary">$@TotalPrice</span></h2>
+								</div>
+								<div class="cart-summary-button">
+									<a asp-controller="Book" asp-action="Checkout" class="checkout-btn btn btn-outline-primary">Checkout</a>
+									<button class="update-btn btn btn-outline-success">Update Cart</button>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
+	}
 </main>

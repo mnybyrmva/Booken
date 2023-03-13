@@ -73,14 +73,14 @@ namespace BookStore.Areas.Admin.Controllers
         {
 
             Image image = _dataContext.Images.FirstOrDefault(x => x.Id == id);
-            if (image == null) { return NotFound(); }
+            if (image == null) return View("Error"); 
             return View(image);
         }
         [HttpPost]
         public IActionResult Edit(Image image)
         {
             Image existimage = _dataContext.Images.FirstOrDefault(x => x.Id == image.Id);
-            if (existimage == null) return NotFound();
+            if (existimage == null) return View("Error");
             if (!ModelState.IsValid)
             {
                 return View(image);

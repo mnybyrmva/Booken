@@ -51,7 +51,7 @@ namespace BookStore.Areas.Admin.Controllers
         public IActionResult Edit(Category newcategory)
         {
             Category existcategory = _dataContext.Categories.Find(newcategory.Id);
-            if (existcategory is null) return NotFound();
+            if (existcategory is null) return View("Error");
             existcategory.Name = newcategory.Name;
             _dataContext.SaveChanges();
             return RedirectToAction("index");
@@ -60,7 +60,7 @@ namespace BookStore.Areas.Admin.Controllers
         public IActionResult HardDelete(int id)
         {
             Category category = _dataContext.Categories.Find(id);
-            if (category is null) return NotFound();
+            if (category is null) return View("Error");
             return View(category);
         }
         public IActionResult HardDelete(Category category)
@@ -72,7 +72,7 @@ namespace BookStore.Areas.Admin.Controllers
         public IActionResult SoftDelete(int id)
         {
             Category category = _dataContext.Categories.Find(id);
-            if (category is null) return NotFound();
+            if (category is null) return View("Error");
             category.IsDeleted = true;
             _dataContext.SaveChanges();
             return RedirectToAction("index");

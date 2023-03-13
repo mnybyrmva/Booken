@@ -669,7 +669,7 @@ keyframes ripple {
                                                                     {
                                                                                 <span class="old">
                                 <span class=money>$@book.SalePrice</span></span>
-                                <span class="new"><span class=money>$@(book.SalePrice * (1 - book.DiscountPrice / 100))</span>
+                                <span class="new"><span class=money>$@((book.SalePrice * (1 - book.DiscountPrice / 100)).ToString("0.00"))</span>
                             </span>
                                                                     }
                                                                     else
@@ -844,7 +844,7 @@ keyframes ripple {
                                                                                     <span class=money>$@book.SalePrice</span>
                                                                                 </span>
                                                                                 <span class="new">
-                                                                                    <span class=money>$@(book.SalePrice * (1 - book.DiscountPrice / 100))</span>
+                                                                                    <span class=money>$@((book.SalePrice * (1 - book.DiscountPrice / 100)).ToString("0.00"))</span>
                                                                                 </span>
                                                                     }
                                                                     else
@@ -1030,7 +1030,7 @@ keyframes ripple {
                                                                                             <span class=money>$@book.SalePrice</span>
                                                                                         </span>
                                                                                         <span class="new">
-                                                                                            <span class=money>$@(book.SalePrice * (1 - book.DiscountPrice / 100))</span>
+                                                                                            <span class=money>$@((book.SalePrice * (1 - book.DiscountPrice / 100)).ToString("0.00"))</span>
                                                                                         </span>
                                                                     }
                                                                     else
@@ -1434,7 +1434,7 @@ keyframes ripple {
                                                                                 <span class=money>$@book.SalePrice</span>
                                                                             </span>
                                                                             <span class="new">
-                                                                                <span class=money>$@(book.SalePrice * (1 - book.DiscountPrice / 100))</span>
+                                                                                <span class=money>$@((book.SalePrice * (1 - book.DiscountPrice / 100)).ToString("0.00"))</span>
                                                                             </span>
                                                                 }
                                                                 else

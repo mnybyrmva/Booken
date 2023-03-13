@@ -69,13 +69,14 @@ namespace BookStore.Areas.Admin.Controllers
         public IActionResult Edit(int id)
         {
             Slider slider = _dataContext.Sliders.Find(id);
+            if (slider == null) return View("Error");
             return View(slider);
         }
         [HttpPost]
         public IActionResult Edit(Slider newslider)
         {
             Slider existslider = _dataContext.Sliders.Find(newslider.Id);
-            if (existslider is null) return NotFound();
+            if (existslider is null) return View("Error");
             if (!ModelState.IsValid) return View();
 
             if (newslider.Image != null)
@@ -110,7 +111,7 @@ namespace BookStore.Areas.Admin.Controllers
         public IActionResult HardDelete(int id)
         {
             Slider slider = _dataContext.Sliders.Find(id);
-            if (slider is null) return NotFound();
+            if (slider is null) return View("Error") ;
 
             string deletepath = Path.Combine(_env.WebRootPath, "uploads/sliders", slider.ImageUrl);
             if (System.IO.File.Exists(deletepath))
@@ -124,7 +125,7 @@ namespace BookStore.Areas.Admin.Controllers
         public IActionResult SoftDelete(int id)
         {
             Slider slider = _dataContext.Sliders.Find(id);
-            if (slider is null) return NotFound();
+            if (slider is null) return View("Error");
             slider.IsDeleted = true;
             _dataContext.SaveChanges();
             return RedirectToAction("index");

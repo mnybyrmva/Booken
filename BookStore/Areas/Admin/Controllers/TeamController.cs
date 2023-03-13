@@ -75,10 +75,7 @@ namespace BookStore.Areas.Admin.Controllers
             {
                 ViewBag.Position = _dataContext.Positions.ToList();
                 Team team = _dataContext.Teams.Find(id);
-                if (team == null)
-                {
-                    return NotFound();
-                }
+                if (team == null) return View("Error");
                 return View(team);
             }
             [HttpPost]
@@ -86,14 +83,8 @@ namespace BookStore.Areas.Admin.Controllers
             {
                 ViewBag.Position = _dataContext.Positions.ToList();
                 Team existteam = _dataContext.Teams.Find(team.Id);
-                if (existteam == null)
-                {
-                    return NotFound();
-                }
-                if (!ModelState.IsValid)
-                {
-                    return View(team);
-                }
+                if (existteam == null) return View("Error");
+            if (!ModelState.IsValid) return View(team);
                 if (team.ImageFile != null)
                 {
                     if (team.ImageFile.ContentType == "image/jpeg" && team.ImageFile.ContentType == "image/png")
@@ -127,7 +118,7 @@ namespace BookStore.Areas.Admin.Controllers
             public IActionResult HardDelete(int id)
             {
                 Team team = _dataContext.Teams.Find(id);
-                if (team is null) return NotFound();
+                if (team is null) return View("Error");
 
                 string deletepath = Path.Combine(_env.WebRootPath, "uploads/teams", team.ImageUrl);
                 if (System.IO.File.Exists(deletepath))
@@ -141,7 +132,7 @@ namespace BookStore.Areas.Admin.Controllers
         public IActionResult SoftDelete(int id)
         {
             Team team = _dataContext.Teams.Find(id);
-            if (team is null) return NotFound();
+            if (team is null) return View("Error");
             team.IsDeleted = true;
             _dataContext.SaveChanges();
             return RedirectToAction("index");

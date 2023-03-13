@@ -45,13 +45,14 @@ namespace BookStore.Areas.Admin.Controllers
         public IActionResult Edit(int id)
         {
             Text text = _dataContext.Texts.Find(id);
+            if(text== null) return View("Error");
             return View(text);
         }
         [HttpPost]
         public IActionResult Edit(Text newtext)
         {
             Text existtext = _dataContext.Texts.Find(newtext.Id);
-            if (existtext is null) return NotFound();
+            if (existtext is null) return View("Error");
             existtext.Name = newtext.Name;
             existtext.Desc = newtext.Desc;
             existtext.VideoUrl = newtext.VideoUrl;
@@ -62,7 +63,7 @@ namespace BookStore.Areas.Admin.Controllers
         public IActionResult HardDelete(int id)
         {
             Text text = _dataContext.Texts.Find(id);
-            if (text is null) return NotFound();
+            if (text is null) return View("Error");
             return View(text);
         }
         public IActionResult HardDelete(Text text)
@@ -74,7 +75,7 @@ namespace BookStore.Areas.Admin.Controllers
         public IActionResult SoftDelete(int id)
         {
             Text text = _dataContext.Texts.Find(id);
-            if (text is null) return NotFound();
+            if (text is null) return View("Error");
             text.IsDeleted = true;
             _dataContext.SaveChanges();
             return RedirectToAction("index");

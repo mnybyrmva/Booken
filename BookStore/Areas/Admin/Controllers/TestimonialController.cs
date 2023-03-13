@@ -74,10 +74,7 @@ namespace BookStore.Areas.Admin.Controllers
         {
             ViewBag.Profession = _dataContext.Positions.ToList();
             Testimonial testimonial = _dataContext.Testimonials.Find(id);
-            if (testimonial == null)
-            {
-                return NotFound();
-            }
+            if (testimonial == null) return View("Error");
             return View(testimonial);
         }
         [HttpPost]
@@ -85,10 +82,7 @@ namespace BookStore.Areas.Admin.Controllers
         {
             ViewBag.Profession = _dataContext.Positions.ToList();
             Testimonial existtestimonial = _dataContext.Testimonials.Find(testimonial.Id);
-            if (existtestimonial == null)
-            {
-                return NotFound();
-            }
+            if (existtestimonial == null) return View("Error");
             if (!ModelState.IsValid)
             {
                 return View(testimonial);
@@ -123,7 +117,7 @@ namespace BookStore.Areas.Admin.Controllers
         public IActionResult HardDelete(int id)
         {
             Testimonial testimonial = _dataContext.Testimonials.Find(id);
-            if (testimonial is null) return NotFound();
+            if (testimonial is null) return View("Error");
 
             string deletepath = Path.Combine(_env.WebRootPath, "uploads/testimonials", testimonial.ImageUrl);
             if (System.IO.File.Exists(deletepath))
@@ -137,7 +131,7 @@ namespace BookStore.Areas.Admin.Controllers
         public IActionResult SoftDelete(int id)
         {
             Testimonial testimonial = _dataContext.Testimonials.Find(id);
-            if (testimonial is null) return NotFound();
+            if (testimonial is null) return View("Error");
             testimonial.IsDeleted = true;
             _dataContext.SaveChanges();
             return RedirectToAction("index");

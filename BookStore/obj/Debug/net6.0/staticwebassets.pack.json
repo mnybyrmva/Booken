@@ -3213,8 +3213,16 @@
       "PackagePath": "staticwebassets\\uploads\\books\\0283128f-cf78-49e4-9d23-79b66ea4f0ea15_medium1e3c.jpg"
     },
     {
+      "Id": "C:\\Users\\MINAYE\\Desktop\\Final-Porject\\BookStore\\wwwroot\\uploads\\books\\1d87cdbe-3a74-4ecf-8d99-48edab53b8d69_e93e426d-a838-4ae0-8314-5ff89cb192da_1024x1024c03e.jpg",
+      "PackagePath": "staticwebassets\\uploads\\books\\1d87cdbe-3a74-4ecf-8d99-48edab53b8d69_e93e426d-a838-4ae0-8314-5ff89cb192da_1024x1024c03e.jpg"
+    },
+    {
       "Id": "C:\\Users\\MINAYE\\Desktop\\Final-Porject\\BookStore\\wwwroot\\uploads\\books\\29e023e2-2bff-47f4-beb1-f761023175b22_1024x10240b61.jpg",
       "PackagePath": "staticwebassets\\uploads\\books\\29e023e2-2bff-47f4-beb1-f761023175b22_1024x10240b61.jpg"
+    },
+    {
+      "Id": "C:\\Users\\MINAYE\\Desktop\\Final-Porject\\BookStore\\wwwroot\\uploads\\books\\2a47200c-88c3-4301-9b35-d85f415fb1033_fa971b5d-d461-42f6-984d-d139318582f7_medium22d7.jpg",
+      "PackagePath": "staticwebassets\\uploads\\books\\2a47200c-88c3-4301-9b35-d85f415fb1033_fa971b5d-d461-42f6-984d-d139318582f7_medium22d7.jpg"
     },
     {
       "Id": "C:\\Users\\MINAYE\\Desktop\\Final-Porject\\BookStore\\wwwroot\\uploads\\books\\2b3589da-4131-415a-8291-66a5df23c15814_medium5330.jpg",
@@ -3269,6 +3277,14 @@
       "PackagePath": "staticwebassets\\uploads\\books\\6d60e3ec-ac97-4512-8406-5c71209a71753_f8564f38-5847-4734-8488-8101959a64a8_grande9c62.jpg"
     },
     {
+      "Id": "C:\\Users\\MINAYE\\Desktop\\Final-Porject\\BookStore\\wwwroot\\uploads\\books\\73e1e08d-84ea-4e98-8a81-b48a4fc488214_63923af0-4544-4568-80ea-a5d40411681f_1024x10243cb4.jpg",
+      "PackagePath": "staticwebassets\\uploads\\books\\73e1e08d-84ea-4e98-8a81-b48a4fc488214_63923af0-4544-4568-80ea-a5d40411681f_1024x10243cb4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\MINAYE\\Desktop\\Final-Porject\\BookStore\\wwwroot\\uploads\\books\\80a0018d-5d4a-4c0a-93bf-d5b27fb8afe21_e5c26f6d-4282-45ed-97b6-1ecb1720769d_large47f9.jpg",
+      "PackagePath": "staticwebassets\\uploads\\books\\80a0018d-5d4a-4c0a-93bf-d5b27fb8afe21_e5c26f6d-4282-45ed-97b6-1ecb1720769d_large47f9.jpg"
+    },
+    {
       "Id": "C:\\Users\\MINAYE\\Desktop\\Final-Porject\\BookStore\\wwwroot\\uploads\\books\\832a9bac-6c7b-4bb6-a897-ef3e566aefb96_1024x10249c62.jpg",
       "PackagePath": "staticwebassets\\uploads\\books\\832a9bac-6c7b-4bb6-a897-ef3e566aefb96_1024x10249c62.jpg"
     },
@@ -3283,6 +3299,10 @@
     {
       "Id": "C:\\Users\\MINAYE\\Desktop\\Final-Porject\\BookStore\\wwwroot\\uploads\\books\\8ccb1bed-f2ec-49e7-9660-721c360776605_medium0b61.jpg",
       "PackagePath": "staticwebassets\\uploads\\books\\8ccb1bed-f2ec-49e7-9660-721c360776605_medium0b61.jpg"
+    },
+    {
+      "Id": "C:\\Users\\MINAYE\\Desktop\\Final-Porject\\BookStore\\wwwroot\\uploads\\books\\92811f38-3d1e-4bb3-981f-9c3dc5082d572_c1e0f6c4-3142-41c9-95b8-cf89e835fe44_mediumc345.jpg",
+      "PackagePath": "staticwebassets\\uploads\\books\\92811f38-3d1e-4bb3-981f-9c3dc5082d572_c1e0f6c4-3142-41c9-95b8-cf89e835fe44_mediumc345.jpg"
     },
     {
       "Id": "C:\\Users\\MINAYE\\Desktop\\Final-Porject\\BookStore\\wwwroot\\uploads\\books\\9423ebe6-8486-44d7-a948-70d45d2194162_1024x10240b61.jpg",
@@ -3309,6 +3329,10 @@
       "PackagePath": "staticwebassets\\uploads\\books\\cc35072b-05d9-41b4-8ab9-2d3fd7b6bd0a14_f43237de-b792-4a30-beba-3f7baeb251e5_1024x10246f68.jpg"
     },
     {
+      "Id": "C:\\Users\\MINAYE\\Desktop\\Final-Porject\\BookStore\\wwwroot\\uploads\\books\\cfc3af40-55cb-4ecc-abce-084137a56b4a10_9f7da364-5b31-428f-bf4e-1f18870bc3d3_grandeb623.jpg",
+      "PackagePath": "staticwebassets\\uploads\\books\\cfc3af40-55cb-4ecc-abce-084137a56b4a10_9f7da364-5b31-428f-bf4e-1f18870bc3d3_grandeb623.jpg"
+    },
+    {
       "Id": "C:\\Users\\MINAYE\\Desktop\\Final-Porject\\BookStore\\wwwroot\\uploads\\books\\d012a4e4-7fbd-49b8-b342-ec2664aacd054_63923af0-4544-4568-80ea-a5d40411681f_1024x10243cb4.jpg",
       "PackagePath": "staticwebassets\\uploads\\books\\d012a4e4-7fbd-49b8-b342-ec2664aacd054_63923af0-4544-4568-80ea-a5d40411681f_1024x10243cb4.jpg"
     },
@@ -3327,6 +3351,10 @@
     {
       "Id": "C:\\Users\\MINAYE\\Desktop\\Final-Porject\\BookStore\\wwwroot\\uploads\\books\\e9ca3f36-a61b-43b1-8183-b39416342c773_medium0b61.jpg",
       "PackagePath": "staticwebassets\\uploads\\books\\e9ca3f36-a61b-43b1-8183-b39416342c773_medium0b61.jpg"
+    },
+    {
+      "Id": "C:\\Users\\MINAYE\\Desktop\\Final-Porject\\BookStore\\wwwroot\\uploads\\books\\ec0e25b1-a08e-4f6f-b717-c907bb719a505_3fb0bfa6-128f-4c64-979a-6a9ac5596e69_largec881.jpg",
+      "PackagePath": "staticwebassets\\uploads\\books\\ec0e25b1-a08e-4f6f-b717-c907bb719a505_3fb0bfa6-128f-4c64-979a-6a9ac5596e69_largec881.jpg"
     },
     {
       "Id": "C:\\Users\\MINAYE\\Desktop\\Final-Porject\\BookStore\\wwwroot\\uploads\\books\\f2aba44e-71b9-432b-8b5a-c0204c52fbb35_94ef82da-a3d0-47c5-9fd4-c3784ddd72d0_1024x10249c62.jpg",
@@ -3361,20 +3389,12 @@
       "PackagePath": "staticwebassets\\uploads\\images\\e0718205-567e-4b56-8d58-6a088c14cd69banner-2c8f5.png"
     },
     {
-      "Id": "C:\\Users\\MINAYE\\Desktop\\Final-Porject\\BookStore\\wwwroot\\uploads\\sliders\\01d1a81e-f863-4c55-ae23-b13e84cf3b33home-1-slider-13b10.png",
-      "PackagePath": "staticwebassets\\uploads\\sliders\\01d1a81e-f863-4c55-ae23-b13e84cf3b33home-1-slider-13b10.png"
-    },
-    {
       "Id": "C:\\Users\\MINAYE\\Desktop\\Final-Porject\\BookStore\\wwwroot\\uploads\\sliders\\e40439f3-3b26-4f84-822a-4f18fb35a1a9home-1-slider-13b10.png",
       "PackagePath": "staticwebassets\\uploads\\sliders\\e40439f3-3b26-4f84-822a-4f18fb35a1a9home-1-slider-13b10.png"
     },
     {
       "Id": "C:\\Users\\MINAYE\\Desktop\\Final-Porject\\BookStore\\wwwroot\\uploads\\sliders\\f087b938-63ac-40eb-920a-8f129a091731home-1-slider-2a589.png",
       "PackagePath": "staticwebassets\\uploads\\sliders\\f087b938-63ac-40eb-920a-8f129a091731home-1-slider-2a589.png"
-    },
-    {
-      "Id": "C:\\Users\\MINAYE\\Desktop\\Final-Porject\\BookStore\\wwwroot\\uploads\\sliders\\faeed4dc-7f5b-4abc-8df0-5fe36e2b3110home-1-slider-2a589.png",
-      "PackagePath": "staticwebassets\\uploads\\sliders\\faeed4dc-7f5b-4abc-8df0-5fe36e2b3110home-1-slider-2a589.png"
     },
     {
       "Id": "C:\\Users\\MINAYE\\Desktop\\Final-Porject\\BookStore\\wwwroot\\uploads\\teams\\1ed2aa53-970d-4951-9f2c-af5646d01e49team-23c16.png",

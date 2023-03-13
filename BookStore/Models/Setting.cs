@@ -7,7 +7,7 @@ namespace BookStore.Models
         public int Id { get; set; }
         [StringLength(maximumLength: 50)]
         public string Key { get; set; }
-        [StringLength(maximumLength: 150)]
+        [StringLength(maximumLength: 500)]
         public string Value { get; set; }
     }
 }

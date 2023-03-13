@@ -26,8 +26,8 @@ namespace BookStore.Areas.Admin.Controllers
                     authorsList.Add(author);
                 }
             }
-            var query = authorsList.AsQueryable();
-            return View(query.ToList());
+			List<Author> query = authorsList.AsQueryable().ToList();
+            return View(query);
         }
         public IActionResult Create()
         {
@@ -49,7 +49,7 @@ namespace BookStore.Areas.Admin.Controllers
         public IActionResult Edit(Author newauthor)
         {
             Author existauthor = _dataContext.Authors.Find(newauthor.Id);
-            if (existauthor is null) return NotFound();
+            if (existauthor is null) return View("Error");
             existauthor.FullName = newauthor.FullName;
             _dataContext.SaveChanges();
             return RedirectToAction("index");
@@ -57,7 +57,7 @@ namespace BookStore.Areas.Admin.Controllers
         public IActionResult HardDelete(int id)
         {
             Author author = _dataContext.Authors.Find(id);
-            if (author is null) return NotFound();
+            if (author is null) return View("Error");
             _dataContext.Authors.Remove(author);
             _dataContext.SaveChanges();
             return Ok();
@@ -66,7 +66,7 @@ namespace BookStore.Areas.Admin.Controllers
         public IActionResult SoftDelete(int id)
         {
             Author author = _dataContext.Authors.Find(id);
-            if (author is null) return NotFound();
+            if (author is null) return View("Error");
             author.IsDeleted = true;
             _dataContext.SaveChanges();
             return RedirectToAction("index");

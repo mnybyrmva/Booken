@@ -332,8 +332,8 @@ namespace BookStore.Migrations
 
                     b.Property<string>("Value")
                         .IsRequired()
-                        .HasMaxLength(150)
-                        .HasColumnType("nvarchar(150)");
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
 
                     b.HasKey("Id");
 

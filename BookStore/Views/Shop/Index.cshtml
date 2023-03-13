@@ -29,7 +29,7 @@
 
                                                                 else
                                                                 {
-                                                                    <span class="sale-title ht-product-label ht-product-label-right">Soldout</span>
+                                                                    <span class="sale-title ht-product-label ht-product-label-right">Sale</span>
                                                                 }
                                                             }
                                                             <a asp-controller="Book" asp-action="Detail" asp-route-id="@book.Id" class="ht-product-image">
@@ -49,7 +49,8 @@
                                                                             <span class="loading-wishlist"><i class="sli sli-heart"></i><span class="ht-product-action-tooltip">Add to wishlist</span></span>
                                                                             <span class="remove-wishlist"><i class="sli sli-heart"></i><span class="ht-product-action-tooltip">Add to wishlist</span></span>
                                                                         </a>
-                                                                    </li>@if (book.IsAvailable == true)
+                                                                    </li>
+                                                                    @if (book.IsAvailable == true)
                                                                     {
                                                                         <li>
                                                                             <a asp-controller="Book" asp-action="AddtoBasket" asp-route-bookId="@book.Id" class="cart-able add-to-basket">
@@ -93,7 +94,7 @@
                                                                             <span class=money>$@book.SalePrice</span>
                                                                         </span>
                                                                         <span class="new">
-                                                                            <span class=money>$@(book.SalePrice * (1 - book.DiscountPrice / 100))</span>
+                                                                            <span class=money>$@((book.SalePrice * (1 - book.DiscountPrice / 100)).ToString("0.00"))</span>
                                                                         </span>
                                                                     }
                                                                     else
