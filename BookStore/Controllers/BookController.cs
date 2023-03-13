@@ -36,7 +36,7 @@ namespace BookStore.Controllers
                 }
                 foreach (BasketItem basketItem in basketItems)
                 {
-                    basketItem.Book = _datacontext.Books.FirstOrDefault(x => x.Id == basketItem.BookId);
+                    basketItem.Book = _datacontext.Books.Include(x=>x.bookImages).Include(x => x.Author).Include(x => x.Category).FirstOrDefault(x => x.Id == basketItem.BookId);
                 }
             }
             else
