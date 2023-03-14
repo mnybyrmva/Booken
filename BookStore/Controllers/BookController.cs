@@ -142,127 +142,126 @@ namespace BookStore.Controllers
             }
             return Json(basketitems);
         }
-		public async Task<IActionResult> Checkout()
-		{
-			AppUser member = null;
-			if (HttpContext.User.Identity.IsAuthenticated)
-			{
-				member = await _userManager.FindByNameAsync(HttpContext.User.Identity.Name);
-			}
-			List<BasketViewModel> basketItems = new List<BasketViewModel>();
-			List<CheckoutItemViewModel> checkoutItems = new List<CheckoutItemViewModel>();
-			CheckoutItemViewModel checkoutItem = null;
-			List<BasketItem> memberBasketItems = null;
-			OrderViewModel orderViewModel = null;
-			string basketItemsStr = HttpContext.Request.Cookies["BasketItems"];
-
-			if (member == null)
-			{
-				if (basketItemsStr != null)
-				{
-					basketItems = JsonConvert.DeserializeObject<List<BasketViewModel>>(basketItemsStr);
-
-					foreach (var item in basketItems)
-					{
-						checkoutItem = new CheckoutItemViewModel
-						{
-							Book = _datacontext.Books.FirstOrDefault(x => x.Id == item.BookId),
-							Count = item.count
-						};
-						checkoutItems.Add(checkoutItem);
-						
-					}
-				}
-			}
-			else
-			{
-				memberBasketItems = _datacontext.BasketItems.Include(x => x.Book).Where(x => x.AppUserId == member.Id).ToList();
-
-				foreach (var item in memberBasketItems)
-				{
-					if (!item.IsDeleted)
-					{
-						checkoutItem = new CheckoutItemViewModel
-						{
-							Book = item.Book,
-							Count = item.Count
-						};
-						checkoutItems.Add(checkoutItem);
-					}
-				}
-
-			}
-
-			orderViewModel = new OrderViewModel
-			{
-				CheckoutItemViewModels = checkoutItems,
-				FullName = member?.FullName,
-				Email = member?.Email,
-				Phone = member?.PhoneNumber
-			};
-			
-				
-            return View(orderViewModel);
-		}
-		[HttpPost]
-		[ValidateAntiForgeryToken]
-		public async Task<IActionResult> Order(OrderViewModel orderVM)
-		{
-			List<BasketViewModel> basketItems = new List<BasketViewModel>();
-			List<CheckoutItemViewModel> checkoutItems = new List<CheckoutItemViewModel>();
-			CheckoutItemViewModel checkoutItem = null;
-			List<BasketItem> memberBasketItems = null;
-			OrderItem orderItem = null;
-			double totalPrice = 0;
-			string basketItemsStr = HttpContext.Request.Cookies["BasketItems"];
-            if (!ModelState.IsValid) return View("Error");
+        public async Task<IActionResult> Checkout()
+        {
             AppUser member = null;
-			if (HttpContext.User.Identity.IsAuthenticated)
-			{
-				member = await _userManager.FindByNameAsync(HttpContext.User.Identity.Name);
-			}
-			Order order = null;
+            if (HttpContext.User.Identity.IsAuthenticated)
+            {
+                member = await _userManager.FindByNameAsync(HttpContext.User.Identity.Name);
+            }
+            List<BasketViewModel> basketItems = new List<BasketViewModel>();
+            List<CheckoutItemViewModel> checkoutItems = new List<CheckoutItemViewModel>();
+            CheckoutItemViewModel checkoutItem = null;
+            List<BasketItem> memberBasketItems = null;
+            OrderViewModel orderViewModel = null;
+            string basketItemsStr = HttpContext.Request.Cookies["BasketItems"];
 
-			order = new Order
-			{
-				FullName = orderVM.FullName,
-				Country = orderVM.Country,
-				Adress = orderVM.Adress,
-				City = orderVM.City,
-				Email = orderVM.Email,
-				Note = orderVM.Note,
-				Phone = orderVM.Phone,
-				ZipCode = orderVM.ZipCode,
-				OrderStatus = Enums.OrderStatus.Pending,
-				CreateDate = DateTime.UtcNow.AddHours(4),
-				AppUserId = member?.Id
-			};
+            if (member == null)
+            {
+                if (basketItemsStr != null)
+                {
+                    basketItems = JsonConvert.DeserializeObject<List<BasketViewModel>>(basketItemsStr);
 
-			if (member == null)
-			{
-				if (basketItemsStr != null)
-				{
-					basketItems = JsonConvert.DeserializeObject<List<BasketViewModel>>(basketItemsStr);
-
-					foreach (var item in basketItems)
-					{
-						Book book = _datacontext.Books.FirstOrDefault(x => x.Id == item.BookId);
-						orderItem = new OrderItem
-						{
-							Book = book,
-							BookName = book.Name,
-							CostPrice = book.CostPrice,
-							DiscountPrice = book.DiscountPrice,
-							SalePrice = (book.SalePrice * (1 - (book.DiscountPrice / 100))),
-							Count = item.count,
-							Order = order
-						};
-						totalPrice += orderItem.SalePrice * orderItem.Count;
-						order.OrderItems.Add(orderItem);
-                        
+                    foreach (var item in basketItems)
+                    {
+                        checkoutItem = new CheckoutItemViewModel
+                        {
+                            Book = _datacontext.Books.FirstOrDefault(x => x.Id == item.BookId),
+                            Count = item.count
+                        };
+                        checkoutItems.Add(checkoutItem);
 
                     }
-					
+                }
+            }
+            else
+            {
+                memberBasketItems = _datacontext.BasketItems.Include(x => x.Book).Where(x => x.AppUserId == member.Id).ToList();
+
+                foreach (var item in memberBasketItems)
+                {
+                    if (!item.IsDeleted)
+                    {
+                        checkoutItem = new CheckoutItemViewModel
+                        {
+                            Book = item.Book,
+                            Count = item.Count
+                        };
+                        checkoutItems.Add(checkoutItem);
+                    }
+                }
+
+            }
+
+            orderViewModel = new OrderViewModel
+            {
+                CheckoutItemViewModels = checkoutItems,
+                FullName = member?.FullName,
+                Email = member?.Email,
+                Phone = member?.PhoneNumber
+            };
+
+            return View(orderViewModel);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Order(OrderViewModel orderVM)
+        {
+            List<BasketViewModel> basketItems = new List<BasketViewModel>();
+            List<CheckoutItemViewModel> checkoutItems = new List<CheckoutItemViewModel>();
+            CheckoutItemViewModel checkoutItem = null;
+            List<BasketItem> memberBasketItems = null;
+            OrderItem orderItem = null;
+            double totalPrice = 0;
+            string basketItemsStr = HttpContext.Request.Cookies["BasketItems"];
+            //if (!ModelState.IsValid) return View();
+            AppUser member = null;
+            if (HttpContext.User.Identity.IsAuthenticated)
+            {
+                member = await _userManager.FindByNameAsync(HttpContext.User.Identity.Name);
+            }
+            Order order = null;
+
+            order = new Order
+            {
+                FullName = orderVM.FullName,
+                Country = orderVM.Country,
+                Adress = orderVM.Adress,
+                City = orderVM.City,
+                Email = orderVM.Email,
+                Note = orderVM.Note,
+                Phone = orderVM.Phone,
+                ZipCode = orderVM.ZipCode,
+                OrderStatus = Enums.OrderStatus.Pending,
+                CreateDate = DateTime.UtcNow.AddHours(4),
+                AppUserId = member?.Id
+            };
+
+            if (member == null)
+            {
+                if (basketItemsStr != null)
+                {
+                    basketItems = JsonConvert.DeserializeObject<List<BasketViewModel>>(basketItemsStr);
+
+                    foreach (var item in basketItems)
+                    {
+                        Book book = _datacontext.Books.FirstOrDefault(x => x.Id == item.BookId);
+                        orderItem = new OrderItem
+                        {
+                            Book = book,
+                            BookName = book.Name,
+                            CostPrice = book.CostPrice,
+                            DiscountPrice = book.DiscountPrice,
+                            SalePrice = (book.SalePrice * (1 - (book.DiscountPrice / 100))),
+                            Count = item.count,
+                            Order = order
+                        };
+                        totalPrice += orderItem.SalePrice * orderItem.Count;
+                        order.OrderItems.Add(orderItem);
+
+
+                    }
+
 
                 }
                 if (Request.Cookies["BasketItems"] != null)
@@ -270,42 +269,43 @@ namespace BookStore.Controllers
                     Response.Cookies.Delete("BasketItems");
                 }
             }
-			else
-			{
-				memberBasketItems = _datacontext.BasketItems.Include(x => x.Book).Where(x => x.AppUserId == member.Id).ToList();
+            else
+            {
+                memberBasketItems = _datacontext.BasketItems.Include(x => x.Book).Where(x => x.AppUserId == member.Id).ToList();
 
-				foreach (var item in memberBasketItems)
-				{
-					Book book = _datacontext.Books.FirstOrDefault(x => x.Id == item.BookId);
-					orderItem = new OrderItem
-					{
-						Book = book,
-						BookName = book.Name,
-						CostPrice = book.CostPrice,
-						DiscountPrice = book.DiscountPrice,
-						SalePrice = (book.SalePrice * (1 - (book.DiscountPrice / 100))),
-						Count = item.Count,
-						Order = order,
-						
-					};
-					totalPrice += orderItem.SalePrice * orderItem.Count;
-					order.OrderItems.Add(orderItem);
-				}
-				foreach(var item in memberBasketItems)
-				{
-				_datacontext.BasketItems.Remove(item);
-				}
-				_datacontext.SaveChanges();
+                foreach (var item in memberBasketItems)
+                {
+                    Book book = _datacontext.Books.FirstOrDefault(x => x.Id == item.BookId);
+                    orderItem = new OrderItem
+                    {
+                        Book = book,
+                        BookName = book.Name,
+                        CostPrice = book.CostPrice,
+                        DiscountPrice = book.DiscountPrice,
+                        SalePrice = (book.SalePrice * (1 - (book.DiscountPrice / 100))),
+                        Count = item.Count,
+                        Order = order,
+
+                    };
+                    totalPrice += orderItem.SalePrice * orderItem.Count;
+                    order.OrderItems.Add(orderItem);
+                }
+                foreach (var item in memberBasketItems)
+                {
+                    _datacontext.BasketItems.Remove(item);
+                }
+                _datacontext.SaveChanges();
 
             }
-			order.TotalPrice = totalPrice;
-			
-			
-			_datacontext.Orders.Add(order);
-			_datacontext.SaveChanges();
+            order.TotalPrice = totalPrice;
+
+
+            _datacontext.Orders.Add(order);
+            _datacontext.SaveChanges();
             return RedirectToAction("index", "Home");
-		}
-		public IActionResult HardDelete(int id)
+        }
+
+        public IActionResult HardDelete(int id)
 		{
 			BasketItem basketItem  = _datacontext.BasketItems.Find(id);
 			if (basketItem is null) return View("Error");

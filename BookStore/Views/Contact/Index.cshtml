@@ -1,0 +1,204 @@
+﻿@model HomeViewModel 
+<main>
+    <div id="shopify-section-template--14792674738291__main" class="shopify-section">
+        <div class="contact-area pt-100 pb-100">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-5 d-flex align-items-center justify-content-center ">
+                        <div class="contact-info-area ">
+                            <h2>Contact US</h2>
+                            <div class="contact-info-wrap">
+
+                                <div class="single-contact-info">
+
+                                    <div class="contact-info-icon">
+                                        <i class="sli sli-location-pin" style="color: #1f2226;"></i>
+                                    </div>
+                                    <div class="contact-info-content">
+                                        <p>Address: @Model.settings.FirstOrDefault(x=>x.Key=="Address").Value</p>
+                                    </div>
+
+                                </div>
+
+                                <div class="single-contact-info">
+
+                                    <div class="contact-info-icon">
+                                        <i class="sli sli-sli sli-envelope" style="color: #1f2226;"></i>
+                                    </div>
+
+
+
+                                    <div class="contact-info-content">
+                                        <p>@Model.settings.FirstOrDefault(x=>x.Key=="Email").Value</p>
+                                    </div>
+
+                                </div>
+
+                                <div class="single-contact-info">
+
+                                    <div class="contact-info-icon">
+                                        <i class="sli sli-sli sli-screen-smartphone" style="color: #1f2226;"></i>
+                                    </div>
+
+
+
+                                    <div class="contact-info-content">
+                                        <p>@Model.settings.FirstOrDefault(x=>x.Key=="Address").Value</p>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-7 col-md-6">
+                        <div id="shopify-section-template--14792674738291__1633605873cf309896" class="shopify-section">
+                            <div class="contact-area pb-100">
+                                <div class="container">
+                                    <div class="contact-map">
+                                        <div id="map"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCBEypW1XtGLWpikFPcityAok8rhJzzWRw"></script>
+                            <script>
+                                function init() {
+                                    var mapOptions = {
+                                        zoom: 11,
+                                        scrollwheel: false,
+                                        center: new google.maps.LatLng(47.606205, -122.332046),
+                                        styles:
+                                            [
+                                                {
+                                                    "featureType": "landscape",
+                                                    "stylers": [
+                                                        {
+                                                            "hue": "#FFBB00"
+                                                        },
+                                                        {
+                                                            "saturation": 43.400000000000006
+                                                        },
+                                                        {
+                                                            "lightness": 37.599999999999994
+                                                        },
+                                                        {
+                                                            "gamma": 1
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "featureType": "road.highway",
+                                                    "stylers": [
+                                                        {
+                                                            "hue": "#FFC200"
+                                                        },
+                                                        {
+                                                            "saturation": -61.8
+                                                        },
+                                                        {
+                                                            "lightness": 45.599999999999994
+                                                        },
+                                                        {
+                                                            "gamma": 1
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "featureType": "road.arterial",
+                                                    "stylers": [
+                                                        {
+                                                            "hue": "#FF0300"
+                                                        },
+                                                        {
+                                                            "saturation": -100
+                                                        },
+                                                        {
+                                                            "lightness": 51.19999999999999
+                                                        },
+                                                        {
+                                                            "gamma": 1
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "featureType": "road.local",
+                                                    "stylers": [
+                                                        {
+                                                            "hue": "#FF0300"
+                                                        },
+                                                        {
+                                                            "saturation": -100
+                                                        },
+                                                        {
+                                                            "lightness": 52
+                                                        },
+                                                        {
+                                                            "gamma": 1
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "featureType": "water",
+                                                    "stylers": [
+                                                        {
+                                                            "hue": "#0078FF"
+                                                        },
+                                                        {
+                                                            "saturation": -13.200000000000003
+                                                        },
+                                                        {
+                                                            "lightness": 2.4000000000000057
+                                                        },
+                                                        {
+                                                            "gamma": 1
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "featureType": "poi",
+                                                    "stylers": [
+                                                        {
+                                                            "hue": "#00FF6A"
+                                                        },
+                                                        {
+                                                            "saturation": -1.0989010989011234
+                                                        },
+                                                        {
+                                                            "lightness": 11.200000000000017
+                                                        },
+                                                        {
+                                                            "gamma": 1
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                    };
+                                    var mapElement = document.getElementById('map');
+                                    var map = new google.maps.Map(mapElement, mapOptions);
+                                    var marker = new google.maps.Marker({
+                                        position: new google.maps.LatLng(47.606205, -122.332046),
+                                        map: map,
+                                        icon: '//cdn.shopify.com/s/files/1/0044/3328/1139/files/marker_small.png?v=1614587962',
+                                        animation: google.maps.Animation.BOUNCE,
+                                        title: 'Snazzy!'
+                                    });
+                                }
+                                google.maps.event.addDomListener(window, 'load', init);
+                            </script>
+
+
+
+
+                        </div>
+                    </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+
+
+
+</main>

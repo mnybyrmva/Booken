@@ -557,7 +557,7 @@
                                                         </ul>
                                                     </li>
                                                 </ul>
-                                                @*<li class="angle-shape"><a href="pages/contact-us.html">Contact Us</a></li>*@
+                                                <li class="angle-shape"><a asp-action="index" asp-controller="Contact">Contact Us</a></li>
 
                                     </nav>
                                     <script>
@@ -636,42 +636,49 @@
                                                 <h4>Shoping Cart</h4><a class="cart-close" href="#"><i class="icofont-close-circled"></i></a>
                                             </div>
                                             <ul class="single-product-cart single-cart-item-loop" style="display:none;"></ul>
-                                            @if (baskets!=null)
+                                            @if (baskets != null)
                                             {
                                                 foreach (BasketItem basketItem in baskets)
                                                 {
                                                     Price = (basketItem.Book.SalePrice * (1 - basketItem.Book.DiscountPrice / 100));
-                                                    TotalPrice =TotalPrice+( Price*basketItem.Count);
-                                                                                    <div class=" single-cart-block ">
+                                                    TotalPrice = TotalPrice + (Price * basketItem.Count);
+                                                    <div class=" single-cart-block ">
                                                         <div class="cart-product" >
-                                                            
+
                                                             <div class="content">
                                                                 <h5 class="title">
                                                                     <a asp-controller="Book" asp-action="detail" asp-route-id="@basketItem.BookId">
                                                                         @basketItem.Book.Name
                                                                     </a>
                                                                 </h5>
-                                                                <p class="price"><span class="qty">@basketItem.Count ×</span> $ @(Price)</p>
+                                                                <p class="price"><span class="qty">@basketItem.Count ×</span> $ @(
+                                                            Price
+                                                            )</p>
                                                                 <button class="cross-btn"><i class="fas fa-times"></i></button>
-                                                                
+
                                                             </div>
 
                                                         </div>
                                                     </div>
-                                                    
+
                                                 }
 
                                                 <div class="content">
                                                     <div ><h3 class="title">
-                                                           Total Price
-                                                    </h3>
+                                                            Total Price
+                                                        </h3>
                                                         <h3>$@TotalPrice.ToString("0.00")</h3>
                                                     </div>
-                                                    
-                                                   
-                                                   
+
+
+
                                                 </div>
-                                                <div class=" single-cart-block ">
+                                            }
+                                            else
+                                            {
+                                                <p>Your cart is empty now.</p>
+                                            }
+                                            <div class=" single-cart-block ">
                                                     <div class="btn-block">
                                                         <a asp-action="Card" asp-controller="Book" class="btn">
                                                             View Cart <i class="fas fa-chevron-right"></i>
@@ -681,10 +688,8 @@
                                                         </a>
                                                     </div>
                                                 </div>
-                                            }
-                                            else{
-                                            <p>Your cart is empty now.</p>
-                                            }
+                                            
+                                            
                                         </div>
                                     </div>
                                     <div class="setting-wrap">

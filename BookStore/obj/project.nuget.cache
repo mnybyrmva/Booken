@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "AF7hbc5GCEGq7gzLrF5GsEBoYW0CyIXi9x9scxITYrSjAn7HF92GKg7Hq/G+9yFl0o9i9WxxLuI4xHeBGfjmNQ==",
+  "dgSpecHash": "jANKogaplP5xo7mdD/27b6JG3xwtNA9/BMOt77PaQw4UxlYuOK4zbOlzTedDFh6b+kw10i9u10jrVnhs+ohjgA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\MINAYE\\Desktop\\Final-Porject\\BookStore\\BookStore.csproj",
+  "projectFilePath": "C:\\Users\\MINAYE\\Desktop\\Booken\\BookStore\\BookStore.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\MINAYE\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\MINAYE\\.nuget\\packages\\messagepack\\2.1.152\\messagepack.2.1.152.nupkg.sha512",
